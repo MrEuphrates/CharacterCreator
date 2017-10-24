@@ -43,8 +43,7 @@ namespace CharacterCreator.AbstractClasses
         public abstract decimal calculateEnergyCost(decimal baseDamage);  //TODO Pretty sure when I start using params, this will change
         #endregion
         //=============================================================
-
-
+        
 
 
         //=============================================================
@@ -92,8 +91,8 @@ namespace CharacterCreator.AbstractClasses
         {
             var rules = this.IncompatibleRules;
             if (rules.Count == 0) return "";
-            if (rules.Count == 1) return "Incompatible with " + rules[0].Name;
-            if (rules.Count == 2) return "Incompatible with " + rules[0].Name + " and " + rules[1].Name;
+            if (rules.Count == 1) return "Incompatible with " + rules[0].Name + ".";
+            if (rules.Count == 2) return "Incompatible with " + rules[0].Name + " and " + rules[1].Name + ".";
             StringBuilder sb = new StringBuilder();
             sb.Append("Incompatible with " + rules[0].Name);
             for (int i = 1; i < rules.Count; ++i)
@@ -103,6 +102,11 @@ namespace CharacterCreator.AbstractClasses
             }
             sb.Append(".");
             return sb.ToString();
+        }
+
+        public virtual bool specialRuleIsValid(Ability ability)
+        {
+            return true;
         }
         #endregion
         //=============================================================

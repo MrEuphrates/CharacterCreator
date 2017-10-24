@@ -124,6 +124,29 @@ namespace CharacterCreator
             //TODO Show the character sheet syntax.
             rtbSpecialDescription.AppendText("\n\nAppears on the character sheet as " + rule.SyntaxSample + ".");
         }
+
+        private void commandOK_Click(object sender, EventArgs e)
+        {
+            if (clbSpecials.CheckedItems.Count == 0)
+            {
+                this.Dispose();
+                return;
+            }
+
+            var rule = clbSpecials.CheckedItems[0];
+            //TODO Whenever a user selects a special rule, it should validate against the ability as it is.  Example: counter-attack can't be used with an ability with a Time of 4+.
+            //TODO After users select the special rules they want, check for incompatible rules.
+            //TODO After confirming all selected rules are compatible, cycle through those with parameters and have the user provide them.
+        }
+
+        private void clbSpecials_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if(e.NewValue == CheckState.Checked)
+            {
+                SpecialRule rule = (SpecialRule)clbSpecials.Items[e.Index];
+                if (!rule.specialRuleIsValid(this.ability)) e.NewValue = e.CurrentValue;
+            }
+        }
         #endregion
         //======================================================
     }

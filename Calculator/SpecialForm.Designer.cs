@@ -30,6 +30,7 @@
         {
             this.clbSpecials = new System.Windows.Forms.CheckedListBox();
             this.rtbSpecialDescription = new System.Windows.Forms.RichTextBox();
+            this.commandOK = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // clbSpecials
@@ -39,6 +40,7 @@
             this.clbSpecials.Name = "clbSpecials";
             this.clbSpecials.Size = new System.Drawing.Size(159, 694);
             this.clbSpecials.TabIndex = 0;
+            this.clbSpecials.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clbSpecials_ItemCheck);
             this.clbSpecials.SelectedIndexChanged += new System.EventHandler(this.clbSpecials_SelectedIndexChanged);
             // 
             // rtbSpecialDescription
@@ -49,11 +51,22 @@
             this.rtbSpecialDescription.TabIndex = 1;
             this.rtbSpecialDescription.Text = "";
             // 
+            // commandOK
+            // 
+            this.commandOK.Location = new System.Drawing.Point(706, 714);
+            this.commandOK.Name = "commandOK";
+            this.commandOK.Size = new System.Drawing.Size(75, 23);
+            this.commandOK.TabIndex = 2;
+            this.commandOK.Text = "OK";
+            this.commandOK.UseVisualStyleBackColor = true;
+            this.commandOK.Click += new System.EventHandler(this.commandOK_Click);
+            // 
             // SpecialForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 720);
+            this.ClientSize = new System.Drawing.Size(793, 744);
+            this.Controls.Add(this.commandOK);
             this.Controls.Add(this.rtbSpecialDescription);
             this.Controls.Add(this.clbSpecials);
             this.Name = "SpecialForm";
@@ -67,5 +80,6 @@
 
         private System.Windows.Forms.CheckedListBox clbSpecials;
         private System.Windows.Forms.RichTextBox rtbSpecialDescription;
+        private System.Windows.Forms.Button commandOK;
     }
 }

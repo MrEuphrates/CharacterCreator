@@ -23,7 +23,7 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                return "Represents an effect specifically designed for penetrating heavy, vehicle-born armor.";
+                return "Represents an effect specifically designed for penetrating heavy, vehicle-borne armor.";
             }
         }
 
