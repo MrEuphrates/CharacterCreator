@@ -57,7 +57,7 @@ namespace CharacterCreator.AbstractClasses
 
                     //Add Input column
                     col = new DataColumn();
-                    col.DataType = System.Type.GetType("System.Int16");
+                    col.DataType = System.Type.GetType("System.Decimal");
                     col.ColumnName = "Input";
                     col.ReadOnly = false;
                     col.Unique = false;
@@ -70,6 +70,7 @@ namespace CharacterCreator.AbstractClasses
                         row = variableTable.NewRow();
                         row["Parameter"] = srv.Variable;
                         row["Description"] = srv.Description;
+                        row["Input"] = srv.Value;
                         variableTable.Rows.Add(row);
                     }
                 }
@@ -132,6 +133,17 @@ namespace CharacterCreator.AbstractClasses
             sb.Append("Variables include:");
             foreach (KeyValuePair<string, SpecialRuleVariable> kvp in Variables) sb.Append("  " + kvp.Value.Description);
             return sb.ToString();
+        }
+
+        public bool setVariable(string s, decimal d)
+        {
+            if (Variables.Keys.Contains(s))
+            {
+                Variables[s].Value = d;
+                Variables[s].Validate();
+                return true;
+            }
+            return false;
         }
 
         public string listIncompatibleRules()
