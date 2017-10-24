@@ -39,7 +39,10 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                return new List<SpecialRule>();
+                List<SpecialRule> rules = new List<SpecialRule>();
+                rules.Add(new RerollHits());
+                rules.Add(new RerollMisses());
+                return rules;
             }
         }
 

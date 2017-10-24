@@ -71,7 +71,6 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                //TODO Returns whatever should appear on the character sheet.
                 return "Resilient Poison 1d6x" + variables["M"].Value + " " + variables["D"].Value;
             }
         }

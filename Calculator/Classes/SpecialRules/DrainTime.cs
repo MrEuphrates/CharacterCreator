@@ -71,7 +71,6 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                //TODO Returns whatever should appear on the character sheet.
                 return "Drain Time " + variables["D"].Value;
             }
         }

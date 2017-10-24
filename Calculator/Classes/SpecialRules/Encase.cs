@@ -79,7 +79,6 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                //TODO Returns whatever should appear on the character sheet.
                 return "Encase " + variables["S"].Value + "/" + variables["D"].Value;
             }
         }

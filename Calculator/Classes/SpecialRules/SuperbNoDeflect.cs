@@ -38,7 +38,6 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                //TODO The special rules for which this is incompatible haven't been made yet.
                 List<SpecialRule> rules = base.IncompatibleRules;
                 rules.Add(new GreaterNoDeflect());
                 return rules;

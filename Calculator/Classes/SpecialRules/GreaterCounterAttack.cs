@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using CharacterCreator.AbstractClasses;
 
 namespace CharacterCreator.Classes.SpecialRules
@@ -25,7 +26,6 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                //TODO Counter attack is unique in that it's restrictions are based on the ability's stats.  Not sure how to handle this, either here or under calculating costs.
                 var rules = base.IncompatibleRules;
                 rules.Add(new CounterAttack());
                 return rules;
@@ -52,9 +52,17 @@ namespace CharacterCreator.Classes.SpecialRules
         #region Methods
         public override decimal calculateEnergyCost(decimal baseDamage)
         {
-            //TODO Counter-attack may need to cost more based on what it does.
             //Note: in classic terminology, 1 Energy Modifier is represented as 0.2m here, so 2 modifiers would be 0.4m, etc.
             return baseDamage * 0.4m;
+        }
+        public override bool specialRuleIsValid(Ability ability)
+        {
+            if (ability.Time > 5)
+            {
+                MessageBox.Show(this.Name + " may not be used with an ability costing more than 5 Time");
+                return false;
+            }
+            return true;
         }
         #endregion
     }

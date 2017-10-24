@@ -41,6 +41,8 @@ namespace CharacterCreator.Classes.SpecialRules
             {
                 List<SpecialRule> rules = new List<SpecialRule>();
                 rules.Add(new ArmorBuster());
+                rules.Add(new RerollHits());
+                rules.Add(new RerollMisses());
                 return rules;
             }
         }

@@ -41,8 +41,6 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                //TODO Counter attack is unique in that it's restrictions are based on the ability's stats.  Not sure how to handle this, either 
-                //  here or under calculating costs.
                 return new List<SpecialRule>();
             }
         }

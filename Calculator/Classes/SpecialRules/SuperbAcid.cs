@@ -25,8 +25,6 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                //TODO Greater versions are incompatible with their ordinary ones.
-                //TODO The special rules for which this is incompatible haven't been made yet.
                 List<SpecialRule> rules = base.IncompatibleRules;
                 rules.Add(new GreaterAcid());
                 return rules;

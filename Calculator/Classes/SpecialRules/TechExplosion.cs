@@ -65,7 +65,6 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                //TODO Returns whatever should appear on the character sheet.
                 return "Tech Explosion " + variables["R"].Value + "/" + variables["S"].Value;
             }
         }

@@ -43,6 +43,11 @@ namespace CharacterCreator.Classes.SpecialRules
                 rules.Add(new Blast());
                 rules.Add(new NoDodge());
                 rules.Add(new Radius());
+                rules.Add(new Pull());
+                rules.Add(new Slam());
+                rules.Add(new Throw());
+                rules.Add(new TechBlast());
+                rules.Add(new SuperbNoDodge());
                 return rules;
             }
         }
@@ -75,7 +80,6 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                //TODO Returns whatever should appear on the character sheet.
                 return "Explosion " + variables["R"].Value + "/" + variables["S"].Value;
             }
         }

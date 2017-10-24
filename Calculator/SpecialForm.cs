@@ -28,7 +28,6 @@ namespace CharacterCreator
         #region Event Methods
         private void SpecialForm_Load(object sender, EventArgs e)
         {
-            //TODO Populate the check box list with the names of special rules which aren't attached to the ability already.
             //TODO Until I find a better way, this list is typed manually.
             clbSpecials.Items.Add(new Acid());
             clbSpecials.Items.Add(new ArmorBuster());
@@ -86,11 +85,27 @@ namespace CharacterCreator
             clbSpecials.Items.Add(new Teleport());
             clbSpecials.Items.Add(new Throw());
             clbSpecials.Items.Add(new Trip());
+
+            //TODO Check items which are already included in this ability.
+            checkRulesUsedByAbility();
         }
-        //TODO Need to make sure incompatible selections are remarked on.
+        //TODO Haven't tested checkRulesUsedByAbility yet, since I haven't implemented saving the rules to the ability yet.
+        private void checkRulesUsedByAbility()
+        {
+            var rules = ability.SpecialRules;
+            foreach(var rule in rules)
+            {
+                for(int i=0; i<clbSpecials.Items.Count;++i)
+                {
+                    SpecialRule coRule = (SpecialRule)clbSpecials.Items[i];
+                    if (rules.Equals(coRule)) clbSpecials.SetItemChecked(i, true);
+                }
+            }
+
+        }
         private void clbSpecials_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //TODO When a user clicks on a special rule, fill in the description box so they can understand more about it.
+            //Get the name
             var rule = (SpecialRule)clbSpecials.Items[clbSpecials.SelectedIndex];
             rtbSpecialDescription.Text = rule.Name;
             rtbSpecialDescription.Select(0, rule.Name.Length);
@@ -121,7 +136,7 @@ namespace CharacterCreator
                 rtbSpecialDescription.AppendText(incompatible);
             }
 
-            //TODO Show the character sheet syntax.
+            //Get the character sheet syntax.
             rtbSpecialDescription.AppendText("\n\nAppears on the character sheet as " + rule.SyntaxSample + ".");
         }
 
@@ -132,11 +147,36 @@ namespace CharacterCreator
                 this.Dispose();
                 return;
             }
-
-            var rule = clbSpecials.CheckedItems[0];
-            //TODO Whenever a user selects a special rule, it should validate against the ability as it is.  Example: counter-attack can't be used with an ability with a Time of 4+.
+            if (checkRulesCompatible())
+            {
+                this.Dispose();
+                return;
+            }
             //TODO After users select the special rules they want, check for incompatible rules.
             //TODO After confirming all selected rules are compatible, cycle through those with parameters and have the user provide them.
+            //TODO A second round of validation is necessary after all of this, because rules like Indirect must be coupled with Range, TechRange, or Reach.  Not sure how to handle this yet.
+        }
+
+        private bool checkRulesCompatible()
+        {
+            //Get a list of all the rules chosen for this ability.
+            var checkedItems = clbSpecials.CheckedItems;
+            List<SpecialRule> rules = new List<SpecialRule>();
+            foreach (var item in checkedItems) rules.Add((SpecialRule)item);
+
+            //Check each rule's list of incompatible rules and compare to the list of rules.
+            foreach(SpecialRule rule in rules)
+            {
+                foreach(SpecialRule iRule in rule.IncompatibleRules)
+                {
+                    if (rules.Contains(iRule))
+                    {
+                        MessageBox.Show(rule.Name + " is incompatible with " + iRule.Name);
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
 
         private void clbSpecials_ItemCheck(object sender, ItemCheckEventArgs e)

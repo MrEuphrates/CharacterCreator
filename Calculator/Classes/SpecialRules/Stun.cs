@@ -41,7 +41,7 @@ namespace CharacterCreator.Classes.SpecialRules
             get
             {
                 List<SpecialRule> rules = new List<SpecialRule>();
-                rules.Add(new Stun());
+                rules.Add(new Fear());
                 return rules;
             }
         }
@@ -74,7 +74,6 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                //TODO Returns whatever should appear on the character sheet.
                 return "Stun " + variables["P"].Value;
             }
         }

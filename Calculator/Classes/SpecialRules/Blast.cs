@@ -45,6 +45,7 @@ namespace CharacterCreator.Classes.SpecialRules
                 rules.Add(new Pull());
                 rules.Add(new Slam());
                 rules.Add(new Throw());
+                rules.Add(new Explosion());
                 return rules;
             }
         }
@@ -77,7 +78,6 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                //TODO Returns whatever should appear on the character sheet.
                 return "Blast " + variables["S"].Value;
             }
         }
