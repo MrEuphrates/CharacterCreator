@@ -39,7 +39,9 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                throw new NotImplementedException();
+                List<SpecialRule> rules = new List<SpecialRule>();
+                rules.Add(new Radius());
+                return rules;
             }
         }
 
@@ -79,11 +81,6 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             decimal squareInches = variables["L"].Value * variables["W"].Value;
             return Math.Ceiling(squareInches / 5m) * 0.2m * baseDamage;
-        }
-
-        public override string listIncompatibleRules()
-        {
-            throw new NotImplementedException();
         }
     }
 }

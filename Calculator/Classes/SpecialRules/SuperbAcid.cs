@@ -20,15 +20,16 @@ namespace CharacterCreator.Classes.SpecialRules
                     "Acid is even more difficult to remove than Greater Acid.";
             }
         }
-        //TODO Have to do the Tech rules, too
+        
         public override List<SpecialRule> IncompatibleRules
         {
             get
             {
                 //TODO Greater versions are incompatible with their ordinary ones.
                 //TODO The special rules for which this is incompatible haven't been made yet.
-                List<SpecialRule> rules = new List<SpecialRule>();
-                throw new NotImplementedException();
+                List<SpecialRule> rules = base.IncompatibleRules;
+                rules.Add(new GreaterAcid());
+                return rules;
             }
         }
 
@@ -57,12 +58,6 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             //Note: in classic terminology, 1 Energy Modifier is represented as 0.2m here, so 2 modifiers would be 0.4m, etc.
             return variables["M"].Value * 6;
-        }
-
-        public override string listIncompatibleRules()
-        {
-            //TODO Those rules haven't been designed yet.
-            throw new NotImplementedException();
         }
         
         #endregion

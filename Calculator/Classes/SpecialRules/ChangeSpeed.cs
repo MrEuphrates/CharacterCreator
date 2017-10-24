@@ -38,7 +38,7 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                throw new NotImplementedException();
+                return new List<SpecialRule>();
             }
         }
 
@@ -78,11 +78,6 @@ namespace CharacterCreator.Classes.SpecialRules
         public override decimal calculateEnergyCost(decimal baseDamage)
         {
             return 25 * Math.Abs(variables["C"].Value) * variables["D"].Value;
-        }
-
-        public override string listIncompatibleRules()
-        {
-            throw new NotImplementedException();
         }
     }
 }

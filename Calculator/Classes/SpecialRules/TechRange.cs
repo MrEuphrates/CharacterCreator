@@ -44,9 +44,10 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                //TODO The special rules for which this is incompatible haven't been made yet.
                 List<SpecialRule> rules = new List<SpecialRule>();
-                throw new NotImplementedException();
+                rules.Add(new TechMelee());
+                rules.Add(new Range());
+                return rules;
             }
         }
 
@@ -108,13 +109,6 @@ namespace CharacterCreator.Classes.SpecialRules
             ++modifiers;
             return modifiers * 0.2m;
         }
-
-        public override string listIncompatibleRules()
-        {
-            //TODO Those rules haven't been designed yet.
-            throw new NotImplementedException();
-        }
-        
         #endregion
     }
 }

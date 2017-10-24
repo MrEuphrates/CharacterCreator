@@ -114,13 +114,12 @@ namespace CharacterCreator
             if (negation != "") rtbSpecialDescription.AppendText("\n\n" + negation);
 
             //Get the incompatability list
-            //TODO Haven't implemented incompatibility yet.
-            //var incompatibleRules = rule.listIncompatibleRules();
-            //if (incompatibleRules != "")
-            //{
-            //    var incompatible = "\n\nIncompatible with " + incompatibleRules;
-            //    rtbSpecialDescription.AppendText(incompatible);
-            //}
+            var incompatibleRules = rule.listIncompatibleRules();
+            if (incompatibleRules != "")
+            {
+                var incompatible = "\n\n" + incompatibleRules;
+                rtbSpecialDescription.AppendText(incompatible);
+            }
 
             //TODO Show the character sheet syntax.
             rtbSpecialDescription.AppendText("\n\nAppears on the character sheet as " + rule.SyntaxSample + ".");

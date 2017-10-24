@@ -32,9 +32,9 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                //TODO The special rules for which this is incompatible haven't been made yet.
-                List<SpecialRule> rules = new List<SpecialRule>();
-                throw new NotImplementedException();
+                List<SpecialRule> rules = base.IncompatibleRules;
+                rules.Add(new Deafen());
+                return rules;
             }
         }
 
@@ -70,15 +70,6 @@ namespace CharacterCreator.Classes.SpecialRules
                 return "Tech Deafen " + variables["D"].Value;
             }
         }
-        #endregion
-
-        #region Methods
-        public override string listIncompatibleRules()
-        {
-            //TODO Those rules haven't been designed yet.
-            throw new NotImplementedException();
-        }
-        
         #endregion
     }
 }

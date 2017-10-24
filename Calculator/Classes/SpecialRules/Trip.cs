@@ -89,11 +89,6 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             return 40;
         }
-
-        public override string listIncompatibleRules()
-        {
-            return "";
-        }
         #endregion
     }
 }

@@ -40,8 +40,6 @@ namespace CharacterCreator.AbstractClasses
 
         //=============================================================
         #region Abstract Methods
-        public abstract string listIncompatibleRules();
-
         public abstract decimal calculateEnergyCost(decimal baseDamage);  //TODO Pretty sure when I start using params, this will change
         #endregion
         //=============================================================
@@ -87,6 +85,23 @@ namespace CharacterCreator.AbstractClasses
             StringBuilder sb = new StringBuilder();
             sb.Append("Variables include:");
             foreach (KeyValuePair<string, SpecialRuleVariable> kvp in Variables) sb.Append("  " + kvp.Value.Description);
+            return sb.ToString();
+        }
+
+        public string listIncompatibleRules()
+        {
+            var rules = this.IncompatibleRules;
+            if (rules.Count == 0) return "";
+            if (rules.Count == 1) return "Incompatible with " + rules[0].Name;
+            if (rules.Count == 2) return "Incompatible with " + rules[0].Name + " and " + rules[1].Name;
+            StringBuilder sb = new StringBuilder();
+            sb.Append("Incompatible with " + rules[0].Name);
+            for (int i = 1; i < rules.Count; ++i)
+            {
+                if (i == rules.Count - 1) sb.Append(", and " + rules[i].Name);
+                else sb.Append(", " + rules[i].Name);
+            }
+            sb.Append(".");
             return sb.ToString();
         }
         #endregion

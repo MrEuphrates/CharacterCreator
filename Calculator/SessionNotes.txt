@@ -1,0 +1,3 @@
+﻿10-23-17
+When I finished this night, I had implemented incompatability methods and properties for the special rules and made them appear on the information form; however, 
+I have barely tested any of them.

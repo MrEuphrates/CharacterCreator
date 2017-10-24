@@ -38,7 +38,7 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                throw new NotImplementedException();
+                return new List<SpecialRule>();
             }
         }
 
@@ -65,11 +65,6 @@ namespace CharacterCreator.Classes.SpecialRules
                 if (variables["C"].Value < 0) return variables["C"].Value + " Marksmanship " + variables["D"].Value;
                 return "+" + variables["C"].Value + " Marksmanship " + variables["D"].Value;
             }
-        }
-
-        public override string listIncompatibleRules()
-        {
-            throw new NotImplementedException();
         }
     }
 }

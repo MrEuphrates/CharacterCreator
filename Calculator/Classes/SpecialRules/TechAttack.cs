@@ -38,9 +38,7 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                //TODO The special rules for which this is incompatible haven't been made yet.
-                List<SpecialRule> rules = new List<SpecialRule>();
-                throw new NotImplementedException();
+                return new List<SpecialRule>();
             }
         }
 
@@ -90,12 +88,6 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             //Note: in classic terminology, 1 Energy Modifier is represented as 0.2m here, so 2 modifiers would be 0.4m, etc.
             return baseDamage * 0.2m;
-        }
-
-        public override string listIncompatibleRules()
-        {
-            //TODO Those rules haven't been designed yet.
-            throw new NotImplementedException();
         }
         #endregion
     }
