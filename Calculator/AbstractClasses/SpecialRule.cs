@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,52 @@ namespace CharacterCreator.AbstractClasses
             {
                 if(variables == null) variables = new Dictionary<string, SpecialRuleVariable>();
                 return variables;
+            }
+        }
+        protected DataTable variableTable;
+        public DataTable VariableTable
+        {
+            get
+            {
+                if(variableTable == null)
+                {
+                    variableTable = new DataTable();
+                    DataColumn col = new DataColumn();
+
+                    //Add Parameter column
+                    col.DataType = System.Type.GetType("System.String");
+                    col.ColumnName = "Parameter";
+                    col.ReadOnly = true;
+                    col.Unique = true;
+                    variableTable.Columns.Add(col);
+
+                    //Add Description column
+                    col = new DataColumn();
+                    col.DataType = System.Type.GetType("System.String");
+                    col.ColumnName = "Description";
+                    col.ReadOnly = true;
+                    col.Unique = false;
+                    variableTable.Columns.Add(col);
+
+                    //Add Input column
+                    col = new DataColumn();
+                    col.DataType = System.Type.GetType("System.Int16");
+                    col.ColumnName = "Input";
+                    col.ReadOnly = false;
+                    col.Unique = false;
+                    variableTable.Columns.Add(col);
+
+                    //Add rows
+                    DataRow row;
+                    foreach(SpecialRuleVariable srv in Variables.Values)
+                    {
+                        row = variableTable.NewRow();
+                        row["Parameter"] = srv.Variable;
+                        row["Description"] = srv.Description;
+                        variableTable.Rows.Add(row);
+                    }
+                }
+                return variableTable;
             }
         }
         public abstract string NegationAndDuration { get; }

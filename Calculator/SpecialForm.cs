@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Calculator;
 using CharacterCreator.AbstractClasses;
 using CharacterCreator.Classes;
 using CharacterCreator.Classes.SpecialRules;
@@ -142,18 +143,12 @@ namespace CharacterCreator
 
         private void commandOK_Click(object sender, EventArgs e)
         {
-            if (clbSpecials.CheckedItems.Count == 0)
-            {
-                this.Dispose();
-                return;
-            }
-            if (checkRulesCompatible())
-            {
-                this.Dispose();
-                return;
-            }
-            //TODO After users select the special rules they want, check for incompatible rules.
+            //TODO Make sure the chosen rules are compatible.
+            if (!checkRulesCompatible()) return;
             //TODO After confirming all selected rules are compatible, cycle through those with parameters and have the user provide them.
+            Paralyze p = new Paralyze();
+            ParameterForm pform = new ParameterForm(p);
+            pform.ShowDialog();
             //TODO A second round of validation is necessary after all of this, because rules like Indirect must be coupled with Range, TechRange, or Reach.  Not sure how to handle this yet.
         }
 
