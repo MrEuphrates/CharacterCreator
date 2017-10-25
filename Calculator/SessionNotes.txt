@@ -1,5 +1,6 @@
 ﻿10/24/17
-
+When I left off with this, I had finished testing rule validation on SpecialForm.  I think updating the Ability and passing it back to the Ability is next, followed by
+adding more rules to an ability which already has some, and editing and deleting existing rules, too.
 
 10/23/17
 When I finished this night, I had implemented incompatability methods and properties for the special rules and made them appear on the information form; however, 
