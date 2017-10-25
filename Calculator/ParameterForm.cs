@@ -47,6 +47,10 @@ namespace Calculator
             //List the negation and duration rules, if there are any.
             var negation = rule.NegationAndDuration;
             if (negation != "") rtbSpecialDescription.AppendText("\n\n" + negation);
+
+            //Disply how the energy cost is calculated
+            var cost = rule.howIsEnergyCostCalculated();
+            rtbSpecialDescription.AppendText("\n\nThe Energy cost for " + rule.Name + " is " + cost + ".");
         }
 
         private void dgvParameters_CellValueChanged(object sender, DataGridViewCellEventArgs e)
