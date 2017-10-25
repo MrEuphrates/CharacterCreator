@@ -208,7 +208,7 @@ namespace CharacterCreator
                 ParameterForm pform = new ParameterForm(rule);
                 pform.ShowDialog();
             }
-
+            //TODO Need to test how energy costs might change once the ability's stats change.  Energy costs didn't round to a multiple of 5.
             //TODO All this stuff still has to be reflected back on the Ability form, of course.
             //TODO Have to make sure the Ability is properly modified after commiting the specials, too.
             ability.SpecialRules = rules;

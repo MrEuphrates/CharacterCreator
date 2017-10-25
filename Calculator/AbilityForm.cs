@@ -64,6 +64,7 @@ namespace CharacterCreator
         }
         private void updateEnergyCost()
         {
+            //TODO I implemented with percentages, but instead I should be using energy modifiers.  I'll have to pick up with that.
             //Get the basic energy cost of this ability based on the damage.
             var baseEnergy = nudDamageBase.Value / 2;
             var energy = baseEnergy;
@@ -71,7 +72,8 @@ namespace CharacterCreator
             //Check the Time and adjust the cost accordingly, based on actual total damage.
             var time = nudTime.Value;
             var baseDamageTotal = nudDamageBase.Value * nudAttacks.Value;
-            decimal expectedTime = (-1*(0 - (baseDamageTotal % 100)) + baseDamageTotal) / 100;
+            decimal expectedTime = (baseDamageTotal - baseDamageTotal % 100) / 100;
+            if (baseDamageTotal % 100 != 0) ++expectedTime;
             var timeEnergyCost = ((expectedTime - time) * 0.2m)* baseDamageTotal;
             energy += timeEnergyCost;
 
@@ -79,17 +81,16 @@ namespace CharacterCreator
             var specialsBaseCost = getEnergyCostOfSpecials();
             energy += specialsBaseCost * nudAttacks.Value;
 
+            //Energy costs are always multiples of 5, so round up.
+            if (energy % 5 != 0) energy = energy + (5 - energy % 5);
+
             //Set the ability's energy cost.
             nudEnergy.Value = energy;
         }
         private decimal getEnergyCostOfSpecials()
         {//TODO What about when the damage is 0?  Some special rules are going to care about that.
-            decimal energy = 0;//TODO I need to test all of the energy cost methods to make sure they work correctly.
-            foreach(var i in listBoxSpecial.Items)
-            {
-                SpecialRule rule = (SpecialRule)i;
-                energy += rule.calculateEnergyCost(nudDamageBase.Value);
-            }
+            decimal energy = 0;
+            foreach(SpecialRule rule in ability.SpecialRules) energy += rule.calculateEnergyCost(nudDamageBase.Value);
             return energy;
         }
         #endregion

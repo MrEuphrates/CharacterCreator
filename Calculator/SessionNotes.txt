@@ -1,5 +1,6 @@
 ﻿10/25/17
-Tested energy calcs and sorted out any issues I found with them.
+When I left off about 220pm, I decided that I need to rework energy calc in this tool, because I implemented it using percentages of the base damage, but really, I should be using the rules as written,
+and therefore using energy modifiers instead.  So I need to implement that, including a display on the Ability form so the user knows what the modifier is, currently.
 
 10/24/17
 When I left off with this, I had finished testing rule validation on SpecialForm.  I think updating the Ability and passing it back to the Ability is next, followed by
