@@ -68,6 +68,10 @@ namespace CharacterCreator.Classes.SpecialRules
             //Note: in classic terminology, 1 Energy Modifier is represented as 0.2m here, so 2 modifiers would be 0.4m, etc.
             return baseDamage * 1.2m;
         }
+        public override string howIsEnergyCostCalculated()
+        {
+            return "120% of the ability's base damage";
+        }
         #endregion
     }
 }

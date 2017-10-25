@@ -1,5 +1,5 @@
 ﻿10/25/17
-It seems I need to thoroughly test the parameters for every special rule, as a random test of ChangeSpeed bombed.  Sorted it out.
+Tested energy calcs and sorted out any issues I found with them.
 
 10/24/17
 When I left off with this, I had finished testing rule validation on SpecialForm.  I think updating the Ability and passing it back to the Ability is next, followed by

@@ -106,7 +106,7 @@ namespace CharacterCreator.Classes.SpecialRules
             decimal range = variables["R"].Value;
             decimal modifiers = Math.Ceiling(range / 5m);
             ++modifiers;
-            return modifiers * 0.2m;
+            return modifiers * 0.2m * baseDamage;
         }
 
         public override string howIsEnergyCostCalculated()

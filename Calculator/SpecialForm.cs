@@ -30,6 +30,7 @@ namespace CharacterCreator
         private void SpecialForm_Load(object sender, EventArgs e)
         {
             //TODO Until I find a better way, this list is typed manually.
+            //TODO When loading this list, with Range and Indirect, I get an error, stating Indirect needs Range selected.
             //Rules attached to this ability should be added first, for editing.
             if (ability.SpecialRules != null) foreach (SpecialRule rule in ability.SpecialRules) clbSpecials.Items.Add(rule,true);
 

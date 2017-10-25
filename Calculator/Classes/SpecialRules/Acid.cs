@@ -64,7 +64,7 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                return "Acid M";
+                return Name + " M";
             }
         }
 
@@ -72,7 +72,7 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                return "Acid " + variables["M"].Value;
+                return Name + " " + variables["M"].Value;
             }
         }
 
