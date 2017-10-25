@@ -21,6 +21,7 @@ namespace CharacterCreator.Classes
         {
             get
             {
+                if (specialRules == null) specialRules = new List<SpecialRule>();
                 return specialRules;
             }
             set

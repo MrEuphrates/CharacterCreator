@@ -30,82 +30,124 @@ namespace CharacterCreator
         private void SpecialForm_Load(object sender, EventArgs e)
         {
             //TODO Until I find a better way, this list is typed manually.
-            //TODO Might add special rules from the Ability to the form first, so that existing rules are near the top.
-            clbSpecials.Items.Add(new Acid());
-            clbSpecials.Items.Add(new ArmorBuster());
-            clbSpecials.Items.Add(new Blast());
-            clbSpecials.Items.Add(new Blind());
-            clbSpecials.Items.Add(new ChangeSpeed());
-            clbSpecials.Items.Add(new ChangeStrength());
-            clbSpecials.Items.Add(new ChangeMarksmanship());
-            clbSpecials.Items.Add(new ChangeTech());
-            clbSpecials.Items.Add(new CounterAttack());
-            clbSpecials.Items.Add(new Deafen());
-            clbSpecials.Items.Add(new DrainTime());
-            clbSpecials.Items.Add(new Encase());
-            clbSpecials.Items.Add(new Explosion());
-            clbSpecials.Items.Add(new Fear());
-            clbSpecials.Items.Add(new GreaterAcid());
-            clbSpecials.Items.Add(new GreaterCounterAttack());
-            clbSpecials.Items.Add(new GreaterIndirect());
-            clbSpecials.Items.Add(new GreaterNoDeflect());
-            clbSpecials.Items.Add(new GreaterNoDodge());
-            clbSpecials.Items.Add(new Heal());
-            clbSpecials.Items.Add(new IdentifyFriendFoe());
-            clbSpecials.Items.Add(new Indirect());
-            clbSpecials.Items.Add(new Leap());
-            clbSpecials.Items.Add(new NoArmorReduction());
-            clbSpecials.Items.Add(new NoDeflect());
-            clbSpecials.Items.Add(new NoDodge());
-            clbSpecials.Items.Add(new Paralyze());
-            clbSpecials.Items.Add(new PoisonMalignant());
-            clbSpecials.Items.Add(new PoisonResilient());
-            clbSpecials.Items.Add(new Pull());
-            clbSpecials.Items.Add(new Range());
-            clbSpecials.Items.Add(new CharacterCreator.Classes.SpecialRules.Radius());
-            clbSpecials.Items.Add(new RerollMisses());
-            clbSpecials.Items.Add(new RerollHits());
-            clbSpecials.Items.Add(new Reach());
-            clbSpecials.Items.Add(new Roll());
-            clbSpecials.Items.Add(new Slam());
-            clbSpecials.Items.Add(new Stream());
-            clbSpecials.Items.Add(new Stun());
-            clbSpecials.Items.Add(new SuperbAcid());
-            clbSpecials.Items.Add(new SuperbCounterAttack());
-            clbSpecials.Items.Add(new SuperbIndirect());
-            clbSpecials.Items.Add(new SuperbNoDeflect());
-            clbSpecials.Items.Add(new SuperbNoDodge());
-            clbSpecials.Items.Add(new TechAttack());
-            clbSpecials.Items.Add(new TechBlast());
-            clbSpecials.Items.Add(new TechBlind());
-            clbSpecials.Items.Add(new TechDeafen());
-            clbSpecials.Items.Add(new TechExplosion());
-            clbSpecials.Items.Add(new TechEncase());
-            clbSpecials.Items.Add(new TechMelee());
-            clbSpecials.Items.Add(new TechParalyze());
-            clbSpecials.Items.Add(new TechRange());
-            clbSpecials.Items.Add(new Teleport());
-            clbSpecials.Items.Add(new Throw());
-            clbSpecials.Items.Add(new Trip());
+            //Rules attached to this ability should be added first, for editing.
+            if (ability.SpecialRules != null) foreach (SpecialRule rule in ability.SpecialRules) clbSpecials.Items.Add(rule,true);
 
-            //TODO Check items which are already included in this ability.
-            checkRulesUsedByAbility();
+            //Add the rest of the rules, but don't add ones already added from the ability.
+            SpecialRule nRule = new Acid();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new ArmorBuster();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new Blast();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new Blind();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new ChangeSpeed();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new ChangeStrength();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new ChangeMarksmanship();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new ChangeTech();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new CounterAttack();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new Deafen();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new DrainTime();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new Encase();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new Explosion();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new Fear();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new GreaterAcid();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new GreaterCounterAttack();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new GreaterIndirect();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new GreaterNoDeflect();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new GreaterNoDodge();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new Heal();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new IdentifyFriendFoe();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new Indirect();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new Leap();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new NoArmorReduction();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new NoDeflect();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new NoDodge();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new Paralyze();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new PoisonMalignant();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new PoisonResilient();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new Pull();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new Range();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new CharacterCreator.Classes.SpecialRules.Radius();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new RerollMisses();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new RerollHits();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new Reach();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new Roll();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new Slam();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new Stream();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new Stun();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new SuperbAcid();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new SuperbCounterAttack();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new SuperbIndirect();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new SuperbNoDeflect();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new SuperbNoDodge();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new TechAttack();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new TechBlast();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new TechBlind();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new TechDeafen();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new TechExplosion();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new TechEncase();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new TechMelee();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new TechParalyze();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new TechRange();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new Teleport();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new Throw();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
+            nRule = new Trip();
+            if (!ability.SpecialRules.Contains(nRule)) clbSpecials.Items.Add(nRule);
         }
-        //TODO Haven't tested checkRulesUsedByAbility yet, since I haven't implemented saving the rules to the ability yet.
-        private void checkRulesUsedByAbility()
-        {
-            var rules = ability.SpecialRules;
-            if (rules == null) return;
-            foreach(var rule in rules)
-            {
-                for(int i=0; i<clbSpecials.Items.Count;++i)
-                {
-                    SpecialRule coRule = (SpecialRule)clbSpecials.Items[i];
-                    if (rules.Equals(coRule)) clbSpecials.SetItemChecked(i, true);
-                }
-            }
-
-        }
+        
         private void clbSpecials_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Get the name
@@ -162,7 +204,6 @@ namespace CharacterCreator
                 pform.ShowDialog();
             }
 
-            //TODO Add the special rules to the ability, or update them if it already has them (or just replace the list).
             //TODO All this stuff still has to be reflected back on the Ability form, of course.
             //TODO Have to make sure the Ability is properly modified after commiting the specials, too.
             ability.SpecialRules = rules;
