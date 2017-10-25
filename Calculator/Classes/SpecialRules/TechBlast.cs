@@ -100,6 +100,11 @@ namespace CharacterCreator.Classes.SpecialRules
             decimal moddedS = variables["S"].Value + 3;
             return moddedS * 5;
         }
+
+        public override string howIsEnergyCostCalculated()
+        {
+            return "(S + 3) x 5";
+        }
         #endregion
     }
 }

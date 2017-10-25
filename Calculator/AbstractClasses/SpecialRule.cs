@@ -84,11 +84,12 @@ namespace CharacterCreator.AbstractClasses
         #endregion
         //=============================================================
         
-
+        //TODO Inform the user how the cost is calculated.  That'll help me test the calculations are correct, and be useful to the player in designing their character.
 
         //=============================================================
         #region Abstract Methods
         public abstract decimal calculateEnergyCost(decimal baseDamage);  //TODO Pretty sure when I start using params, this will change
+        public abstract string howIsEnergyCostCalculated();
         #endregion
         //=============================================================
         

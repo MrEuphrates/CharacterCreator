@@ -84,6 +84,11 @@ namespace CharacterCreator.Classes.SpecialRules
             return Math.Ceiling(squareInches / 5m) * 0.2m * baseDamage;
         }
 
+        public override string howIsEnergyCostCalculated()
+        {
+            return "(L x W) / 5 x 20% of the ability's base damage";
+        }
+
         public override IDictionary<string, SpecialRuleVariable> Variables
         {
             get

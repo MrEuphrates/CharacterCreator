@@ -93,6 +93,11 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             return baseDamage * 0.2m;
         }
+
+        public override string howIsEnergyCostCalculated()
+        {
+            return "20% of the ability's base damage";
+        }
         #endregion
     }
 }

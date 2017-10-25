@@ -181,6 +181,10 @@ namespace CharacterCreator
                 rtbSpecialDescription.AppendText(incompatible);
             }
 
+            //Disply how the energy cost is calculated
+            var cost = rule.howIsEnergyCostCalculated();
+            rtbSpecialDescription.AppendText("\n\nThe Energy cost for " + rule.Name + " is " + cost + ".");
+
             //Get the character sheet syntax.
             rtbSpecialDescription.AppendText("\n\nAppears on the character sheet as " + rule.SyntaxSample + ".");
         }

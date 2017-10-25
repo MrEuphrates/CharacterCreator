@@ -102,9 +102,14 @@ namespace CharacterCreator.Classes.SpecialRules
             //Note: in classic terminology, 1 Energy Modifier is represented as 0.2m here, so 2 modifiers would be 0.4m, etc.
             decimal range = variables["R"].Value;
             decimal modifiers = Math.Ceiling(range / 5m);
-            return modifiers * 0.2m;
+            return modifiers * 0.2m * baseDamage;
         }
-        
+
+        public override string howIsEnergyCostCalculated()
+        {
+            return "R / 5 x 20% of the ability's base damage";
+        }
+
         #endregion
     }
 }

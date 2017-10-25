@@ -108,6 +108,11 @@ namespace CharacterCreator.Classes.SpecialRules
             ++modifiers;
             return modifiers * 0.2m;
         }
+
+        public override string howIsEnergyCostCalculated()
+        {
+            return "((R / 5) + 1) x 20% of the ability's base damage";
+        }
         #endregion
     }
 }

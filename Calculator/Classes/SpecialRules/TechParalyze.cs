@@ -80,6 +80,10 @@ namespace CharacterCreator.Classes.SpecialRules
             var moddedS = variables["S"].Value + 3;
             return variables["D"].Value * 10 * moddedS;
         }
+        public override string howIsEnergyCostCalculated()
+        {
+            return "10 x (S + 3) x D";
+        }
         #endregion
     }
 }

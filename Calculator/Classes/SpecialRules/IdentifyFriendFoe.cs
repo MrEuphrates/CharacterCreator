@@ -90,6 +90,11 @@ namespace CharacterCreator.Classes.SpecialRules
             //TODO Should IFF be damage-based, or should it depend on the effects of the ability?
             return baseDamage * 0.2m;
         }
+
+        public override string howIsEnergyCostCalculated()
+        {
+            return "20% of the ability's base damage";
+        }
         #endregion
     }
 }

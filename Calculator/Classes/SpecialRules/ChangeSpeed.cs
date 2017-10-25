@@ -97,5 +97,10 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             return 25 * Math.Abs(variables["C"].Value) * variables["D"].Value;
         }
+
+        public override string howIsEnergyCostCalculated()
+        {
+            return "25 x [C] x D";
+        }
     }
 }

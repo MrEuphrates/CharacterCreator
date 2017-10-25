@@ -100,7 +100,12 @@ namespace CharacterCreator.Classes.SpecialRules
             //Note: in classic terminology, 1 Energy Modifier is represented as 0.2m here, so 2 modifiers would be 0.4m, etc.
             return variables["D"].Value * 30;
         }
-        
+
+        public override string howIsEnergyCostCalculated()
+        {
+            return "30 x D";
+        }
+
         #endregion
     }
 }

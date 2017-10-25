@@ -102,6 +102,10 @@ namespace CharacterCreator.Classes.SpecialRules
             if (!isValid) MessageBox.Show(Name + " is incompatible with melee abilities.  Please select Range, Tech Range, or Reach first.");
             return isValid;
         }
+        public override string howIsEnergyCostCalculated()
+        {
+            return "20% of the ability's base damage";
+        }
         #endregion
     }
 }

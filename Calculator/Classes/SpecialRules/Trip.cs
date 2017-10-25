@@ -89,6 +89,11 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             return 40;
         }
+
+        public override string howIsEnergyCostCalculated()
+        {
+            return "40";
+        }
         #endregion
     }
 }

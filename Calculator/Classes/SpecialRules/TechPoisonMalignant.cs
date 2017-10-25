@@ -98,7 +98,12 @@ namespace CharacterCreator.Classes.SpecialRules
         public override decimal calculateEnergyCost(decimal baseDamage)
         {
             //Note: in classic terminology, 1 Energy Modifier is represented as 0.2m here, so 2 modifiers would be 0.4m, etc.
-            return variables["M"].Value * variables["S"].Value;
+            var moddedS = variables["S"].Value + 3;
+            return variables["M"].Value * moddedS;
+        }
+        public override string howIsEnergyCostCalculated()
+        {
+            return "(S + 3) x M";
         }
         #endregion
     }
