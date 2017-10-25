@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CharacterCreator.AbstractClasses;
+using System.Windows.Forms;
 
 namespace CharacterCreator.Classes.SpecialRules
 {
@@ -91,6 +92,15 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             //Note: in classic terminology, 1 Energy Modifier is represented as 0.2m here, so 2 modifiers would be 0.4m, etc.
             return baseDamage * 0.2m;
+        }
+        public override bool specialRuleIsValid(Ability ability, List<SpecialRule> rules)
+        {
+            bool isValid = false;
+            if (rules.Contains(new Range())) isValid = true;
+            if (rules.Contains(new TechRange())) isValid = true;
+            if (rules.Contains(new Reach())) isValid = true;
+            if (!isValid) MessageBox.Show(Name + " is incompatible with melee abilities.  Please select Range, Tech Range, or Reach first.");
+            return isValid;
         }
         #endregion
     }

@@ -55,7 +55,7 @@ namespace CharacterCreator.Classes.SpecialRules
             //Note: in classic terminology, 1 Energy Modifier is represented as 0.2m here, so 2 modifiers would be 0.4m, etc.
             return baseDamage * 0.4m;
         }
-        public override bool specialRuleIsValid(Ability ability)
+        public override bool specialRuleIsValid(Ability ability, List<SpecialRule> rules)
         {
             if (ability.Time > 5)
             {

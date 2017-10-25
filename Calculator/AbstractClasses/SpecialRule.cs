@@ -163,7 +163,7 @@ namespace CharacterCreator.AbstractClasses
             return sb.ToString();
         }
 
-        public virtual bool specialRuleIsValid(Ability ability)
+        public virtual bool specialRuleIsValid(Ability ability, List<SpecialRule> rules)
         {
             return true;
         }

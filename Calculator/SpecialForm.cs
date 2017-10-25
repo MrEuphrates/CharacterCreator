@@ -144,26 +144,34 @@ namespace CharacterCreator
 
         private void commandOK_Click(object sender, EventArgs e)
         {
-            //TODO Make sure the chosen rules are compatible.
-            if (!checkRulesCompatible()) return;
-            //TODO After confirming all selected rules are compatible, cycle through those with parameters and have the user provide them.
-            for (int i = 0; i < clbSpecials.CheckedItems.Count; ++i)
+            //Get selected rules
+            var rules = getSelectedRules();
+
+            //Make sure the chosen rules are compatible.
+            if (!checkRulesCompatible(rules)) return;
+
+            //Make sure the chosen rules are valid.
+            foreach(SpecialRule rule in rules) if (!rule.specialRuleIsValid(ability, rules)) return;
+
+            //After confirming all selected rules are compatible, cycle through those with parameters and have the user provide them.
+            foreach(SpecialRule rule in rules)
             {
-                SpecialRule rule = (SpecialRule)clbSpecials.CheckedItems[i];
                 if (rule.Variables.Count == 0) continue;
                 ParameterForm pform = new ParameterForm(rule);
                 pform.ShowDialog();
             }
             //TODO A second round of validation is necessary after all of this, because rules like Indirect must be coupled with Range, TechRange, or Reach.  Not sure how to handle this yet.
+
+            //TODO Add the special rules to the ability, or update them if it already has them (or just replace the list).
+            //TODO All this stuff still has to be reflected back on the Ability form, of course.
+            ability.SpecialRules = rules;
+
+            //TODO All told, exit.
+            this.Dispose();
         }
 
-        private bool checkRulesCompatible()
+        private bool checkRulesCompatible(List<SpecialRule> rules)
         {
-            //Get a list of all the rules chosen for this ability.
-            var checkedItems = clbSpecials.CheckedItems;
-            List<SpecialRule> rules = new List<SpecialRule>();
-            foreach (var item in checkedItems) rules.Add((SpecialRule)item);
-
             //Check each rule's list of incompatible rules and compare to the list of rules.
             foreach(SpecialRule rule in rules)
             {
@@ -179,12 +187,21 @@ namespace CharacterCreator
             return true;
         }
 
+        private List<SpecialRule> getSelectedRules()
+        {
+            //Gather the chosen rules into a list
+            List<SpecialRule> rules = new List<SpecialRule>();
+            for (int i = 0; i < clbSpecials.CheckedItems.Count; ++i) rules.Add((SpecialRule)clbSpecials.CheckedItems[i]);
+            return rules;
+        }
+
         private void clbSpecials_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             if(e.NewValue == CheckState.Checked)
             {
+                var rules = getSelectedRules();
                 SpecialRule rule = (SpecialRule)clbSpecials.Items[e.Index];
-                if (!rule.specialRuleIsValid(this.ability)) e.NewValue = e.CurrentValue;
+                if (!rule.specialRuleIsValid(this.ability, rules)) e.NewValue = e.CurrentValue;
             }
         }
         #endregion
