@@ -57,7 +57,7 @@ namespace CharacterCreator.AbstractClasses
 
                     //Add Input column
                     col = new DataColumn();
-                    col.DataType = System.Type.GetType("System.Decimal");
+                    col.DataType = System.Type.GetType("System.Int32");
                     col.ColumnName = "Input";
                     col.ReadOnly = false;
                     col.Unique = false;
@@ -135,7 +135,7 @@ namespace CharacterCreator.AbstractClasses
             return sb.ToString();
         }
 
-        public bool setVariable(string s, decimal d)
+        public bool setVariable(string s, int d)
         {
             if (Variables.Keys.Contains(s))
             {

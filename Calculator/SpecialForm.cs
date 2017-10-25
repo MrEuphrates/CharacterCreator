@@ -94,6 +94,7 @@ namespace CharacterCreator
         private void checkRulesUsedByAbility()
         {
             var rules = ability.SpecialRules;
+            if (rules == null) return;
             foreach(var rule in rules)
             {
                 for(int i=0; i<clbSpecials.Items.Count;++i)
@@ -146,9 +147,13 @@ namespace CharacterCreator
             //TODO Make sure the chosen rules are compatible.
             if (!checkRulesCompatible()) return;
             //TODO After confirming all selected rules are compatible, cycle through those with parameters and have the user provide them.
-            Paralyze p = new Paralyze();
-            ParameterForm pform = new ParameterForm(p);
-            pform.ShowDialog();
+            for (int i = 0; i < clbSpecials.CheckedItems.Count; ++i)
+            {
+                SpecialRule rule = (SpecialRule)clbSpecials.CheckedItems[i];
+                if (rule.Variables.Count == 0) continue;
+                ParameterForm pform = new ParameterForm(rule);
+                pform.ShowDialog();
+            }
             //TODO A second round of validation is necessary after all of this, because rules like Indirect must be coupled with Range, TechRange, or Reach.  Not sure how to handle this yet.
         }
 

@@ -31,12 +31,16 @@
             this.dgvParameters = new System.Windows.Forms.DataGridView();
             this.rtbSpecialDescription = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.cmdOK = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParameters)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvParameters
             // 
+            this.dgvParameters.AllowUserToAddRows = false;
+            this.dgvParameters.AllowUserToDeleteRows = false;
             this.dgvParameters.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvParameters.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvParameters.Location = new System.Drawing.Point(11, 268);
             this.dgvParameters.Name = "dgvParameters";
             this.dgvParameters.Size = new System.Drawing.Size(389, 121);
@@ -60,11 +64,22 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Type the values for the variables of this special in the Input column below";
             // 
+            // cmdOK
+            // 
+            this.cmdOK.Location = new System.Drawing.Point(325, 395);
+            this.cmdOK.Name = "cmdOK";
+            this.cmdOK.Size = new System.Drawing.Size(75, 23);
+            this.cmdOK.TabIndex = 3;
+            this.cmdOK.Text = "OK";
+            this.cmdOK.UseVisualStyleBackColor = true;
+            this.cmdOK.Click += new System.EventHandler(this.cmdOK_Click);
+            // 
             // ParameterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(412, 488);
+            this.ClientSize = new System.Drawing.Size(412, 428);
+            this.Controls.Add(this.cmdOK);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rtbSpecialDescription);
             this.Controls.Add(this.dgvParameters);
@@ -81,5 +96,6 @@
         private System.Windows.Forms.DataGridView dgvParameters;
         private System.Windows.Forms.RichTextBox rtbSpecialDescription;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button cmdOK;
     }
 }

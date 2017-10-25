@@ -1,6 +1,10 @@
 ﻿10/24/17
 Stopped about 140pm.  May work on more today.  Left off with ParameterForm.  Have fair bit of work to do on the interface and inputting data, but made good progress on it.
 
+10pm
+Picked up again at home.  Tested validating on parameter data entry and improved the interface a bit.  Tested, seems ok.  Now I need to loop through the chosen rules with
+parameters and present them to the user.  I have it looping through those with varibles.  Make sure it doesn't present those without them.  It doesn't.
+
 10/23/17
 When I finished this night, I had implemented incompatability methods and properties for the special rules and made them appear on the information form; however, 
 I have barely tested any of them.

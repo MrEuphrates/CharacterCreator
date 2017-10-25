@@ -14,6 +14,7 @@ namespace CharacterCreator.AbstractClasses
         {
             get
             {
+                Validate();
                 return variable;
             }
             set
@@ -23,7 +24,7 @@ namespace CharacterCreator.AbstractClasses
             }
         }
         public abstract string Description { get; }
-        public decimal Value { get; set; }
+        public int Value { get; set; }
         public abstract void Validate();
         public override string ToString()
         {

@@ -14,8 +14,7 @@ namespace Calculator
     public partial class ParameterForm : Form
     {
         SpecialRule rule;
-        //DataSet dataSet;
-        //TODO The parameter form shouldn't know how to define the table, it should only know how to display the table and be able to feed input back.
+        
         public ParameterForm(SpecialRule rule)
         {
             InitializeComponent();
@@ -52,13 +51,23 @@ namespace Calculator
 
         private void dgvParameters_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            //TODO What if the user types in text, invalid characters, or an actual decimal?
+            //If the user types in text, invalid characters, or an actual decimal, I'll just let an uncaught exception happen.
             //Get the value entered, set it for the appropriate variable for this rule, then validate it.  Update the cell if the variable is invalid.
-            decimal value = (decimal)dgvParameters[e.ColumnIndex, e.RowIndex].Value;
+            int value = (int)dgvParameters[e.ColumnIndex, e.RowIndex].Value;
             string parameter = (string)dgvParameters["Parameter", e.RowIndex].Value;
             rule.setVariable(parameter, value);
             //If validation changed the value in the special rule, update the DGV accordingly
             if (rule.Variables[parameter].Value != value) dgvParameters[e.ColumnIndex, e.RowIndex].Value = rule.Variables[parameter].Value;
+        }
+
+        private void cmdOK_Click(object sender, EventArgs e)
+        {
+            for(int i=0; i<dgvParameters.Rows.Count;++i)
+            {
+                string parameter = (string)dgvParameters["Parameter", i].Value;
+                rule.Variables[parameter].Value = (int)dgvParameters["Input", i].Value;
+            }
+            this.Dispose();
         }
     }
 }

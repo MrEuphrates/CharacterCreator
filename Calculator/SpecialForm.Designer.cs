@@ -38,7 +38,7 @@
             this.clbSpecials.FormattingEnabled = true;
             this.clbSpecials.Location = new System.Drawing.Point(12, 12);
             this.clbSpecials.Name = "clbSpecials";
-            this.clbSpecials.Size = new System.Drawing.Size(159, 694);
+            this.clbSpecials.Size = new System.Drawing.Size(159, 454);
             this.clbSpecials.TabIndex = 0;
             this.clbSpecials.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clbSpecials_ItemCheck);
             this.clbSpecials.SelectedIndexChanged += new System.EventHandler(this.clbSpecials_SelectedIndexChanged);
@@ -47,13 +47,13 @@
             // 
             this.rtbSpecialDescription.Location = new System.Drawing.Point(177, 12);
             this.rtbSpecialDescription.Name = "rtbSpecialDescription";
-            this.rtbSpecialDescription.Size = new System.Drawing.Size(604, 696);
+            this.rtbSpecialDescription.Size = new System.Drawing.Size(604, 451);
             this.rtbSpecialDescription.TabIndex = 1;
             this.rtbSpecialDescription.Text = "";
             // 
             // commandOK
             // 
-            this.commandOK.Location = new System.Drawing.Point(706, 714);
+            this.commandOK.Location = new System.Drawing.Point(706, 469);
             this.commandOK.Name = "commandOK";
             this.commandOK.Size = new System.Drawing.Size(75, 23);
             this.commandOK.TabIndex = 2;
@@ -65,7 +65,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 744);
+            this.ClientSize = new System.Drawing.Size(793, 495);
             this.Controls.Add(this.commandOK);
             this.Controls.Add(this.rtbSpecialDescription);
             this.Controls.Add(this.clbSpecials);

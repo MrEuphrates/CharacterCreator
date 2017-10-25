@@ -22,6 +22,7 @@ namespace CharacterCreator.Classes.SpecialRuleVariables
         {
             //Ensure M is a multiple of 10.
             if (Value % 10 != 0) Value = Value - Value % 10;
+            if (Value < 10) Value = 10;
         }
     }
 }

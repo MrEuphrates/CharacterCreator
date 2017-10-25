@@ -20,8 +20,9 @@ namespace CharacterCreator.Classes.SpecialRuleVariables
 
         public override void Validate()
         {
-            //Ensure M is a multiple of 10.
+            //Ensure M is a multiple of 5.
             if (Value % 5 != 0) Value = Value - Value % 5;
+            if (Value < 5) Value = 5;
         }
     }
 }
