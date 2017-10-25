@@ -32,7 +32,7 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                return "Abilities with Indirect do not need line of site to target or affect a character. This does not enable the ability to target characters which are out of range, "+
+                return "Abilities with Indirect do not need line of sight to target or affect a character. This does not enable the ability to target characters which are out of range, "+
                     "invisible, or unreachable, such as in a closed space.";
             }
         }

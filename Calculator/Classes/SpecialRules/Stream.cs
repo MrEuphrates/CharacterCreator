@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CharacterCreator.AbstractClasses;
+using CharacterCreator.Classes.SpecialRuleVariables;
 
 namespace CharacterCreator.Classes.SpecialRules
 {
@@ -29,9 +30,9 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                return "An ability with this effect is directed from the attacker to a point on the field, and the affected area is drawn lengthwise along this line.  If combined with Range, "+
+                return "An ability with this effect is directed from the attacker to a point on the field, and the affected area is drawn lengthwise (L) along this line.  If combined with Range, "+
                     "the Stream is drawn from the target rather than the attacker, and this ability scatters like with Radius and points directly away from the target location. "+
-                    "Characters and objects in the area of effect must defend against this ability.  Obstructions will block this ability, unless stated otherwise.";
+                    "Characters and objects in the area of effect (L x W) must defend against this ability.  Obstructions will block this ability, unless stated otherwise.";
             }
         }
 
@@ -81,6 +82,22 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             decimal squareInches = variables["L"].Value * variables["W"].Value;
             return Math.Ceiling(squareInches / 5m) * 0.2m * baseDamage;
+        }
+
+        public override IDictionary<string, SpecialRuleVariable> Variables
+        {
+            get
+            {
+                if (variables == null)
+                {
+                    variables = new Dictionary<string, SpecialRuleVariable>();
+                    var srv = new Distance("L");
+                    variables.Add(srv.Variable, srv);
+                    var srv2 = new Distance("W");
+                    variables.Add(srv2.Variable, srv2);
+                }
+                return variables;
+            }
         }
     }
 }

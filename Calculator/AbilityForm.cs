@@ -25,6 +25,10 @@ namespace CharacterCreator
             this.character = character;
             ability = new Ability();
 
+            //Bind the specials listbox to the ability's list of specials
+            listBoxSpecial.DataSource = ability.SpecialRules;
+            listBoxSpecial.DisplayMember = "SyntaxActual";
+            
             //Setup the delays for the tooltip
             toolTip1.AutoPopDelay = 20000;
             toolTip1.InitialDelay = 1000;
@@ -91,12 +95,16 @@ namespace CharacterCreator
         #endregion
         //===================================================================
 
+
         //===================================================================
         #region Event Methods
         private void buttonAddSpecial_Click(object sender, EventArgs e)
         {
             SpecialForm sf = new SpecialForm(ability);
             sf.ShowDialog();
+            listBoxSpecial.DataSource = null;
+            listBoxSpecial.DataSource = ability.SpecialRules;
+            listBoxSpecial.DisplayMember = "SyntaxActual";
             updateAbility();
         }
 

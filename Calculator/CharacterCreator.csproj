@@ -118,6 +118,7 @@
     <Compile Include="Classes\SpecialRules\Stream.cs" />
     <Compile Include="Classes\SpecialRules\Throw.cs" />
     <Compile Include="Classes\SpecialRules\Trip.cs" />
+    <Compile Include="Classes\SpecialRuleVariables\TenToNegativeTen.cs" />
     <Compile Include="Classes\SpecialRuleVariables\PoisonType.cs" />
     <Compile Include="Classes\SpecialRuleVariables\MultipleOfFive.cs" />
     <Compile Include="Classes\SpecialRuleVariables\Distance.cs" />

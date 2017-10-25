@@ -30,6 +30,7 @@ namespace CharacterCreator
         private void SpecialForm_Load(object sender, EventArgs e)
         {
             //TODO Until I find a better way, this list is typed manually.
+            //TODO Might add special rules from the Ability to the form first, so that existing rules are near the top.
             clbSpecials.Items.Add(new Acid());
             clbSpecials.Items.Add(new ArmorBuster());
             clbSpecials.Items.Add(new Blast());
@@ -160,10 +161,10 @@ namespace CharacterCreator
                 ParameterForm pform = new ParameterForm(rule);
                 pform.ShowDialog();
             }
-            //TODO A second round of validation is necessary after all of this, because rules like Indirect must be coupled with Range, TechRange, or Reach.  Not sure how to handle this yet.
 
             //TODO Add the special rules to the ability, or update them if it already has them (or just replace the list).
             //TODO All this stuff still has to be reflected back on the Ability form, of course.
+            //TODO Have to make sure the Ability is properly modified after commiting the specials, too.
             ability.SpecialRules = rules;
 
             //TODO All told, exit.
