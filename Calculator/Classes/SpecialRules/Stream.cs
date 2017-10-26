@@ -78,15 +78,15 @@ namespace CharacterCreator.Classes.SpecialRules
             }
         }
 
-        public override decimal calculateEnergyCost(decimal baseDamage)
+        public override decimal calculateEnergyCost(decimal energyModifier)
         {
             decimal squareInches = variables["L"].Value * variables["W"].Value;
-            return Math.Ceiling(squareInches / 5m) * 0.2m * baseDamage;
+            return Math.Ceiling(squareInches / 5m) * energyModifier;
         }
 
         public override string howIsEnergyCostCalculated()
         {
-            return "(L x W) / 5 x 20% of the ability's base damage";
+            return "(L x W) / 5 x 1 energy modifier";
         }
 
         public override IDictionary<string, SpecialRuleVariable> Variables

@@ -71,15 +71,15 @@ namespace CharacterCreator.Classes.SpecialRules
         #endregion
 
         #region Methods
-        public override decimal calculateEnergyCost(decimal baseDamage)
+        public override decimal calculateEnergyCost(decimal energyModifier)
         {
             //Note: in classic terminology, 1 Energy Modifier is represented as 0.2m here, so 2 modifiers would be 0.4m, etc.
             var moddedS = variables["S"].Value + 3;
-            return 5 * moddedS + variables["R"].Value * 0.2m * baseDamage;
+            return 5 * moddedS + variables["R"].Value * energyModifier;
         }
         public override string howIsEnergyCostCalculated()
         {
-            return "5 x (S + 3) + R x 20% of the ability's base damage";
+            return "5 x (S + 3) + R x 1 energy modifier";
         }
 
         #endregion

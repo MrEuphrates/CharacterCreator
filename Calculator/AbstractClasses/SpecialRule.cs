@@ -88,7 +88,7 @@ namespace CharacterCreator.AbstractClasses
 
         //=============================================================
         #region Abstract Methods
-        public abstract decimal calculateEnergyCost(decimal baseDamage);  //TODO Pretty sure when I start using params, this will change
+        public abstract decimal calculateEnergyCost(decimal energyModifier);  //TODO Pretty sure when I start using params, this will change
         public abstract string howIsEnergyCostCalculated();
         #endregion
         //=============================================================

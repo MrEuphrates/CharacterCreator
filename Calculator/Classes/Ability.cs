@@ -9,6 +9,7 @@ namespace CharacterCreator.Classes
 {
     public class Ability
     {
+        #region Properties
         public decimal Time { get; set; }
         public string Name { get; set; }
         public decimal Energy { get; set; }
@@ -29,5 +30,21 @@ namespace CharacterCreator.Classes
                 specialRules = value;
             }
         }
+        #endregion
+
+        #region Methods
+        public decimal getEnergyModifier()
+        {
+            decimal baseMod = BaseDamage * 0.2m;
+            if (baseMod % 5 != 0) baseMod = baseMod + (5 - (baseMod % 5));
+            return baseMod;
+        }
+        public decimal getEnergyModifier(decimal baseDamage)
+        {
+            decimal baseMod = baseDamage * 0.2m;
+            if (baseMod % 5 != 0) baseMod = baseMod + (5 - (baseMod % 5));
+            return baseMod;
+        }
+        #endregion
     }
 }

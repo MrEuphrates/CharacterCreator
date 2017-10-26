@@ -84,16 +84,16 @@ namespace CharacterCreator.Classes.SpecialRules
         #endregion
 
         #region Methods
-        public override decimal calculateEnergyCost(decimal baseDamage)
+        public override decimal calculateEnergyCost(decimal energyModifier)
         {
             //Note: in classic terminology, 1 Energy Modifier is represented as 0.2m here, so 2 modifiers would be 0.4m, etc.
             //TODO Should IFF be damage-based, or should it depend on the effects of the ability?
-            return baseDamage * 0.2m;
+            return energyModifier;
         }
 
         public override string howIsEnergyCostCalculated()
         {
-            return "20% of the ability's base damage";
+            return "1 energy modifier";
         }
         #endregion
     }

@@ -95,7 +95,7 @@ namespace CharacterCreator.Classes.SpecialRules
         #endregion
 
         #region Methods
-        public override decimal calculateEnergyCost(decimal baseDamage)
+        public override decimal calculateEnergyCost(decimal energyModifier)
         {
             //TODO This may not be a fair way to get the cost.  Like, is a Strength 5 Paralyze with a Duration of 2 really as good as a Strength 10 Paralyze with a Duration of 1?
             //Note: in classic terminology, 1 Energy Modifier is represented as 0.2m here, so 2 modifiers would be 0.4m, etc.

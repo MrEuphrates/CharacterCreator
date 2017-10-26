@@ -88,10 +88,10 @@ namespace CharacterCreator.Classes.SpecialRules
         #endregion
 
         #region Methods
-        public override decimal calculateEnergyCost(decimal baseDamage)
+        public override decimal calculateEnergyCost(decimal energyModifier)
         {
             //Note: in classic terminology, 1 Energy Modifier is represented as 0.2m here, so 2 modifiers would be 0.4m, etc.
-            return baseDamage * 0.2m;
+            return energyModifier;
         }
         public override bool specialRuleIsValid(Ability ability, List<SpecialRule> rules)
         {
@@ -104,7 +104,7 @@ namespace CharacterCreator.Classes.SpecialRules
         }
         public override string howIsEnergyCostCalculated()
         {
-            return "20% of the ability's base damage";
+            return "1 energy modifier";
         }
         #endregion
     }

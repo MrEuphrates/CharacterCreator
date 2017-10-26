@@ -1,4 +1,7 @@
-﻿10/25/17
+﻿1-/26/17 REH
+I reworked energy calcs to use energy modifiers.  Tested.
+
+10/25/17
 When I left off about 220pm, I decided that I need to rework energy calc in this tool, because I implemented it using percentages of the base damage, but really, I should be using the rules as written,
 and therefore using energy modifiers instead.  So I need to implement that, including a display on the Ability form so the user knows what the modifier is, currently.
 

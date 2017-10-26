@@ -64,35 +64,38 @@ namespace CharacterCreator
         }
         private void updateEnergyCost()
         {
-            //TODO I implemented with percentages, but instead I should be using energy modifiers.  I'll have to pick up with that.
-            //Get the basic energy cost of this ability based on the damage.
-            var baseEnergy = nudDamageBase.Value / 2;
-            var energy = baseEnergy;
+            //Get the energy modifiers.
+            var energyModifier = ability.getEnergyModifier(nudDamageBase.Value);
+            nudEnergyModifier.Value = energyModifier;
+            var totalEnergyModifier = energyModifier * nudAttacks.Value;
 
-            //Check the Time and adjust the cost accordingly, based on actual total damage.
-            var time = nudTime.Value;
-            var baseDamageTotal = nudDamageBase.Value * nudAttacks.Value;
-            decimal expectedTime = (baseDamageTotal - baseDamageTotal % 100) / 100;
-            if (baseDamageTotal % 100 != 0) ++expectedTime;
-            var timeEnergyCost = ((expectedTime - time) * 0.2m)* baseDamageTotal;
-            energy += timeEnergyCost;
+            //Get energy cost based on time.
+            var baseDamage = nudDamageBase.Value;
+            var attacks = nudAttacks.Value;
+            var totalBaseDamage = baseDamage * attacks;
+            var expectedTime = (totalBaseDamage - totalBaseDamage % 100) / 100;
+            if (totalBaseDamage % 100 != 0) ++expectedTime;
+            var timeEnergyCost = (expectedTime - nudTime.Value) * totalEnergyModifier;
 
-            //Calculate the cost of the special rules and add them to the energy cost.
-            var specialsBaseCost = getEnergyCostOfSpecials();
-            energy += specialsBaseCost * nudAttacks.Value;
+            //Get the base energy cost
+            var baseEnergyCost = totalBaseDamage / 2;
+
+            //Get the energy cost from the special rules
+            decimal specialRulesEnergyCost = 0;
+            foreach (SpecialRule rule in ability.SpecialRules) specialRulesEnergyCost += rule.calculateEnergyCost(energyModifier);
+            specialRulesEnergyCost *= attacks;
+            //TODO Have to rework energy calcs on rules to use energy mod, not damage
+
+            //Summarize energy costs.
+            var totalEnergy = timeEnergyCost + baseEnergyCost + specialRulesEnergyCost;
 
             //Energy costs are always multiples of 5, so round up.
-            if (energy % 5 != 0) energy = energy + (5 - energy % 5);
+            if (totalEnergy % 5 != 0) totalEnergy = totalEnergy + (5 - totalEnergy % 5);
 
             //Set the ability's energy cost.
-            nudEnergy.Value = energy;
+            nudEnergy.Value = totalEnergy;
         }
-        private decimal getEnergyCostOfSpecials()
-        {//TODO What about when the damage is 0?  Some special rules are going to care about that.
-            decimal energy = 0;
-            foreach(SpecialRule rule in ability.SpecialRules) energy += rule.calculateEnergyCost(nudDamageBase.Value);
-            return energy;
-        }
+
         #endregion
         //===================================================================
 

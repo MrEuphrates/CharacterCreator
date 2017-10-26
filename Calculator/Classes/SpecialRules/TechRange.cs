@@ -99,19 +99,19 @@ namespace CharacterCreator.Classes.SpecialRules
         #endregion
 
         #region Methods
-        public override decimal calculateEnergyCost(decimal baseDamage)
+        public override decimal calculateEnergyCost(decimal energyModifier)
         {
             //Note: in classic terminology, 1 Energy Modifier is represented as 0.2m here, so 2 modifiers would be 0.4m, etc.
             //TODO Range is interesting because it doesn't work quite like other special rules in its affect on an ability.  Not sure how to handle that yet.
             decimal range = variables["R"].Value;
             decimal modifiers = Math.Ceiling(range / 5m);
             ++modifiers;
-            return modifiers * 0.2m * baseDamage;
+            return modifiers * energyModifier;
         }
 
         public override string howIsEnergyCostCalculated()
         {
-            return "((R / 5) + 1) x 20% of the ability's base damage";
+            return "((R / 5) + 1) x 1 energy modifier";
         }
         #endregion
     }

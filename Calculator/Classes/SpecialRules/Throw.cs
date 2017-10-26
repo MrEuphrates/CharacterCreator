@@ -89,14 +89,14 @@ namespace CharacterCreator.Classes.SpecialRules
         #endregion
 
         #region Methods
-        public override decimal calculateEnergyCost(decimal baseDamage)
+        public override decimal calculateEnergyCost(decimal energyModifier)
         {
-            return baseDamage * 0.2m;
+            return energyModifier;
         }
 
         public override string howIsEnergyCostCalculated()
         {
-            return "20% of the ability's base damage";
+            return "1 energy modifier";
         }
         #endregion
     }

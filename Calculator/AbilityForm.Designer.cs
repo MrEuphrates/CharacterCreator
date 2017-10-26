@@ -46,11 +46,14 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label7 = new System.Windows.Forms.Label();
             this.nudAttacks = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.nudEnergyModifier = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.nudTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEnergy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDamageBase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDamageActual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAttacks)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEnergyModifier)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -70,9 +73,19 @@
             0,
             0,
             0});
+            this.nudTime.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudTime.Name = "nudTime";
             this.nudTime.Size = new System.Drawing.Size(42, 20);
             this.nudTime.TabIndex = 1;
+            this.nudTime.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudTime.ValueChanged += new System.EventHandler(this.nudTime_ValueChanged);
             // 
             // label2
@@ -213,7 +226,6 @@
             // 
             // nudAttacks
             // 
-            this.nudAttacks.Enabled = false;
             this.nudAttacks.Location = new System.Drawing.Point(540, 26);
             this.nudAttacks.Minimum = new decimal(new int[] {
             1,
@@ -230,11 +242,35 @@
             0});
             this.nudAttacks.ValueChanged += new System.EventHandler(this.nudAttacks_ValueChanged);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(117, 56);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(83, 13);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Energy Modifier:";
+            // 
+            // nudEnergyModifier
+            // 
+            this.nudEnergyModifier.Enabled = false;
+            this.nudEnergyModifier.Location = new System.Drawing.Point(206, 52);
+            this.nudEnergyModifier.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudEnergyModifier.Name = "nudEnergyModifier";
+            this.nudEnergyModifier.Size = new System.Drawing.Size(58, 20);
+            this.nudEnergyModifier.TabIndex = 17;
+            // 
             // AbilityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(598, 308);
+            this.Controls.Add(this.nudEnergyModifier);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.nudAttacks);
             this.Controls.Add(this.txtDisplay);
@@ -258,6 +294,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudDamageBase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDamageActual)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAttacks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEnergyModifier)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,5 +319,7 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown nudAttacks;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.NumericUpDown nudEnergyModifier;
     }
 }

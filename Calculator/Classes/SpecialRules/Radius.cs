@@ -76,7 +76,7 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                return "Radius R";
+                return Name + " R";
             }
         }
 
@@ -84,7 +84,7 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                return "Range " + variables["R"].Value;
+                return Name + " " + variables["R"].Value;
             }
         }
 
@@ -104,15 +104,15 @@ namespace CharacterCreator.Classes.SpecialRules
         #endregion
 
         #region Methods
-        public override decimal calculateEnergyCost(decimal baseDamage)
+        public override decimal calculateEnergyCost(decimal energyModifier)
         {
             //Note: in classic terminology, 1 Energy Modifier is represented as 0.2m here, so 2 modifiers would be 0.4m, etc.
-            return baseDamage * variables["R"].Value * 0.2m;
+            return energyModifier * variables["R"].Value;
         }
 
         public override string howIsEnergyCostCalculated()
         {
-            return "R x 20% of the ability's base damage";
+            return "R x 1 energy modifier";
         }
 
         #endregion

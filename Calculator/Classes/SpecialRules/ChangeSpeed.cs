@@ -93,7 +93,7 @@ namespace CharacterCreator.Classes.SpecialRules
             }
         }
 
-        public override decimal calculateEnergyCost(decimal baseDamage)
+        public override decimal calculateEnergyCost(decimal energyModifier)
         {
             return 25 * Math.Abs(variables["C"].Value) * variables["D"].Value;
         }
