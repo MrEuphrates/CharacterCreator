@@ -49,6 +49,7 @@ namespace CharacterCreator
         {
             //TODO Whenever anything about this ability changes, this method needs to be called.
             ability.Time = nudTime.Value;
+            ability.Name = txtName.Text;
             ability.BaseDamage = nudDamageBase.Value;
             ability.Damage = nudDamageActual.Value;  //TODO Perhaps Ability should know how to set the actual damage instead of the form?
             List<SpecialRule> sr = new List<SpecialRule>();
@@ -61,6 +62,10 @@ namespace CharacterCreator
             //After updating everything about the Ability instance, update the energy cost and then record it.
             updateEnergyCost();
             ability.Energy = nudEnergy.Value;
+            ability.Attacks = nudAttacks.Value;
+
+            //TODO Output the ability as it will appear on a character sheet.
+            txtDisplay.Text = ability.Syntax;
         }
         private void updateEnergyCost()
         {

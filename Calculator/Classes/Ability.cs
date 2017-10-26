@@ -30,6 +30,24 @@ namespace CharacterCreator.Classes
                 specialRules = value;
             }
         }
+        public string Syntax
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append(Convert.ToInt32(Time) + " ");
+                sb.Append(Name + " ");
+                sb.Append(Convert.ToInt32(Energy) + "/" + Convert.ToInt32(BaseDamage) + " (" + Convert.ToInt32(Damage) + ")  ");
+                if (Attacks > 1) sb.Append(Convert.ToInt32(Attacks) + " attacks.  ");
+                if (SpecialRules.Count == 1) sb.Append(SpecialRules[0].SyntaxActual);
+                else if(SpecialRules.Count > 1)
+                {
+                    sb.Append(SpecialRules[0].SyntaxActual);
+                    for (int i = 1; i < SpecialRules.Count; ++i) sb.Append(", " + SpecialRules[i].SyntaxActual);
+                }
+                return sb.ToString();
+            }
+        }
         #endregion
 
         #region Methods
