@@ -1,5 +1,6 @@
 ﻿10/26/17 REH
 Added output of the syntax to the ability form.  Modified to update and display the ability with the "requires input" feature, flagging and labeling abilities that will require more input from me.
+Not sure what to work on next.  Ability form might be done, may be time to have it pulled back to the character sheet.
 
 10/25/17
 When I left off about 220pm, I decided that I need to rework energy calc in this tool, because I implemented it using percentages of the base damage, but really, I should be using the rules as written,
