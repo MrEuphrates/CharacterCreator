@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CharacterCreator.AbstractClasses;
+using CharacterCreator.Classes.SpecialRules;
 
 namespace CharacterCreator.Classes
 {
     public class Ability
     {
+        public enum AbilityType { Basic, Special, Ability }
+
         #region Properties
         public decimal Time { get; set; }
         public string Name { get; set; }
@@ -17,6 +20,8 @@ namespace CharacterCreator.Classes
         public decimal Damage { get; set; }
         public decimal Attacks { get; set; }
         public double CharacterPoints { get; }
+        public bool RequiresInput { get; set; }
+        public string InputDescription { get; set; }
         private List<SpecialRule> specialRules;
         public List<SpecialRule> SpecialRules
         {
@@ -45,7 +50,20 @@ namespace CharacterCreator.Classes
                     sb.Append(SpecialRules[0].SyntaxActual);
                     for (int i = 1; i < SpecialRules.Count; ++i) sb.Append(", " + SpecialRules[i].SyntaxActual);
                 }
+                if (RequiresInput) sb.Append("  *** " + InputDescription);
                 return sb.ToString();
+            }
+        }
+        private AbilityType abilityType;
+        public AbilityType Type
+        {
+            get
+            {
+                if (BaseDamage == 0) return AbilityType.Ability;
+                var countOfRules = SpecialRules.Count;
+                if (SpecialRules.Contains(new Range()) || SpecialRules.Contains(new TechRange())) --countOfRules;
+                if (BaseDamage > 100 || countOfRules > 1) return AbilityType.Special;
+                return AbilityType.Basic;
             }
         }
         #endregion

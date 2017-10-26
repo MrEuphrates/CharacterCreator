@@ -46,7 +46,7 @@ namespace CharacterCreator
         //===================================================================
         #region Methods
         private void updateAbility()
-        {
+        {//TODO User needs to be able to flag an ability as incomplete due to needing input from me, and a description of what they want to accomplish.
             //TODO Whenever anything about this ability changes, this method needs to be called.
             ability.Time = nudTime.Value;
             ability.Name = txtName.Text;
@@ -64,7 +64,7 @@ namespace CharacterCreator
             ability.Energy = nudEnergy.Value;
             ability.Attacks = nudAttacks.Value;
 
-            //TODO Output the ability as it will appear on a character sheet.
+            //Output the ability as it will appear on a character sheet.
             txtDisplay.Text = ability.Syntax;
         }
         private void updateEnergyCost()
@@ -136,6 +136,19 @@ namespace CharacterCreator
 
         private void nudAttacks_ValueChanged(object sender, EventArgs e)
         {
+            updateAbility();
+        }
+
+        private void cbxRequiresAdditionalInput_CheckedChanged(object sender, EventArgs e)
+        {
+            ability.RequiresInput = cbxRequiresAdditionalInput.Checked;
+            rtbAdditionalInputDescription.Enabled = ability.RequiresInput;
+            updateAbility();
+        }
+
+        private void rtbAdditionalInputDescription_TextChanged(object sender, EventArgs e)
+        {
+            ability.InputDescription = rtbAdditionalInputDescription.Text;
             updateAbility();
         }
         #endregion
