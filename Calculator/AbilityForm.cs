@@ -46,12 +46,12 @@ namespace CharacterCreator
         //===================================================================
         #region Methods
         private void updateAbility()
-        {//TODO User needs to be able to flag an ability as incomplete due to needing input from me, and a description of what they want to accomplish.
-            //TODO Whenever anything about this ability changes, this method needs to be called.
+        {
+            //Whenever anything about this ability changes, this method needs to be called.
             ability.Time = nudTime.Value;
             ability.Name = txtName.Text;
             ability.BaseDamage = nudDamageBase.Value;
-            ability.Damage = nudDamageActual.Value;  //TODO Perhaps Ability should know how to set the actual damage instead of the form?
+            ability.Damage = nudDamageActual.Value;
             List<SpecialRule> sr = new List<SpecialRule>();
             foreach (var i in listBoxSpecial.Items)
             {
@@ -89,7 +89,6 @@ namespace CharacterCreator
             decimal specialRulesEnergyCost = 0;
             foreach (SpecialRule rule in ability.SpecialRules) specialRulesEnergyCost += rule.calculateEnergyCost(energyModifier);
             specialRulesEnergyCost *= attacks;
-            //TODO Have to rework energy calcs on rules to use energy mod, not damage
 
             //Summarize energy costs.
             var totalEnergy = timeEnergyCost + baseEnergyCost + specialRulesEnergyCost;
@@ -124,8 +123,7 @@ namespace CharacterCreator
                 nudDamageBase.Value = nudDamageBase.Value - nudDamageBase.Value % 10;
                 return;
             }
-            if (character.Strength >= 6) nudDamageActual.Value = nudDamageBase.Value * (decimal)((character.Strength / 10) + 0.5);
-            else nudDamageActual.Value = nudDamageBase.Value;
+            nudDamageActual.Value = character.getActualDamage(nudDamageBase.Value);
             updateAbility();
         }
 

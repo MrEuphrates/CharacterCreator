@@ -32,6 +32,13 @@ namespace CharacterCreator.Classes
             CharacterPoints = totalCP;
             return CharacterPoints;
         }
+        public decimal getActualDamage(decimal baseDamage)
+        {
+            decimal actualDamage = 0;
+            if (Strength >= 6) actualDamage = baseDamage * (decimal)((Strength / 10) + 0.5);
+            else actualDamage = baseDamage;
+            return actualDamage;
+        }
         #endregion
     }
 }
