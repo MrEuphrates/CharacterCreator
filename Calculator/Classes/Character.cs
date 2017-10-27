@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CharacterCreator.AbstractClasses;
+using CharacterCreator.Classes.SpecialRules;
 
 namespace CharacterCreator.Classes
 {
@@ -32,12 +34,26 @@ namespace CharacterCreator.Classes
             CharacterPoints = totalCP;
             return CharacterPoints;
         }
-        public decimal getActualDamage(decimal baseDamage)
+        public decimal getActualDamage(decimal baseDamage, List<SpecialRule> rules)
         {
+            if (baseDamage == 0) return baseDamage;
+
             decimal actualDamage = 0;
-            if (Strength >= 6) actualDamage = baseDamage * (decimal)((Strength / 10) + 0.5);
+            double stat = 0;
+
+            //Determine which stat to get the bonus from
+            if (rules.Contains(new Range())) stat = Marksmanship;
+            else if (rules.Contains(new TechMelee()) || rules.Contains(new TechRange())) stat = Tech;
+            else stat = Strength;
+
+            //Calculate the actual damage based on the bonus
+            if (stat >= 6) actualDamage = baseDamage * (decimal)((stat / 10) + 0.5);
             else actualDamage = baseDamage;
             return actualDamage;
+        }
+        public void addAbility(Ability ability)
+        {
+
         }
         #endregion
     }

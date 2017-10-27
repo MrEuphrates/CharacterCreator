@@ -51,6 +51,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.listBoxAbilities = new System.Windows.Forms.ListBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.cmdEditAbility = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudMight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStrength)).BeginInit();
@@ -329,11 +330,21 @@
             this.label10.TabIndex = 19;
             this.label10.Text = "Abilities";
             // 
+            // cmdEditAbility
+            // 
+            this.cmdEditAbility.Location = new System.Drawing.Point(93, 104);
+            this.cmdEditAbility.Name = "cmdEditAbility";
+            this.cmdEditAbility.Size = new System.Drawing.Size(75, 23);
+            this.cmdEditAbility.TabIndex = 21;
+            this.cmdEditAbility.Text = "Edit Ability";
+            this.cmdEditAbility.UseVisualStyleBackColor = true;
+            // 
             // CharacterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(552, 657);
+            this.Controls.Add(this.cmdEditAbility);
             this.Controls.Add(this.listBoxAbilities);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.listBoxAttacksSpecial);
@@ -393,5 +404,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ListBox listBoxAbilities;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button cmdEditAbility;
     }
 }

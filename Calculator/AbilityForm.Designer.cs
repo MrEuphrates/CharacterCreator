@@ -52,6 +52,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.rtbAdditionalInputDescription = new System.Windows.Forms.RichTextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.cmdOK = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEnergy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDamageBase)).BeginInit();
@@ -308,11 +309,22 @@
             this.label10.TabIndex = 21;
             this.label10.Text = "Describe what it is you want to do that this tool does not represent:";
             // 
+            // cmdOK
+            // 
+            this.cmdOK.Location = new System.Drawing.Point(506, 448);
+            this.cmdOK.Name = "cmdOK";
+            this.cmdOK.Size = new System.Drawing.Size(75, 23);
+            this.cmdOK.TabIndex = 22;
+            this.cmdOK.Text = "OK";
+            this.cmdOK.UseVisualStyleBackColor = true;
+            this.cmdOK.Click += new System.EventHandler(this.cmdOK_Click);
+            // 
             // AbilityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(593, 502);
+            this.ClientSize = new System.Drawing.Size(593, 476);
+            this.Controls.Add(this.cmdOK);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.rtbAdditionalInputDescription);
             this.Controls.Add(this.label9);
@@ -373,5 +385,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RichTextBox rtbAdditionalInputDescription;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button cmdOK;
     }
 }

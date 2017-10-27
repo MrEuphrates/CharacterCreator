@@ -24,23 +24,38 @@ namespace CharacterCreator
             InitializeComponent();
             this.character = character;
             ability = new Ability();
+            setupForm();
+        }
 
+        public AbilityForm(Character character, Ability ability)
+        {//TODO Have to work on the interactions between Character and Ability forms.
+            InitializeComponent();
+            setupForm();
+        }
+
+        private void setupForm()
+        {
             //Bind the specials listbox to the ability's list of specials
             listBoxSpecial.DataSource = ability.SpecialRules;
             listBoxSpecial.DisplayMember = "SyntaxActual";
-            
+
             //Setup the delays for the tooltip
             toolTip1.AutoPopDelay = 20000;
             toolTip1.InitialDelay = 1000;
             toolTip1.ReshowDelay = 500;
             toolTip1.ShowAlways = true;
 
+            //TODO Finish the tooltips
             //Setup the tooltip for the controls
             toolTip1.SetToolTip(nudDamageBase, "The basic amount of damage dealt by this ability.  Must be a multiple of 10.  Leave as 0 if this ability " +
                 "is not meant to deal damage.");
             toolTip1.SetToolTip(nudTime, "The amount of time which must be spent to use this ability.  Characters are limited to 10 per round.  The " +
                 "recommended amount of Time for an ability is 1 per 100.  The energy cost increases if Time is below the recommended amount, and the " +
                 "reverse is also true.");
+            toolTip1.SetToolTip(txtName, "The name of this ability.  You may call it whatever you like, but the name should reflect what the ability does or represents.");
+            toolTip1.SetToolTip(nudDamageActual, "Characters with stats of 6 or higher receive bonus damage for abilities which use that stat to attack.  For example, "+
+                "melee abilities will gain 10% extra damage per point of Strength above 5, whereas ranged abilities gain this bonus per point of Marksmanship above 5.");
+            //TODO Just realized the actual damage is tied to Strength, Marksmanship, or Tech, depending on which special rules are and are not selected.
         }
 
         //===================================================================
@@ -99,6 +114,10 @@ namespace CharacterCreator
             //Set the ability's energy cost.
             nudEnergy.Value = totalEnergy;
         }
+        private void updateActualDamage()
+        {
+            nudDamageActual.Value = character.getActualDamage(nudDamageBase.Value, ability.SpecialRules);
+        }
 
         #endregion
         //===================================================================
@@ -113,6 +132,7 @@ namespace CharacterCreator
             listBoxSpecial.DataSource = null;
             listBoxSpecial.DataSource = ability.SpecialRules;
             listBoxSpecial.DisplayMember = "SyntaxActual";
+            updateActualDamage();
             updateAbility();
         }
 
@@ -123,7 +143,7 @@ namespace CharacterCreator
                 nudDamageBase.Value = nudDamageBase.Value - nudDamageBase.Value % 10;
                 return;
             }
-            nudDamageActual.Value = character.getActualDamage(nudDamageBase.Value);
+            updateActualDamage();
             updateAbility();
         }
 
@@ -148,6 +168,12 @@ namespace CharacterCreator
         {
             ability.InputDescription = rtbAdditionalInputDescription.Text;
             updateAbility();
+        }
+
+        private void cmdOK_Click(object sender, EventArgs e)
+        {
+            updateAbility();
+            character.addAbility(ability);
         }
         #endregion
         //===================================================================
