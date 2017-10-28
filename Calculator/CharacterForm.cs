@@ -24,6 +24,23 @@ namespace CharacterCreator
             startingCharacterPoints = characterPoints;
             character = new Character();
             updateStats();
+
+            refreshListBoxes();
+        }
+        private void refreshListBoxes()
+        {
+            //Bind the abilities lists to their appropriate listboxes.
+            listBoxAttacksBasic.DataSource = null;
+            listBoxAttacksBasic.DataSource = character.BasicAttacks;
+            listBoxAttacksBasic.DisplayMember = "Syntax";
+
+            listBoxAttacksSpecial.DataSource = null;
+            listBoxAttacksSpecial.DataSource = character.SpecialAttacks;
+            listBoxAttacksSpecial.DisplayMember = "Syntax";
+
+            listBoxAbilities.DataSource = null;
+            listBoxAbilities.DataSource = character.SpecialAbilities;
+            listBoxAbilities.DisplayMember = "Syntax";
         }
 
         private void updateStats()
@@ -79,6 +96,7 @@ namespace CharacterCreator
         {
             AbilityForm af = new AbilityForm(character);
             af.ShowDialog();
+            refreshListBoxes();
         }
     }
 }

@@ -42,7 +42,9 @@ namespace CharacterCreator.Classes
                 StringBuilder sb = new StringBuilder();
                 sb.Append(Convert.ToInt32(Time) + " ");
                 sb.Append(Name + " ");
-                sb.Append(Convert.ToInt32(Energy) + "/" + Convert.ToInt32(BaseDamage) + " (" + Convert.ToInt32(Damage) + ")  ");
+                sb.Append(Convert.ToInt32(Energy) + "/");
+                if (BaseDamage == Damage) sb.Append(Convert.ToInt32(BaseDamage) + "  ");
+                else sb.Append(Convert.ToInt32(BaseDamage) + " (" + Convert.ToInt32(Damage) + ")  ");
                 if (Attacks > 1) sb.Append(Convert.ToInt32(Attacks) + " attacks.  ");
                 if (SpecialRules.Count == 1) sb.Append(SpecialRules[0].SyntaxActual);
                 else if(SpecialRules.Count > 1)
@@ -80,6 +82,31 @@ namespace CharacterCreator.Classes
             decimal baseMod = baseDamage * 0.2m;
             if (baseMod % 5 != 0) baseMod = baseMod + (5 - (baseMod % 5));
             return baseMod;
+        }
+
+        public override bool Equals(object obj)
+        {
+            //If the param is null, return False
+            if (obj == null) return false;
+
+            //If param cannot be cast as Ability, return false
+            Ability r = obj as Ability;
+            if ((System.Object)r == null) return false;
+
+            //If the names of the abilities match, they are considered equal
+            if (this.Name == r.Name) return true;
+
+            return false;
+        }
+
+        public bool Equals(SpecialRule r)
+        {
+            if ((object)r == null) return false;
+
+            //If the names of the abilities match, they are considered equal
+            if (this.Name == r.Name) return true;
+
+            return false;
         }
         #endregion
     }

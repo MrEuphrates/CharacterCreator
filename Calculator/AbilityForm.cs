@@ -174,6 +174,7 @@ namespace CharacterCreator
         {
             updateAbility();
             character.addAbility(ability);
+            this.Dispose();
         }
         #endregion
         //===================================================================
