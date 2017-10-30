@@ -10,6 +10,9 @@ namespace CharacterCreator.Classes.SpecialRuleVariables
     {
         public MaxTen(string variable) : base(variable){ }
 
+        //Can't serialize without a parameterless constructor
+        public MaxTen() : base("") { }
+
         public override string Description
         {
             get

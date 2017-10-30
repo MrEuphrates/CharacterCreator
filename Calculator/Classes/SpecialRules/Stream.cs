@@ -8,7 +8,7 @@ using CharacterCreator.Classes.SpecialRuleVariables;
 
 namespace CharacterCreator.Classes.SpecialRules
 {
-    class Stream : AbstractClasses.SpecialRule
+    public class Stream : AbstractClasses.SpecialRule
     {
         public override int CalculationOrder
         {

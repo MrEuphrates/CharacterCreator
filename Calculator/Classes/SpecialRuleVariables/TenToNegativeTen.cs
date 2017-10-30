@@ -10,6 +10,9 @@ namespace CharacterCreator.Classes.SpecialRuleVariables
     {
         public TenToNegativeTen(string variable) : base(variable){ }
 
+        //Can't serialize without a parameterless constructor
+        public TenToNegativeTen() : base("") { }
+
         public override string Description
         {
             get

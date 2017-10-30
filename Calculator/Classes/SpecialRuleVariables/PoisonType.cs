@@ -12,6 +12,9 @@ namespace CharacterCreator.Classes.SpecialRuleVariables
         public PType poisonType;
 
         public PoisonType(string variable) : base(variable){ }
+        
+        //Can't serialize without a parameterless constructor
+        public PoisonType() : base("") { }
 
         public PoisonType(PType type) : base("")
         {

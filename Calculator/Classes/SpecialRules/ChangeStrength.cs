@@ -8,7 +8,7 @@ using CharacterCreator.Classes.SpecialRuleVariables;
 
 namespace CharacterCreator.Classes.SpecialRules
 {
-    class ChangeStrength : ChangeSpeed
+    public class ChangeStrength : ChangeSpeed
     {
         public override int CalculationOrder
         {

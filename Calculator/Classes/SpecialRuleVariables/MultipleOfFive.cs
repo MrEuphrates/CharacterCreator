@@ -10,6 +10,9 @@ namespace CharacterCreator.Classes.SpecialRuleVariables
     {
         public MultipleOfFive(string variable) : base(variable){ }
 
+        //Can't serialize without a parameterless constructor
+        public MultipleOfFive() : base("") { }
+
         public override string Description
         {
             get

@@ -163,7 +163,7 @@ namespace CharacterCreator
             try
             {
                 Character loadedCharacter = (Character)formatter.Deserialize(stream);
-                MessageBox.Show("Here's the syntax of the first basic attack: " + loadedCharacter.BasicAttacks[0].Syntax);
+                MessageBox.Show("Here's the syntax of the first special ability: " + loadedCharacter.SpecialAbilities[0].Syntax);
             }
             catch(Exception exe)
             {

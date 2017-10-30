@@ -9,7 +9,16 @@ using CharacterCreator.Classes.SpecialRuleVariables;
 
 namespace CharacterCreator.AbstractClasses
 {
+    #region Attributes
+    [XmlInclude(typeof(Distance))]
+    [XmlInclude(typeof(Duration))]
+    [XmlInclude(typeof(MaxTen))]
+    [XmlInclude(typeof(MultipleOfFive))]
     [XmlInclude(typeof(MultipleOfTen))]
+    [XmlInclude(typeof(PoisonType))]
+    [XmlInclude(typeof(Radius))]
+    [XmlInclude(typeof(TenToNegativeTen))]
+    #endregion
     public abstract class SpecialRuleVariable
     {
         protected string variable;

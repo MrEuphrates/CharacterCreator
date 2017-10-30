@@ -6,7 +6,13 @@ in the class.  So either I need to look to another formatter (BinaryFormatter or
 look into BinaryFormatter.
 
 I fell back on XmlSerializer for simplicity.  I have a rudimentary test functional, where I can save and load stats and abilities.  It needs formal testing, but the problem I want to work on
-next is working around having to have an XmlInclude attribute for every single special rule and special rule variable inheritor.
+next is working around having to have an XmlInclude attribute for every single special rule and special rule variable inheritor.  Turns out no, there is no way to get the derived types automatically.
+I have to specify them each explicitly.
+
+I implemented the XmlInclude attribute for every special rule and variable type.  Now I need to test serializing and deserializing every single special rule to make sure it works.
+
+I made the special rules and variables classes public, since they have to be, and I added parameterless constructors to the classes that needed them, since they're also required.  I successfully
+tested serializing again.  Now I have to test for every rule.
 
 10/28/17 REH
 Abilities are now saving to the character sheet and sorting into the appropriate list boxes. Next I need to allow users to edit existing abilities, make sure they

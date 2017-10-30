@@ -10,6 +10,9 @@ namespace CharacterCreator.Classes.SpecialRuleVariables
     {
         public Distance(string variable) : base(variable){ }
 
+        //Can't serialize without a parameterless constructor
+        public Distance() : base("") { }
+
         public override string Description
         {
             get

@@ -10,6 +10,9 @@ namespace CharacterCreator.Classes.SpecialRuleVariables
     {
         public Duration(string variable) : base(variable){ }
 
+        //Can't serialize without a parameterless constructor
+        public Duration() : base("") { }
+
         public override string Description
         {
             get

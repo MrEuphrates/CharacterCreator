@@ -10,7 +10,7 @@ namespace CharacterCreator.Classes.SpecialRuleVariables
     {
         public MultipleOfTen(string variable) : base(variable){ }
 
-        //TODO Can't serialize without a parameterless constructor
+        //Can't serialize without a parameterless constructor
         public MultipleOfTen() : base("") { }
 
         public override string Description
