@@ -219,18 +219,8 @@ namespace CharacterCreator
 
         private bool checkRulesCompatible(List<SpecialRule> rules)
         {
-            //Check each rule's list of incompatible rules and compare to the list of rules.
-            foreach(SpecialRule rule in rules)
-            {
-                foreach(SpecialRule iRule in rule.IncompatibleRules)
-                {
-                    if (rules.Contains(iRule))
-                    {
-                        MessageBox.Show(rule.Name + " is incompatible with " + iRule.Name);
-                        return false;
-                    }
-                }
-            }
+            //Check that every selected rule is compatible with every other selected rule.
+            foreach(SpecialRule rule in rules) if (!rule.IsCompatibleWith(rules)) return false;
             return true;
         }
 

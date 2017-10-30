@@ -134,6 +134,18 @@ namespace CharacterCreator
                 formatter.Serialize(outFile, character);
                 MessageBox.Show("Saved");
             }
+            catch(System.StackOverflowException soe)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append("Exception: " + soe.Message);
+                if (soe.InnerException != null) sb.Append("\n\nInner Exception: " + soe.InnerException.Message);
+                if (soe.InnerException.InnerException != null) sb.Append("\n\nInner x2 exception: " + soe.InnerException.InnerException.Message);
+                if (soe.InnerException.InnerException.InnerException != null) sb.Append("\n\nInner x3 exception: " + soe.InnerException.InnerException.InnerException.Message);
+                if (soe.InnerException.InnerException.InnerException.InnerException != null) sb.Append("\n\nInner x4 exception: " + soe.InnerException.InnerException.InnerException.InnerException.Message);
+                if (soe.InnerException.InnerException.InnerException.InnerException.InnerException != null) sb.Append("\n\nInner x5 exception: " + soe.InnerException.InnerException.InnerException.InnerException.InnerException.Message);
+                if (soe.InnerException.InnerException.InnerException.InnerException.InnerException.InnerException != null) sb.Append("\n\nInner x6 exception: " + soe.InnerException.InnerException.InnerException.InnerException.InnerException.InnerException.Message);
+                MessageBox.Show(sb.ToString());
+            }
             catch (Exception exe)
             {
                 StringBuilder sb = new StringBuilder();

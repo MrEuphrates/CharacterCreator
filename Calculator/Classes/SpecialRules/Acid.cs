@@ -36,7 +36,7 @@ namespace CharacterCreator.Classes.SpecialRules
             }
         }
 
-        public override List<SpecialRule> IncompatibleRules
+        protected override List<SpecialRule> IncompatibleRules
         {
             get
             {
@@ -51,7 +51,7 @@ namespace CharacterCreator.Classes.SpecialRules
                 return "Acid";
             }
         }
-
+        
         public override string NegationAndDuration
         {
             get

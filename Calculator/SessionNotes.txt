@@ -14,6 +14,19 @@ I implemented the XmlInclude attribute for every special rule and variable type.
 I made the special rules and variables classes public, since they have to be, and I added parameterless constructors to the classes that needed them, since they're also required.  I successfully
 tested serializing again.  Now I have to test for every rule.
 
+Armor Buster is causing a StackOverflowException that, despite being in a try-catch block, isn't being handled.  The exception occurs during serialization.  I tried it with Blast, too, and the same
+thing happens.
+
+Acid still works fine, though.  Blind worked, too.  Blast and Armor Buster didn’t.  Why?  So far, the common point seems to be with rules that have incompatible rules.  I did more testing and that 
+certainly appears to be the case.  So perhaps I need to change how I handle incompatible rules, anyway.  Maybe I’ll just make it a list of strings but it takes the name?  Maybe make the Name property
+ static?
+
+The list of incompatible rules shouldn’t be bound to an instance anyway.  Perhaps special rules should know whether or not something is incompatible based on a parameter instead?  I adjusted the way 
+I check for compatibility, giving SpecialRule a method called IsCompatibleWith, accepting a List of special rules and check for each one’s presence in the list of incompatible rules.  I then made the
+ IncompatibleRules property Protected, which should remove it from serialization (it’s not instance-related, anyway).  I tested compatibility checking briefly and it still works, which should apply 
+ across all the rules.  Now to test serialization of rules with incompatible rules again.  It worked!
+
+
 10/28/17 REH
 Abilities are now saving to the character sheet and sorting into the appropriate list boxes. Next I need to allow users to edit existing abilities, make sure they
 are resorted appropriately, and I need to work on saving and loading characters (which will aid in my testing, too).

@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Serialization;
 using CharacterCreator.Classes;
 using CharacterCreator.Classes.SpecialRules;
@@ -81,7 +82,7 @@ namespace CharacterCreator.AbstractClasses
         public abstract int CalculationOrder { get; }
         public abstract string Name { get; }
         public abstract string Description { get; }
-        public abstract List<SpecialRule> IncompatibleRules { get; }
+        protected abstract List<SpecialRule> IncompatibleRules { get; }
         //TODO Serialization isn't working for spec rules, try making variables public instead of protected
         //TODO For some reason, IDictionary isn't allowed in a serializable class.  So I'm using a custom dictionary made by Paul Welter.
         //public Dictionary<string, SpecialRuleVariable> variables;
@@ -225,6 +226,21 @@ namespace CharacterCreator.AbstractClasses
             }
             sb.Append(".");
             return sb.ToString();
+        }
+
+        public bool IsCompatibleWith(List<SpecialRule> rules)
+        {
+            //Check each rule's list of incompatible rules and compare to the list of rules.
+            if (rules.Count == 0) return true;
+            foreach(SpecialRule rule in rules)
+            {
+                if (IncompatibleRules.Contains(rule))
+                {
+                    MessageBox.Show(Name + " is incompatible with " + rule.Name);
+                    return false;
+                }
+            }
+            return true;
         }
 
         public virtual bool specialRuleIsValid(Ability ability, List<SpecialRule> rules)

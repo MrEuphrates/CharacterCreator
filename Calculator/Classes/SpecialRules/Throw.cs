@@ -36,7 +36,7 @@ namespace CharacterCreator.Classes.SpecialRules
             }
         }
 
-        public override List<SpecialRule> IncompatibleRules
+        protected override List<SpecialRule> IncompatibleRules
         {
             get
             {
