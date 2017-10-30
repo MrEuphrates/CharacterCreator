@@ -52,8 +52,6 @@
             this.listBoxAbilities = new System.Windows.Forms.ListBox();
             this.label10 = new System.Windows.Forms.Label();
             this.cmdEditAbility = new System.Windows.Forms.Button();
-            this.cmdSave = new System.Windows.Forms.Button();
-            this.cmdLoad = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudMight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStrength)).BeginInit();
@@ -78,7 +76,6 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(236, 20);
             this.txtName.TabIndex = 1;
-            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // label2
             // 
@@ -296,7 +293,7 @@
             this.listBoxAttacksBasic.FormattingEnabled = true;
             this.listBoxAttacksBasic.Location = new System.Drawing.Point(12, 146);
             this.listBoxAttacksBasic.Name = "listBoxAttacksBasic";
-            this.listBoxAttacksBasic.Size = new System.Drawing.Size(379, 95);
+            this.listBoxAttacksBasic.Size = new System.Drawing.Size(120, 95);
             this.listBoxAttacksBasic.TabIndex = 16;
             // 
             // listBoxAttacksSpecial
@@ -304,7 +301,7 @@
             this.listBoxAttacksSpecial.FormattingEnabled = true;
             this.listBoxAttacksSpecial.Location = new System.Drawing.Point(12, 275);
             this.listBoxAttacksSpecial.Name = "listBoxAttacksSpecial";
-            this.listBoxAttacksSpecial.Size = new System.Drawing.Size(379, 95);
+            this.listBoxAttacksSpecial.Size = new System.Drawing.Size(120, 95);
             this.listBoxAttacksSpecial.TabIndex = 18;
             // 
             // label9
@@ -321,7 +318,7 @@
             this.listBoxAbilities.FormattingEnabled = true;
             this.listBoxAbilities.Location = new System.Drawing.Point(12, 405);
             this.listBoxAbilities.Name = "listBoxAbilities";
-            this.listBoxAbilities.Size = new System.Drawing.Size(379, 95);
+            this.listBoxAbilities.Size = new System.Drawing.Size(120, 95);
             this.listBoxAbilities.TabIndex = 20;
             // 
             // label10
@@ -342,33 +339,11 @@
             this.cmdEditAbility.Text = "Edit Ability";
             this.cmdEditAbility.UseVisualStyleBackColor = true;
             // 
-            // cmdSave
-            // 
-            this.cmdSave.Location = new System.Drawing.Point(465, 12);
-            this.cmdSave.Name = "cmdSave";
-            this.cmdSave.Size = new System.Drawing.Size(75, 23);
-            this.cmdSave.TabIndex = 22;
-            this.cmdSave.Text = "Save";
-            this.cmdSave.UseVisualStyleBackColor = true;
-            this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
-            // 
-            // cmdLoad
-            // 
-            this.cmdLoad.Location = new System.Drawing.Point(465, 41);
-            this.cmdLoad.Name = "cmdLoad";
-            this.cmdLoad.Size = new System.Drawing.Size(75, 23);
-            this.cmdLoad.TabIndex = 23;
-            this.cmdLoad.Text = "Load";
-            this.cmdLoad.UseVisualStyleBackColor = true;
-            this.cmdLoad.Click += new System.EventHandler(this.cmdLoad_Click);
-            // 
             // CharacterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(552, 517);
-            this.Controls.Add(this.cmdLoad);
-            this.Controls.Add(this.cmdSave);
+            this.ClientSize = new System.Drawing.Size(552, 657);
             this.Controls.Add(this.cmdEditAbility);
             this.Controls.Add(this.listBoxAbilities);
             this.Controls.Add(this.label10);
@@ -393,7 +368,6 @@
             this.Controls.Add(this.label1);
             this.Name = "CharacterForm";
             this.Text = "CharacterForm";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.nudMight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStrength)).EndInit();
@@ -431,7 +405,5 @@
         private System.Windows.Forms.ListBox listBoxAbilities;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button cmdEditAbility;
-        private System.Windows.Forms.Button cmdSave;
-        private System.Windows.Forms.Button cmdLoad;
     }
 }
