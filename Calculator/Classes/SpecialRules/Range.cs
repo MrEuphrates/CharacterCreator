@@ -81,13 +81,13 @@ namespace CharacterCreator.Classes.SpecialRules
             }
         }
 
-        public override IDictionary<string, SpecialRuleVariable> Variables
+        public override SerializableDictionary<string, SpecialRuleVariable> Variables
         {
             get
             {
                 if(variables == null)
                 {
-                    variables = new Dictionary<string, SpecialRuleVariable>();
+                    variables = new SerializableDictionary<string, SpecialRuleVariable>();
                     var srv = new Distance("R");
                     variables.Add(srv.Variable, srv);
                 }

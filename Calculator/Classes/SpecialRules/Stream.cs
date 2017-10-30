@@ -89,13 +89,13 @@ namespace CharacterCreator.Classes.SpecialRules
             return "(L x W) / 5 x 1 energy modifier";
         }
 
-        public override IDictionary<string, SpecialRuleVariable> Variables
+        public override SerializableDictionary<string, SpecialRuleVariable> Variables
         {
             get
             {
                 if (variables == null)
                 {
-                    variables = new Dictionary<string, SpecialRuleVariable>();
+                    variables = new SerializableDictionary<string, SpecialRuleVariable>();
                     var srv = new Distance("L");
                     variables.Add(srv.Variable, srv);
                     var srv2 = new Distance("W");

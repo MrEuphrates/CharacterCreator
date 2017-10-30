@@ -74,11 +74,11 @@ namespace CharacterCreator.Classes.SpecialRules
             }
         }
 
-        public override IDictionary<string, SpecialRuleVariable> Variables
+        public override SerializableDictionary<string, SpecialRuleVariable> Variables
         {
             get
             {
-                return new Dictionary<string, SpecialRuleVariable>();
+                return new SerializableDictionary<string, SpecialRuleVariable>();
             }
         }
         #endregion

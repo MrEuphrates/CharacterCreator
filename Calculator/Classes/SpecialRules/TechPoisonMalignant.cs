@@ -77,13 +77,13 @@ namespace CharacterCreator.Classes.SpecialRules
             }
         }
 
-        public override IDictionary<string, SpecialRuleVariable> Variables
+        public override SerializableDictionary<string, SpecialRuleVariable> Variables
         {
             get
             {
                 if(variables == null)
                 {
-                    variables = new Dictionary<string, SpecialRuleVariable>();
+                    variables = new SerializableDictionary<string, SpecialRuleVariable>();
                     var mot = new MultipleOfTen("M");
                     variables.Add(mot.Variable, mot);
                     var str = new MaxTen("S");

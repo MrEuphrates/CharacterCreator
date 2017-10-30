@@ -4,10 +4,13 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using CharacterCreator.Classes;
+using CharacterCreator.Classes.SpecialRules;
 
 namespace CharacterCreator.AbstractClasses
 {
+    [XmlInclude(typeof(Acid))]
     public abstract class SpecialRule
     {
         //=============================================================
@@ -21,12 +24,16 @@ namespace CharacterCreator.AbstractClasses
         public abstract string Name { get; }
         public abstract string Description { get; }
         public abstract List<SpecialRule> IncompatibleRules { get; }
-        protected Dictionary<string, SpecialRuleVariable> variables;
-        public virtual IDictionary<string, SpecialRuleVariable> Variables
+        //TODO Serialization isn't working for spec rules, try making variables public instead of protected
+        //TODO For some reason, IDictionary isn't allowed in a serializable class.  So I'm using a custom dictionary made by Paul Welter.
+        //public Dictionary<string, SpecialRuleVariable> variables;
+        public SerializableDictionary<string, SpecialRuleVariable> variables;
+        //public virtual SerializableDictionary<string, SpecialRuleVariable> Variables
+        public virtual SerializableDictionary<string, SpecialRuleVariable> Variables
         {
             get
             {
-                if (variables == null) variables = new Dictionary<string, SpecialRuleVariable>();
+                if (variables == null) variables = new SerializableDictionary<string, SpecialRuleVariable>();
                 return variables;
             }
         }

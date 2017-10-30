@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using CharacterCreator.Classes;
+using CharacterCreator.Classes.SpecialRuleVariables;
 
 namespace CharacterCreator.AbstractClasses
 {
+    [XmlInclude(typeof(MultipleOfTen))]
     public abstract class SpecialRuleVariable
     {
         protected string variable;

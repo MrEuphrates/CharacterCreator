@@ -350,6 +350,7 @@
             this.cmdSave.TabIndex = 22;
             this.cmdSave.Text = "Save";
             this.cmdSave.UseVisualStyleBackColor = true;
+            this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
             // 
             // cmdLoad
             // 
@@ -359,6 +360,7 @@
             this.cmdLoad.TabIndex = 23;
             this.cmdLoad.Text = "Load";
             this.cmdLoad.UseVisualStyleBackColor = true;
+            this.cmdLoad.Click += new System.EventHandler(this.cmdLoad_Click);
             // 
             // CharacterForm
             // 

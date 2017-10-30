@@ -62,6 +62,7 @@
     </Compile>
     <Compile Include="Classes\Ability.cs" />
     <Compile Include="Classes\Character.cs" />
+    <Compile Include="Classes\SerializableDictionary.cs" />
     <Compile Include="Classes\SpecialRules\TechPoisonMalignant.cs" />
     <Compile Include="Classes\SpecialRules\TechParalyze.cs" />
     <Compile Include="Classes\SpecialRules\TechEncase.cs" />

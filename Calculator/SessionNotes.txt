@@ -1,7 +1,12 @@
 ﻿USE THIS DOCUMENT TO RECORD WHAT YOU LAST DID AND WHERE YOU LEFT OFF RE: WHAT YOU WANT TO DO
 
 10/30/17 REH
-I had to redo the stuff I did on Saturday because it was lost when I reverted to the wrong commit.
+I had to redo the stuff I did on Saturday because it was lost when I reverted to the wrong commit.  I don't think the XmlSerializer will work, partially because it doesn't store private fields
+in the class.  So either I need to look to another formatter (BinaryFormatter or SoapFormatter), or else write something from scratch.  It seems Soap is meant to use the HTTP protocol, so I'll
+look into BinaryFormatter.
+
+I fell back on XmlSerializer for simplicity.  I have a rudimentary test functional, where I can save and load stats and abilities.  It needs formal testing, but the problem I want to work on
+next is working around having to have an XmlInclude attribute for every single special rule and special rule variable inheritor.
 
 10/28/17 REH
 Abilities are now saving to the character sheet and sorting into the appropriate list boxes. Next I need to allow users to edit existing abilities, make sure they
