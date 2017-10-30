@@ -1,4 +1,9 @@
-﻿10/27/17 REH
+﻿USE THIS DOCUMENT TO RECORD WHAT YOU LAST DID AND WHERE YOU LEFT OFF RE: WHAT YOU WANT TO DO
+10/28/17 REH
+Abilities are now saving to the character sheet and sorting into the appropriate list boxes. Next I need to allow users to edit existing abilities, make sure they
+are resorted appropriately, and I need to work on saving and loading characters (which will aid in my testing, too).
+
+10/27/17 REH
 Left off with abilities evaluating bonus damage based on the special rules, tying the ability to the appropriate stat.
 
 10/26/17 REH

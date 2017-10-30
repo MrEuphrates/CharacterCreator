@@ -8,8 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CharacterCreator.Classes;
-using System.Xml.Serialization;
-using System.IO;
 
 namespace CharacterCreator
 {
@@ -61,7 +59,7 @@ namespace CharacterCreator
         #region Event Methods
         private void nudSpeed_ValueChanged(object sender, EventArgs e)
         {
-            updateStats();//TODO If this is all these events do, they should be using the same event handler, rather than four different ones.
+            updateStats();
         }
         private void nudStrength_ValueChanged(object sender, EventArgs e)
         {
@@ -75,43 +73,12 @@ namespace CharacterCreator
         {
             updateStats();
         }
+        #endregion
+
         private void buttonAddAbility_Click(object sender, EventArgs e)
         {
             AbilityForm af = new AbilityForm(character);
             af.ShowDialog();
         }
-
-        private void cmdSave_Click(object sender, EventArgs e)
-        {
-            string path = "D:\\CharacterCreatorTest\\testoutput";
-            FileStream outFile = File.Create(path);
-            XmlSerializer formatter = new XmlSerializer(character.GetType());
-            formatter.Serialize(outFile, character);
-            outFile.Close();
-            MessageBox.Show("Saved");
-        }
-
-        private void cmdLoad_Click(object sender, EventArgs e)
-        {
-            string file = "D:\\CharacterCreatorTest\\testoutput";
-            XmlSerializer formatter = new XmlSerializer(character.GetType());
-            FileStream characterFile = new FileStream(file, FileMode.Open);
-            byte[] buffer = new byte[characterFile.Length];
-            characterFile.Read(buffer, 0, (int)characterFile.Length);
-            MemoryStream stream = new MemoryStream(buffer);
-            //return (List<A>)formatter.Deserialize(stream);
-            Character loadedCharacter = (Character)formatter.Deserialize(stream);
-            MessageBox.Show(loadedCharacter.Name);
-            stream.Close();
-            characterFile.Close();
-        }
-
-        private void txtName_TextChanged(object sender, EventArgs e)
-        {
-            character.Name = txtName.Text;
-        }
-        #endregion
-
-
     }
 }

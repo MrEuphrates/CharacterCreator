@@ -31,7 +31,6 @@
             this.labelHowManyCPs = new System.Windows.Forms.Label();
             this.nudCharacterPoints = new System.Windows.Forms.NumericUpDown();
             this.buttonStart = new System.Windows.Forms.Button();
-            this.cmdLoad = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudCharacterPoints)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,22 +75,11 @@
             this.buttonStart.UseVisualStyleBackColor = true;
             this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
             // 
-            // cmdLoad
-            // 
-            this.cmdLoad.Location = new System.Drawing.Point(12, 56);
-            this.cmdLoad.Name = "cmdLoad";
-            this.cmdLoad.Size = new System.Drawing.Size(91, 23);
-            this.cmdLoad.TabIndex = 3;
-            this.cmdLoad.Text = "Load Character";
-            this.cmdLoad.UseVisualStyleBackColor = true;
-            this.cmdLoad.Click += new System.EventHandler(this.cmdLoad_Click);
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(331, 91);
-            this.Controls.Add(this.cmdLoad);
+            this.ClientSize = new System.Drawing.Size(331, 50);
             this.Controls.Add(this.buttonStart);
             this.Controls.Add(this.nudCharacterPoints);
             this.Controls.Add(this.labelHowManyCPs);
@@ -108,7 +96,6 @@
         private System.Windows.Forms.Label labelHowManyCPs;
         private System.Windows.Forms.NumericUpDown nudCharacterPoints;
         private System.Windows.Forms.Button buttonStart;
-        private System.Windows.Forms.Button cmdLoad;
     }
 }
 

@@ -293,7 +293,7 @@
             this.listBoxAttacksBasic.FormattingEnabled = true;
             this.listBoxAttacksBasic.Location = new System.Drawing.Point(12, 146);
             this.listBoxAttacksBasic.Name = "listBoxAttacksBasic";
-            this.listBoxAttacksBasic.Size = new System.Drawing.Size(120, 95);
+            this.listBoxAttacksBasic.Size = new System.Drawing.Size(379, 95);
             this.listBoxAttacksBasic.TabIndex = 16;
             // 
             // listBoxAttacksSpecial
@@ -301,7 +301,7 @@
             this.listBoxAttacksSpecial.FormattingEnabled = true;
             this.listBoxAttacksSpecial.Location = new System.Drawing.Point(12, 275);
             this.listBoxAttacksSpecial.Name = "listBoxAttacksSpecial";
-            this.listBoxAttacksSpecial.Size = new System.Drawing.Size(120, 95);
+            this.listBoxAttacksSpecial.Size = new System.Drawing.Size(379, 95);
             this.listBoxAttacksSpecial.TabIndex = 18;
             // 
             // label9
@@ -318,7 +318,7 @@
             this.listBoxAbilities.FormattingEnabled = true;
             this.listBoxAbilities.Location = new System.Drawing.Point(12, 405);
             this.listBoxAbilities.Name = "listBoxAbilities";
-            this.listBoxAbilities.Size = new System.Drawing.Size(120, 95);
+            this.listBoxAbilities.Size = new System.Drawing.Size(379, 95);
             this.listBoxAbilities.TabIndex = 20;
             // 
             // label10
@@ -343,7 +343,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(552, 657);
+            this.ClientSize = new System.Drawing.Size(552, 517);
             this.Controls.Add(this.cmdEditAbility);
             this.Controls.Add(this.listBoxAbilities);
             this.Controls.Add(this.label10);
@@ -368,6 +368,7 @@
             this.Controls.Add(this.label1);
             this.Name = "CharacterForm";
             this.Text = "CharacterForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.nudMight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStrength)).EndInit();

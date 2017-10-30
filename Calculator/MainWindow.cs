@@ -22,10 +22,5 @@ namespace CharacterCreator
             CharacterForm cf = new CharacterForm((int)nudCharacterPoints.Value);
             cf.ShowDialog();
         }
-
-        private void cmdLoad_Click(object sender, EventArgs e)
-        {
-            //TODO Need to implement loading characters.
-        }
     }
 }
