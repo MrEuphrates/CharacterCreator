@@ -66,7 +66,7 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                return "Stream L W";
+                return "Stream L x W";
             }
         }
 
@@ -74,7 +74,7 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                return "Stream " + variables["L"].Value + " " + variables["W"].Value;
+                return "Stream " + variables["L"].Value + " x " + variables["W"].Value;
             }
         }
 

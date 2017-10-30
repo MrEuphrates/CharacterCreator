@@ -26,6 +26,9 @@ I check for compatibility, giving SpecialRule a method called IsCompatibleWith, 
  IncompatibleRules property Protected, which should remove it from serialization (it’s not instance-related, anyway).  I tested compatibility checking briefly and it still works, which should apply 
  across all the rules.  Now to test serialization of rules with incompatible rules again.  It worked!
 
+ I finished testing serializing all of the special rules successfully.  The save/load feature needs fleshing out in a major way, but I worked on it now to facilitate testing and developing the other
+ features of the program.  So for now, I'll focus on causing it to load the character into the form.
+
 
 10/28/17 REH
 Abilities are now saving to the character sheet and sorting into the appropriate list boxes. Next I need to allow users to edit existing abilities, make sure they
