@@ -53,7 +53,7 @@ namespace CharacterCreator
                 "recommended amount of Time for an ability is 1 per 100.  The energy cost increases if Time is below the recommended amount, and the " +
                 "reverse is also true.");
             toolTip1.SetToolTip(txtName, "The name of this ability.  You may call it whatever you like, but the name should reflect what the ability does or represents.");
-            toolTip1.SetToolTip(nudDamageActual, "Characters with stats of 6 or higher receive bonus damage for abilities which use that stat to attack.  For example, "+
+            toolTip1.SetToolTip(nudDamageActual, "Characters with stats of 6 or higher receive bonus damage for abilities which use that stat to attack.  For example, " +
                 "melee abilities will gain 10% extra damage per point of Strength above 5, whereas ranged abilities gain this bonus per point of Marksmanship above 5.");
             //TODO Just realized the actual damage is tied to Strength, Marksmanship, or Tech, depending on which special rules are and are not selected.
         }
@@ -174,6 +174,7 @@ namespace CharacterCreator
         {
             updateAbility();
             character.addAbility(ability);
+            this.Dispose();
         }
         #endregion
         //===================================================================

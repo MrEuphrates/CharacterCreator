@@ -18,7 +18,33 @@ namespace CharacterCreator.Classes
         public double Marksmanship { get; set; }
         public double Tech { get; set; }
         public double CharacterPoints { get; set; }
-        public List<Ability> Abilities { get; }
+        private List<Ability> basicAttacks;
+        public List<Ability> BasicAttacks
+        {
+            get
+            {
+                if (basicAttacks == null) basicAttacks = new List<Ability>();
+                return basicAttacks;
+            }
+        }
+        private List<Ability> specialAttacks;
+        public List<Ability> SpecialAttacks
+        {
+            get
+            {
+                if (specialAttacks == null) specialAttacks = new List<Ability>();
+                return specialAttacks;
+            }
+        }
+        private List<Ability> specialAbilities;
+        public List<Ability> SpecialAbilities
+        {
+            get
+            {
+                if (specialAbilities == null) specialAbilities = new List<Ability>();
+                return specialAbilities;
+            }
+        }
         #endregion
 
         #region Methods
@@ -53,7 +79,15 @@ namespace CharacterCreator.Classes
         }
         public void addAbility(Ability ability)
         {
+            //Remove the ability from any list it may be in.
+            if (BasicAttacks.Contains(ability)) BasicAttacks.Remove(ability);
+            if (SpecialAttacks.Contains(ability)) SpecialAttacks.Remove(ability);
+            if (SpecialAbilities.Contains(ability)) SpecialAbilities.Remove(ability);
 
+            //Add the ability to the appropriate container.
+            if (ability.Type == Ability.AbilityType.Basic) BasicAttacks.Add(ability);
+            if (ability.Type == Ability.AbilityType.Special) SpecialAttacks.Add(ability);
+            if (ability.Type == Ability.AbilityType.Ability) SpecialAbilities.Add(ability);
         }
         #endregion
     }

@@ -24,6 +24,23 @@ namespace CharacterCreator
             startingCharacterPoints = characterPoints;
             character = new Character();
             updateStats();
+
+            refreshListBoxes();
+        }
+        private void refreshListBoxes()
+        {
+            //Bind the abilities lists to their appropriate listboxes.
+            listBoxAttacksBasic.DataSource = null;
+            listBoxAttacksBasic.DataSource = character.BasicAttacks;
+            listBoxAttacksBasic.DisplayMember = "Syntax";
+
+            listBoxAttacksSpecial.DataSource = null;
+            listBoxAttacksSpecial.DataSource = character.SpecialAttacks;
+            listBoxAttacksSpecial.DisplayMember = "Syntax";
+
+            listBoxAbilities.DataSource = null;
+            listBoxAbilities.DataSource = character.SpecialAbilities;
+            listBoxAbilities.DisplayMember = "Syntax";
         }
 
         private void updateStats()
@@ -49,36 +66,48 @@ namespace CharacterCreator
         }
         private void validateCharacter()
         {
-            if(nudCharacterPoints.Value < 0)
+            if (nudCharacterPoints.Value < 0)
             {
-                MessageBox.Show("Your total character points exceeds the limit selected.  Limit: " 
+                MessageBox.Show("Your total character points exceeds the limit selected.  Limit: "
                     + startingCharacterPoints + "  Yours: " + nudCharacterPoints.Value);
             }
         }
 
+
+        //============================================================================================================
         #region Event Methods
         private void nudSpeed_ValueChanged(object sender, EventArgs e)
         {
             updateStats();
         }
+
         private void nudStrength_ValueChanged(object sender, EventArgs e)
         {
             updateStats();
         }
+
         private void nudMarksmanship_ValueChanged(object sender, EventArgs e)
         {
             updateStats();
         }
+
         private void nudTech_ValueChanged(object sender, EventArgs e)
         {
             updateStats();
         }
-        #endregion
 
         private void buttonAddAbility_Click(object sender, EventArgs e)
         {
             AbilityForm af = new AbilityForm(character);
             af.ShowDialog();
+            refreshListBoxes();
         }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            character.Name = txtName.Text;
+        }
+        #endregion
+        //============================================================================================================
     }
 }

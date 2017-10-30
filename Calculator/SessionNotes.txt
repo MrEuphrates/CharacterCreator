@@ -1,4 +1,8 @@
 ﻿USE THIS DOCUMENT TO RECORD WHAT YOU LAST DID AND WHERE YOU LEFT OFF RE: WHAT YOU WANT TO DO
+
+10/30/17 REH
+I had to redo the stuff I did on Saturday because it was lost when I reverted to the wrong commit.
+
 10/28/17 REH
 Abilities are now saving to the character sheet and sorting into the appropriate list boxes. Next I need to allow users to edit existing abilities, make sure they
 are resorted appropriately, and I need to work on saving and loading characters (which will aid in my testing, too).

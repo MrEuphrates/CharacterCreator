@@ -26,7 +26,7 @@ namespace CharacterCreator.AbstractClasses
         {
             get
             {
-                if(variables == null) variables = new Dictionary<string, SpecialRuleVariable>();
+                if (variables == null) variables = new Dictionary<string, SpecialRuleVariable>();
                 return variables;
             }
         }
@@ -35,7 +35,7 @@ namespace CharacterCreator.AbstractClasses
         {
             get
             {
-                if(variableTable == null)
+                if (variableTable == null)
                 {
                     variableTable = new DataTable();
                     DataColumn col = new DataColumn();
@@ -65,7 +65,7 @@ namespace CharacterCreator.AbstractClasses
 
                     //Add rows
                     DataRow row;
-                    foreach(SpecialRuleVariable srv in Variables.Values)
+                    foreach (SpecialRuleVariable srv in Variables.Values)
                     {
                         row = variableTable.NewRow();
                         row["Parameter"] = srv.Variable;
@@ -83,8 +83,7 @@ namespace CharacterCreator.AbstractClasses
         public abstract string SyntaxActual { get; }
         #endregion
         //=============================================================
-        
-        //TODO Inform the user how the cost is calculated.  That'll help me test the calculations are correct, and be useful to the player in designing their character.
+
 
         //=============================================================
         #region Abstract Methods
@@ -92,7 +91,6 @@ namespace CharacterCreator.AbstractClasses
         public abstract string howIsEnergyCostCalculated();
         #endregion
         //=============================================================
-        
 
 
         //=============================================================
