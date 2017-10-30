@@ -34,7 +34,8 @@ the form when to save what to where.
 
 I implemented an extremely rudimentary data binding for the character form, just to get started with.  I successfully bound the Name property to the txtName.Text control property.  I need to
 implement INotifyPropertyChanged, I believe, if it is going to automatically update the form when the property 
-changes (see https://stackoverflow.com/questions/1315621/implementing-inotifypropertychanged-does-a-better-way-exist), but does the property change when I update the text box?  It does save it,
+changes (see https://stackoverflow.com/questions/12034840/handling-onpropertychanged#12035115 
+and https://stackoverflow.com/questions/1315621/implementing-inotifypropertychanged-does-a-better-way-exist), but does the property change when I update the text box?  It does save it,
 but when I load the form, nothing changes (might be where INotifyPropertyChanged comes in, not sure).  Probably work on that next.
 
 
