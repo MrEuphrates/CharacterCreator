@@ -26,8 +26,16 @@ I check for compatibility, giving SpecialRule a method called IsCompatibleWith, 
  IncompatibleRules property Protected, which should remove it from serialization (it’s not instance-related, anyway).  I tested compatibility checking briefly and it still works, which should apply 
  across all the rules.  Now to test serialization of rules with incompatible rules again.  It worked!
 
- I finished testing serializing all of the special rules successfully.  The save/load feature needs fleshing out in a major way, but I worked on it now to facilitate testing and developing the other
- features of the program.  So for now, I'll focus on causing it to load the character into the form.
+I finished testing serializing all of the special rules successfully.  The save/load feature needs fleshing out in a major way, but I worked on it now to facilitate testing and developing the other
+features of the program.  So for now, I'll focus on causing it to load the character into the form.
+
+I'm modifying my next task.  I want to bind the objects to their respective forms, so that fields update automatically to the class (and vice versa), rather than having to programmatically instruct
+the form when to save what to where.
+
+I implemented an extremely rudimentary data binding for the character form, just to get started with.  I successfully bound the Name property to the txtName.Text control property.  I need to
+implement INotifyPropertyChanged, I believe, if it is going to automatically update the form when the property 
+changes (see https://stackoverflow.com/questions/1315621/implementing-inotifypropertychanged-does-a-better-way-exist), but does the property change when I update the text box?  It does save it,
+but when I load the form, nothing changes (might be where INotifyPropertyChanged comes in, not sure).  Probably work on that next.
 
 
 10/28/17 REH

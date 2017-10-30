@@ -18,6 +18,7 @@ namespace CharacterCreator
         #region Variables
         Character character;
         double startingCharacterPoints;
+        BindingSource bindingSource;
         #endregion
 
         //=================================================================
@@ -28,9 +29,16 @@ namespace CharacterCreator
             nudCharacterPoints.Value = (int)characterPoints;
             startingCharacterPoints = characterPoints;
             character = new Character();
+            //TODO As part of testing data bindings, I'm using a default name when initializing the form to make sure it's actually bound to the instance.
+            character.Name = "Blarg Honk";
             updateStats();
 
             refreshListBoxes();
+
+            //TODO Working on data bindings
+            bindingSource = new BindingSource();
+            bindingSource.DataSource = character;
+            txtName.DataBindings.Add("Text", bindingSource, "Name");
         }
 
         private void refreshListBoxes()
@@ -118,7 +126,7 @@ namespace CharacterCreator
             character.Name = txtName.Text;
         }
 
-        /*TODO
+        /*
          * Here I am recording information on what it takes to serialize my objects.
          * Regarding special rules, the SpecialRule base class (currently) has to have an XmlInclude attribute for every special rule to indicate they should be serialized.  Need a better way.
          * Regarding variables, I had to use a custom class, SerializableDictionary, to use a dictionary, and as with special rules, I had to add an XmlInclude attribute for every variable
@@ -133,18 +141,6 @@ namespace CharacterCreator
                 XmlSerializer formatter = new XmlSerializer(character.GetType());
                 formatter.Serialize(outFile, character);
                 MessageBox.Show("Saved");
-            }
-            catch(System.StackOverflowException soe)
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.Append("Exception: " + soe.Message);
-                if (soe.InnerException != null) sb.Append("\n\nInner Exception: " + soe.InnerException.Message);
-                if (soe.InnerException.InnerException != null) sb.Append("\n\nInner x2 exception: " + soe.InnerException.InnerException.Message);
-                if (soe.InnerException.InnerException.InnerException != null) sb.Append("\n\nInner x3 exception: " + soe.InnerException.InnerException.InnerException.Message);
-                if (soe.InnerException.InnerException.InnerException.InnerException != null) sb.Append("\n\nInner x4 exception: " + soe.InnerException.InnerException.InnerException.InnerException.Message);
-                if (soe.InnerException.InnerException.InnerException.InnerException.InnerException != null) sb.Append("\n\nInner x5 exception: " + soe.InnerException.InnerException.InnerException.InnerException.InnerException.Message);
-                if (soe.InnerException.InnerException.InnerException.InnerException.InnerException.InnerException != null) sb.Append("\n\nInner x6 exception: " + soe.InnerException.InnerException.InnerException.InnerException.InnerException.InnerException.Message);
-                MessageBox.Show(sb.ToString());
             }
             catch (Exception exe)
             {
@@ -173,9 +169,10 @@ namespace CharacterCreator
             characterFile.Read(buffer, 0, (int)characterFile.Length);
             MemoryStream stream = new MemoryStream(buffer);
             try
-            {
+            {//TODO Maybe I should work on how I get data between the class and the form.  The fields should probably bind to the controls.
                 Character loadedCharacter = (Character)formatter.Deserialize(stream);
-                MessageBox.Show("Here's the syntax of the first special ability: " + loadedCharacter.SpecialAbilities[0].Syntax);
+                character = loadedCharacter;
+                this.Refresh();
             }
             catch(Exception exe)
             {
