@@ -1,9 +1,4 @@
-﻿USE THIS DOCUMENT TO RECORD WHAT YOU LAST DID AND WHERE YOU LEFT OFF RE: WHAT YOU WANT TO DO
-
-10/28/17 REH
-I have a (very) rudimentary saving system now.  It can only save and load the class locally, but I can build the proper save/load mechanics off it.
-
-10/27/17 REH
+﻿10/27/17 REH
 Left off with abilities evaluating bonus damage based on the special rules, tying the ability to the appropriate stat.
 
 10/26/17 REH
