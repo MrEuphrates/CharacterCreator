@@ -19,8 +19,6 @@ namespace CharacterCreator.Classes
         {
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null) handler(this, e);//TODO Handle property changes.  This includes energy cost calcs, damage calcs, etc.  Have to test with damage first.
-            //TODO Not sure I should even be doing this here.
-            updateEnergyCost();
             //TODO Some properties, like Damage (actual) and energy, are never set on the form.  If I update those properties in the class, will they reflect on the form?
         }
         protected void OnPropertyChanged(string propertyName)
@@ -39,12 +37,25 @@ namespace CharacterCreator.Classes
                 if(value != time)
                 {
                     time = value;
+                    updateEnergyCost();
                     OnPropertyChanged("Time");//TODO This line needs to be added to every property for which I want to raise the property changed event.
                 }
             }
         }
         public string Name { get; set; }
-        public decimal Energy { get; set; }
+        private decimal energy;
+        public decimal Energy
+        {
+            get { return energy; }
+            set
+            {
+                if(value != energy)
+                {
+                    energy = value;
+                    OnPropertyChanged("Energy");//TODO Success!  The control on the form reflects the enery cost!  Now I need to bind all of the relevant controls and make sure event handling is setup for the appropriate properties.
+                }
+            }
+        }
         public decimal EnergyModifier
         {
             get
@@ -63,6 +74,7 @@ namespace CharacterCreator.Classes
                 if(value != baseDamage)
                 {
                     baseDamage = value;
+                    updateEnergyCost();
                     OnPropertyChanged("BaseDamage");
                 }
             }
@@ -80,6 +92,7 @@ namespace CharacterCreator.Classes
                 if(value != attacks)
                 {
                     attacks = value;
+                    updateEnergyCost();
                     OnPropertyChanged("Attacks");
                 }
             }

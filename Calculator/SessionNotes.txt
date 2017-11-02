@@ -6,6 +6,9 @@ back to the character.
 I'm working on the Ability form and setting up the data bindings, events, etc.  I got it to calculate the energy correctly, but it did not reflect on the form (not surprising).  So when I get back to
 this, I need to try and get the updated properties to appear on the form.
 
+Success!  I moved the calls to ability.updateEnergy() into the set method of the appropriate properties and added the property update event call to energy's set method.  Now I need to do the data
+bindings for all of the controls, as well as the events, etc.  Attacks didn't cause anything to fire when I changed it, though.
+
 10/30/17 REH
 I had to redo the stuff I did on Saturday because it was lost when I reverted to the wrong commit.  I don't think the XmlSerializer will work, partially because it doesn't store private fields
 in the class.  So either I need to look to another formatter (BinaryFormatter or SoapFormatter), or else write something from scratch.  It seems Soap is meant to use the HTTP protocol, so I'll
