@@ -91,7 +91,6 @@
             0,
             0,
             0});
-            this.nudTime.ValueChanged += new System.EventHandler(this.nudTime_ValueChanged);
             // 
             // label2
             // 
@@ -245,7 +244,6 @@
             0,
             0,
             0});
-            this.nudAttacks.ValueChanged += new System.EventHandler(this.nudAttacks_ValueChanged);
             // 
             // label8
             // 
@@ -298,7 +296,6 @@
             this.rtbAdditionalInputDescription.Size = new System.Drawing.Size(568, 96);
             this.rtbAdditionalInputDescription.TabIndex = 20;
             this.rtbAdditionalInputDescription.Text = "";
-            this.rtbAdditionalInputDescription.TextChanged += new System.EventHandler(this.rtbAdditionalInputDescription_TextChanged);
             // 
             // label10
             // 

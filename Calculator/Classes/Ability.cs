@@ -42,7 +42,19 @@ namespace CharacterCreator.Classes
                 }
             }
         }
-        public string Name { get; set; }
+        private string name;
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                if(value != name)
+                {
+                    name = value;
+                    OnPropertyChanged("Name");
+                }
+            }
+        }
         private decimal energy;
         public decimal Energy
         {
@@ -98,8 +110,32 @@ namespace CharacterCreator.Classes
             }
         }
         public double CharacterPoints { get; }
-        public bool RequiresInput { get; set; }
-        public string InputDescription { get; set; }
+        private bool requiresInput;
+        public bool RequiresInput
+        {
+            get { return requiresInput; }
+            set
+            {
+                if(value != requiresInput)
+                {
+                    requiresInput = value;
+                    OnPropertyChanged("RequiresInput");
+                }
+            }
+        }
+        private string inputDescription;
+        public string InputDescription
+        {
+            get { return inputDescription; }
+            set
+            {
+                if(value != inputDescription)
+                {
+                    inputDescription = value;
+                    OnPropertyChanged("InputDescription");
+                }
+            }
+        }
         private List<SpecialRule> specialRules;
         public List<SpecialRule> SpecialRules
         {
@@ -110,7 +146,12 @@ namespace CharacterCreator.Classes
             }
             set
             {
-                specialRules = value;
+                if(value != specialRules)
+                {
+                    specialRules = value;
+                    updateEnergyCost();
+                    OnPropertyChanged("SpecialRules");
+                }
             }
         }
         public string Syntax

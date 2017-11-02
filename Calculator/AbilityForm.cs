@@ -41,7 +41,7 @@ namespace CharacterCreator
         }
 
         private void setupForm()
-        {//TODO Now that I'm trying to use data binding, I shouldn't need to update the ability via my own code every time a control changes.  Disable the relevant code and test.
+        {
             //Setup the data binding
             bindingSource = new BindingSource();
             bindingSource.DataSource = ability;
@@ -50,9 +50,15 @@ namespace CharacterCreator
             nudEnergy.DataBindings.Add("Value", bindingSource, "Energy", false, DataSourceUpdateMode.OnPropertyChanged);
             nudDamageBase.DataBindings.Add("Value", bindingSource, "BaseDamage", false, DataSourceUpdateMode.OnPropertyChanged);
             nudDamageActual.DataBindings.Add("Value", bindingSource, "Damage", false, DataSourceUpdateMode.OnPropertyChanged);
+            nudAttacks.DataBindings.Add("Value", bindingSource, "Attacks", false, DataSourceUpdateMode.OnPropertyChanged);
+            txtDisplay.DataBindings.Add("Text", bindingSource, "Syntax", false, DataSourceUpdateMode.OnPropertyChanged);
+            cbxRequiresAdditionalInput.DataBindings.Add("Checked", bindingSource, "RequiresInput", false, DataSourceUpdateMode.OnPropertyChanged);
+            //TODO For the rich textbox, setting the update mode to OnValidation supposedly fixes the typing issue I had, but may need more work to get it to load when the ability is loaded.
+            rtbAdditionalInputDescription.DataBindings.Add("Text", bindingSource, "InputDescription", false, DataSourceUpdateMode.OnValidation);
 
-            //Bind the specials listbox to the ability's list of specials
-            listBoxSpecial.DataSource = ability.SpecialRules;
+            //TODO Bind the specials listbox to the ability's list of specials
+            //listBoxSpecial.DataSource = ability.SpecialRules;
+            listBoxSpecial.DataBindings.Add("DataSource", bindingSource, "SpecialRules", false, DataSourceUpdateMode.OnPropertyChanged);
             listBoxSpecial.DisplayMember = "SyntaxActual";
             
             //Setup the delays for the tooltip
@@ -89,44 +95,11 @@ namespace CharacterCreator
             ability.SpecialRules = sr;
 
             //After updating everything about the Ability instance, update the energy cost and then record it.
-            updateEnergyCost();
             ability.Energy = nudEnergy.Value;
             ability.Attacks = nudAttacks.Value;
 
             //Output the ability as it will appear on a character sheet.
             txtDisplay.Text = ability.Syntax;
-        }
-        private void updateEnergyCost()
-        {//TODO Once Ability is doing this, delete this method.
-            //Get the energy modifiers.
-            var energyModifier = ability.getEnergyModifier(nudDamageBase.Value);
-            nudEnergyModifier.Value = energyModifier;
-            var totalEnergyModifier = energyModifier * nudAttacks.Value;
-
-            //Get energy cost based on time.
-            var baseDamage = nudDamageBase.Value;
-            var attacks = nudAttacks.Value;
-            var totalBaseDamage = baseDamage * attacks;
-            var expectedTime = (totalBaseDamage - totalBaseDamage % 100) / 100;
-            if (totalBaseDamage % 100 != 0) ++expectedTime;
-            var timeEnergyCost = (expectedTime - nudTime.Value) * totalEnergyModifier;
-
-            //Get the base energy cost
-            var baseEnergyCost = totalBaseDamage / 2;
-
-            //Get the energy cost from the special rules
-            decimal specialRulesEnergyCost = 0;
-            foreach (SpecialRule rule in ability.SpecialRules) specialRulesEnergyCost += rule.calculateEnergyCost(energyModifier);
-            specialRulesEnergyCost *= attacks;
-
-            //Summarize energy costs.
-            var totalEnergy = timeEnergyCost + baseEnergyCost + specialRulesEnergyCost;
-
-            //Energy costs are always multiples of 5, so round up.
-            if (totalEnergy % 5 != 0) totalEnergy = totalEnergy + (5 - totalEnergy % 5);
-
-            //Set the ability's energy cost.
-            nudEnergy.Value = totalEnergy;
         }
         private void updateActualDamage()
         {
@@ -141,13 +114,14 @@ namespace CharacterCreator
         #region Event Methods
         private void buttonAddSpecial_Click(object sender, EventArgs e)
         {
+            //TODO This stuff needs to change now that I'm using data binding.
             SpecialForm sf = new SpecialForm(ability);
             sf.ShowDialog();
-            listBoxSpecial.DataSource = null;
-            listBoxSpecial.DataSource = ability.SpecialRules;
-            listBoxSpecial.DisplayMember = "SyntaxActual";
-            updateActualDamage();
-            updateAbility();
+            //listBoxSpecial.DataSource = null;
+            //listBoxSpecial.DataSource = ability.SpecialRules;
+            //listBoxSpecial.DisplayMember = "SyntaxActual";
+            //updateActualDamage();
+            //updateAbility();
         }
 
         private void nudDamageBase_ValueChanged(object sender, EventArgs e)
@@ -157,37 +131,15 @@ namespace CharacterCreator
                 nudDamageBase.Value = nudDamageBase.Value - nudDamageBase.Value % 10;
                 return;
             }
-            //updateActualDamage();
-            //updateAbility();
-        }
-
-        private void nudTime_ValueChanged(object sender, EventArgs e)
-        {
-            //TODO First test of property change stuff.  When the Time property changes, energy calculation needs to be redone.
-            //updateAbility();
-        }
-
-        private void nudAttacks_ValueChanged(object sender, EventArgs e)
-        {
-            //updateAbility();
         }
 
         private void cbxRequiresAdditionalInput_CheckedChanged(object sender, EventArgs e)
         {
-            ability.RequiresInput = cbxRequiresAdditionalInput.Checked;
-            rtbAdditionalInputDescription.Enabled = ability.RequiresInput;
-            updateAbility();
-        }
-
-        private void rtbAdditionalInputDescription_TextChanged(object sender, EventArgs e)
-        {
-            ability.InputDescription = rtbAdditionalInputDescription.Text;
-            updateAbility();
+            rtbAdditionalInputDescription.Enabled = cbxRequiresAdditionalInput.Checked;
         }
 
         private void cmdOK_Click(object sender, EventArgs e)
         {
-            updateAbility();
             character.addAbility(ability);
             this.Dispose();
         }
