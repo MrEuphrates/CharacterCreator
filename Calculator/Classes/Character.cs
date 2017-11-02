@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,8 +9,9 @@ using CharacterCreator.Classes.SpecialRules;
 
 namespace CharacterCreator.Classes
 {
-    public class Character
+    public class Character : INotifyPropertyChanged
     {
+        //============================================================================
         #region Variables
         public string Name { get; set; }
         public double Might { get; set; }
@@ -18,6 +20,12 @@ namespace CharacterCreator.Classes
         public double Marksmanship { get; set; }
         public double Tech { get; set; }
         public double CharacterPoints { get; set; }
+        #endregion
+        //============================================================================
+
+
+        //============================================================================
+        #region Properties
         private List<Ability> basicAttacks;
         public List<Ability> BasicAttacks
         {
@@ -37,6 +45,12 @@ namespace CharacterCreator.Classes
             }
         }
         private List<Ability> specialAbilities;
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged(string propertyName)
+        {
+            if (string.IsNullOrEmpty(propertyName)) throw new ArgumentNullException(propertyName);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         public List<Ability> SpecialAbilities
         {
             get
@@ -46,7 +60,10 @@ namespace CharacterCreator.Classes
             }
         }
         #endregion
+        //============================================================================
 
+
+        //============================================================================
         #region Methods
         public double calculateMight()
         {
@@ -90,5 +107,6 @@ namespace CharacterCreator.Classes
             if (ability.Type == Ability.AbilityType.Ability) SpecialAbilities.Add(ability);
         }
         #endregion
+        //============================================================================
     }
 }

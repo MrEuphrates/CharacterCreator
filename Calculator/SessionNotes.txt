@@ -1,4 +1,7 @@
-﻿USE THIS DOCUMENT TO RECORD WHAT YOU LAST DID AND WHERE YOU LEFT OFF RE: WHAT YOU WANT TO DO
+﻿11/2/17 REH
+I'm going to attempt to implement INotifyPropertyChanged for the Character class, ultimately to make the form update its controls whenever the class changes.  I don't know if adding the PropertyChanged
+stuff did it, but when loading a character from a file, setting the data binding to the loaded character refreshed the control.  Now I want to do this for the lower-level classes and work my way
+back to the character.
 
 10/30/17 REH
 I had to redo the stuff I did on Saturday because it was lost when I reverted to the wrong commit.  I don't think the XmlSerializer will work, partially because it doesn't store private fields

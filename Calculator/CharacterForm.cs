@@ -15,13 +15,16 @@ namespace CharacterCreator
 {
     public partial class CharacterForm : Form
     {
+        //============================================================================================================
         #region Variables
         Character character;
         double startingCharacterPoints;
         BindingSource bindingSource;
         #endregion
+        //============================================================================================================
 
-        //=================================================================
+
+        //============================================================================================================
         #region Methods
         public CharacterForm(double characterPoints)
         {
@@ -38,7 +41,7 @@ namespace CharacterCreator
             //TODO Working on data bindings
             bindingSource = new BindingSource();
             bindingSource.DataSource = character;
-            txtName.DataBindings.Add("Text", bindingSource, "Name");
+            txtName.DataBindings.Add("Text", bindingSource, "Name",false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
         private void refreshListBoxes()
@@ -89,7 +92,7 @@ namespace CharacterCreator
             }
         }
         #endregion
-        //===================================================================
+        //============================================================================================================
 
 
         //============================================================================================================
@@ -169,10 +172,10 @@ namespace CharacterCreator
             characterFile.Read(buffer, 0, (int)characterFile.Length);
             MemoryStream stream = new MemoryStream(buffer);
             try
-            {//TODO Maybe I should work on how I get data between the class and the form.  The fields should probably bind to the controls.
+            {
                 Character loadedCharacter = (Character)formatter.Deserialize(stream);
                 character = loadedCharacter;
-                this.Refresh();
+                bindingSource.DataSource = character;
             }
             catch(Exception exe)
             {
