@@ -12,19 +12,9 @@ namespace CharacterCreator.Classes
     public class Ability : INotifyPropertyChanged
     {
         public enum AbilityType { Basic, Special, Ability }
-
+        //TODO What about "common" abilities, like regen, flying, cloaking, etc.?  How am I going to do those?  What about passive abilities?
         //===================================================================
         #region Properties
-        protected void OnPropertyChanged(PropertyChangedEventArgs e)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null) handler(this, e);//TODO Handle property changes.  This includes energy cost calcs, damage calcs, etc.  Have to test with damage first.
-            //TODO Some properties, like Damage (actual) and energy, are never set on the form.  If I update those properties in the class, will they reflect on the form?
-        }
-        protected void OnPropertyChanged(string propertyName)
-        {
-            OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
-        }
         private decimal time = 1;
         public decimal Time
         {
@@ -196,6 +186,15 @@ namespace CharacterCreator.Classes
 
         //===================================================================
         #region Methods
+        protected void OnPropertyChanged(PropertyChangedEventArgs e)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null) handler(this, e);
+        }
+        protected void OnPropertyChanged(string propertyName)
+        {
+            OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
+        }
         public decimal getEnergyModifier(decimal baseDamage)
         {
             decimal baseMod = baseDamage * 0.2m;

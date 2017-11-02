@@ -37,6 +37,8 @@ namespace CharacterCreator
         public AbilityForm(Character character, Ability ability)
         {//TODO Have to work on the interactions between Character and Ability forms.
             InitializeComponent();
+            this.character = character;
+            this.ability = ability;
             setupForm();
         }
 

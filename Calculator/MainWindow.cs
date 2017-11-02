@@ -19,8 +19,15 @@ namespace CharacterCreator
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
-            CharacterForm cf = new CharacterForm((int)nudCharacterPoints.Value);
-            cf.ShowDialog();
+            try
+            {
+                CharacterForm cf = new CharacterForm((int)nudCharacterPoints.Value);
+                cf.ShowDialog();
+            }
+            catch(Exception exe)
+            {
+                MessageBox.Show(exe.Message + "\n\n" + exe.StackTrace);
+            }
         }
     }
 }

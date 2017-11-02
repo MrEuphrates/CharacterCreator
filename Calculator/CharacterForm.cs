@@ -32,16 +32,19 @@ namespace CharacterCreator
             nudCharacterPoints.Value = (int)characterPoints;
             startingCharacterPoints = characterPoints;
             character = new Character();
-            //TODO As part of testing data bindings, I'm using a default name when initializing the form to make sure it's actually bound to the instance.
-            character.Name = "Blarg Honk";
-            updateStats();
-
+            
             refreshListBoxes();
 
-            //TODO Working on data bindings
+            //Data bindings
             bindingSource = new BindingSource();
             bindingSource.DataSource = character;
             txtName.DataBindings.Add("Text", bindingSource, "Name",false, DataSourceUpdateMode.OnPropertyChanged);
+            nudMight.DataBindings.Add("Value", bindingSource, "Might", false, DataSourceUpdateMode.OnPropertyChanged);
+            //TODO How to handle character points then?
+            nudSpeed.DataBindings.Add("Value", bindingSource, "Speed", false, DataSourceUpdateMode.OnPropertyChanged);
+            nudStrength.DataBindings.Add("Value", bindingSource, "Strength", false, DataSourceUpdateMode.OnPropertyChanged);
+            nudMarksmanship.DataBindings.Add("Value", bindingSource, "Marksmanship", false, DataSourceUpdateMode.OnPropertyChanged);
+            nudTech.DataBindings.Add("Value", bindingSource, "Tech", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
         private void refreshListBoxes()
@@ -60,26 +63,10 @@ namespace CharacterCreator
             listBoxAbilities.DisplayMember = "Syntax";
         }
 
-        private void updateStats()
-        {
-            int speed, strength, marksmanship, tech;
-            speed = (int)nudSpeed.Value;
-            strength = (int)nudStrength.Value;
-            marksmanship = (int)nudMarksmanship.Value;
-            tech = (int)nudTech.Value;
-
-            character.Speed = speed;
-            character.Strength = strength;
-            character.Marksmanship = marksmanship;
-            character.Tech = tech;
-            nudMight.Value = (int)character.calculateMight();
-
-            updateRemainingCharacterPoints();
-        }
-
         private void updateRemainingCharacterPoints()
         {
-            nudCharacterPoints.Value = (int)startingCharacterPoints - (int)character.calculateCharacterPoints();
+            //nudCharacterPoints.Value = (int)startingCharacterPoints - (int)character.calculateCharacterPoints();
+            //TODO Have yet to handle character points in the new property/events system.
             validateCharacter();
         }
 
@@ -97,25 +84,6 @@ namespace CharacterCreator
 
         //============================================================================================================
         #region Event Methods
-        private void nudSpeed_ValueChanged(object sender, EventArgs e)
-        {
-            updateStats();
-        }
-
-        private void nudStrength_ValueChanged(object sender, EventArgs e)
-        {
-            updateStats();
-        }
-
-        private void nudMarksmanship_ValueChanged(object sender, EventArgs e)
-        {
-            updateStats();
-        }
-
-        private void nudTech_ValueChanged(object sender, EventArgs e)
-        {
-            updateStats();
-        }
 
         private void buttonAddAbility_Click(object sender, EventArgs e)
         {
@@ -175,7 +143,19 @@ namespace CharacterCreator
             {
                 Character loadedCharacter = (Character)formatter.Deserialize(stream);
                 character = loadedCharacter;
+                //TODO Testing, remove
+                //StringBuilder sb = new StringBuilder();
+                //sb.AppendLine("Here's what I loaded: ");
+                //sb.AppendLine(character.Name);
+                //sb.AppendLine(character.Might.ToString());
+                //sb.AppendLine(character.Speed.ToString());
+                //sb.AppendLine(character.Strength.ToString());
+                //sb.AppendLine(character.Marksmanship.ToString());
+                //sb.AppendLine(character.Tech.ToString());
+                //MessageBox.Show(sb.ToString());
                 bindingSource.DataSource = character;
+                //TODO Reset bindings didn't cause the loaded character's stuff to show up any better, but it's the suggested solution.
+                //bindingSource.ResetBindings(false);
             }
             catch(Exception exe)
             {
@@ -190,6 +170,36 @@ namespace CharacterCreator
                 characterFile.Close();
             }
             
+        }
+
+        private void listBoxAttacksBasic_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //I only want one index selected across the three listboxes.
+            if(listBoxAttacksBasic.SelectedIndex != -1)
+            {
+                listBoxAttacksSpecial.ClearSelected();
+                listBoxAbilities.ClearSelected();
+            }
+        }
+
+        private void listBoxAttacksSpecial_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //I only want one index selected across the three listboxes.
+            if (listBoxAttacksSpecial.SelectedIndex != -1)
+            {
+                listBoxAttacksBasic.ClearSelected();
+                listBoxAbilities.ClearSelected();
+            }
+        }
+
+        private void listBoxAbilities_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //I only want one index selected across the three listboxes.
+            if (listBoxAbilities.SelectedIndex != -1)
+            {
+                listBoxAttacksBasic.ClearSelected();
+                listBoxAttacksSpecial.ClearSelected();
+            }
         }
         #endregion
         //============================================================================================================

@@ -12,20 +12,93 @@ namespace CharacterCreator.Classes
     public class Character : INotifyPropertyChanged
     {
         //============================================================================
-        #region Variables
-        public string Name { get; set; }
-        public double Might { get; set; }
-        public double Speed { get; set; }
-        public double Strength { get; set; }
-        public double Marksmanship { get; set; }
-        public double Tech { get; set; }
-        public double CharacterPoints { get; set; }
-        #endregion
-        //============================================================================
-
-
-        //============================================================================
         #region Properties
+        private string name;
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                if(value != name)
+                {
+                    name = value;
+                    OnPropertyChanged("Name");
+                }
+            }
+        }
+        private double might = 2;
+        public double Might
+        {
+            get { return might; }
+            set
+            {
+                if(value != might)
+                {
+                    might = value;
+                }
+            }
+        }
+        private double speed = 2;
+        public double Speed
+        {
+            get { return speed; }
+            set
+            {
+                if(value != speed)
+                {
+                    speed = value;
+                    updateCharacterPoints();
+                    updateMight();
+                    OnPropertyChanged("Speed");
+                }
+            }
+        }
+        private double strength = 2;
+        public double Strength
+        {
+            get { return strength; }
+            set
+            {
+                if (value != strength)
+                {
+                    strength = value;
+                    updateCharacterPoints();
+                    updateMight();
+                    OnPropertyChanged("Strength");
+                }
+            }
+        }
+        private double marksmanship = 2;
+        public double Marksmanship
+        {
+            get { return marksmanship; }
+            set
+            {
+                if (value != marksmanship)
+                {
+                    marksmanship = value;
+                    updateCharacterPoints();
+                    updateMight();
+                    OnPropertyChanged("Marksmanship");
+                }
+            }
+        }
+        private double tech = 2;
+        public double Tech
+        {
+            get { return tech; }
+            set
+            {
+                if (value != tech)
+                {
+                    tech = value;
+                    updateCharacterPoints();
+                    updateMight();
+                    OnPropertyChanged("Tech");
+                }
+            }
+        }
+        public double CharacterPoints { get; set; }
         private List<Ability> basicAttacks;
         public List<Ability> BasicAttacks
         {
@@ -46,11 +119,6 @@ namespace CharacterCreator.Classes
         }
         private List<Ability> specialAbilities;
         public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged(string propertyName)
-        {
-            if (string.IsNullOrEmpty(propertyName)) throw new ArgumentNullException(propertyName);
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
         public List<Ability> SpecialAbilities
         {
             get
@@ -65,17 +133,15 @@ namespace CharacterCreator.Classes
 
         //============================================================================
         #region Methods
-        public double calculateMight()
+        public void updateMight()
         {
             this.Might = Math.Round(((Speed + Strength + Marksmanship + Tech) / 4.0));
-            return Might;
         }
-        public double calculateCharacterPoints()
+        public void updateCharacterPoints()
         {
             double totalCP = 0;
             totalCP += Speed + Strength + Marksmanship + Tech;
             CharacterPoints = totalCP;
-            return CharacterPoints;
         }
         public decimal getActualDamage(decimal baseDamage, List<SpecialRule> rules)
         {
@@ -105,6 +171,15 @@ namespace CharacterCreator.Classes
             if (ability.Type == Ability.AbilityType.Basic) BasicAttacks.Add(ability);
             if (ability.Type == Ability.AbilityType.Special) SpecialAttacks.Add(ability);
             if (ability.Type == Ability.AbilityType.Ability) SpecialAbilities.Add(ability);
+        }
+        protected void OnPropertyChanged(PropertyChangedEventArgs e)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null) handler(this, e);
+        }
+        protected void OnPropertyChanged(string propertyName)
+        {
+            OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
         }
         #endregion
         //============================================================================

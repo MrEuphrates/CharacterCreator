@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,7 +40,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.nudTech = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.nudCharacterPoints = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.buttonAddAbility = new System.Windows.Forms.Button();
@@ -59,7 +57,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudStrength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMarksmanship)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTech)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCharacterPoints)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,7 +130,6 @@
             0,
             0,
             0});
-            this.nudSpeed.ValueChanged += new System.EventHandler(this.nudSpeed_ValueChanged);
             // 
             // label3
             // 
@@ -165,7 +161,6 @@
             0,
             0,
             0});
-            this.nudStrength.ValueChanged += new System.EventHandler(this.nudStrength_ValueChanged);
             // 
             // label4
             // 
@@ -197,7 +192,6 @@
             0,
             0,
             0});
-            this.nudMarksmanship.ValueChanged += new System.EventHandler(this.nudMarksmanship_ValueChanged);
             // 
             // label5
             // 
@@ -229,7 +223,6 @@
             0,
             0,
             0});
-            this.nudTech.ValueChanged += new System.EventHandler(this.nudTech_ValueChanged);
             // 
             // label6
             // 
@@ -298,6 +291,7 @@
             this.listBoxAttacksBasic.Name = "listBoxAttacksBasic";
             this.listBoxAttacksBasic.Size = new System.Drawing.Size(379, 95);
             this.listBoxAttacksBasic.TabIndex = 16;
+            this.listBoxAttacksBasic.SelectedIndexChanged += new System.EventHandler(this.listBoxAttacksBasic_SelectedIndexChanged);
             // 
             // listBoxAttacksSpecial
             // 
@@ -306,6 +300,7 @@
             this.listBoxAttacksSpecial.Name = "listBoxAttacksSpecial";
             this.listBoxAttacksSpecial.Size = new System.Drawing.Size(379, 95);
             this.listBoxAttacksSpecial.TabIndex = 18;
+            this.listBoxAttacksSpecial.SelectedIndexChanged += new System.EventHandler(this.listBoxAttacksSpecial_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -323,6 +318,7 @@
             this.listBoxAbilities.Name = "listBoxAbilities";
             this.listBoxAbilities.Size = new System.Drawing.Size(379, 95);
             this.listBoxAbilities.TabIndex = 20;
+            this.listBoxAbilities.SelectedIndexChanged += new System.EventHandler(this.listBoxAbilities_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -399,7 +395,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudStrength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMarksmanship)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTech)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCharacterPoints)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -412,7 +407,6 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown nudMight;
-        private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.NumericUpDown nudSpeed;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown nudStrength;
