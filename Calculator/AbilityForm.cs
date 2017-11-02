@@ -15,10 +15,17 @@ namespace CharacterCreator
 {
     public partial class AbilityForm : Form
     {
+        //=========================================================================
         #region Variables
         public Character character;
         public Ability ability;
+        BindingSource bindingSource;
         #endregion
+        //=========================================================================
+
+
+        //=========================================================================
+        #region Methods
         public AbilityForm(Character character)
         {
             InitializeComponent();
@@ -34,11 +41,20 @@ namespace CharacterCreator
         }
 
         private void setupForm()
-        {
+        {//TODO Now that I'm trying to use data binding, I shouldn't need to update the ability via my own code every time a control changes.  Disable the relevant code and test.
+            //Setup the data binding
+            bindingSource = new BindingSource();
+            bindingSource.DataSource = ability;
+            nudTime.DataBindings.Add("Value", bindingSource, "Time", false, DataSourceUpdateMode.OnPropertyChanged);
+            txtName.DataBindings.Add("Text", bindingSource, "Name", false, DataSourceUpdateMode.OnPropertyChanged);
+            nudEnergy.DataBindings.Add("Value", bindingSource, "Energy", false, DataSourceUpdateMode.OnPropertyChanged);
+            nudDamageBase.DataBindings.Add("Value", bindingSource, "BaseDamage", false, DataSourceUpdateMode.OnPropertyChanged);
+            nudDamageActual.DataBindings.Add("Value", bindingSource, "Damage", false, DataSourceUpdateMode.OnPropertyChanged);
+
             //Bind the specials listbox to the ability's list of specials
             listBoxSpecial.DataSource = ability.SpecialRules;
             listBoxSpecial.DisplayMember = "SyntaxActual";
-
+            
             //Setup the delays for the tooltip
             toolTip1.AutoPopDelay = 20000;
             toolTip1.InitialDelay = 1000;
@@ -57,11 +73,9 @@ namespace CharacterCreator
                 "melee abilities will gain 10% extra damage per point of Strength above 5, whereas ranged abilities gain this bonus per point of Marksmanship above 5.");
             //TODO Just realized the actual damage is tied to Strength, Marksmanship, or Tech, depending on which special rules are and are not selected.
         }
-
-        //===================================================================
-        #region Methods
+        
         private void updateAbility()
-        {
+        {//TODO Likely in lieu of this method, what I want is to have Ability update itself when the properties change.
             //Whenever anything about this ability changes, this method needs to be called.
             ability.Time = nudTime.Value;
             ability.Name = txtName.Text;
@@ -83,7 +97,7 @@ namespace CharacterCreator
             txtDisplay.Text = ability.Syntax;
         }
         private void updateEnergyCost()
-        {
+        {//TODO Once Ability is doing this, delete this method.
             //Get the energy modifiers.
             var energyModifier = ability.getEnergyModifier(nudDamageBase.Value);
             nudEnergyModifier.Value = energyModifier;
@@ -143,18 +157,19 @@ namespace CharacterCreator
                 nudDamageBase.Value = nudDamageBase.Value - nudDamageBase.Value % 10;
                 return;
             }
-            updateActualDamage();
-            updateAbility();
+            //updateActualDamage();
+            //updateAbility();
         }
 
         private void nudTime_ValueChanged(object sender, EventArgs e)
         {
-            updateAbility();
+            //TODO First test of property change stuff.  When the Time property changes, energy calculation needs to be redone.
+            //updateAbility();
         }
 
         private void nudAttacks_ValueChanged(object sender, EventArgs e)
         {
-            updateAbility();
+            //updateAbility();
         }
 
         private void cbxRequiresAdditionalInput_CheckedChanged(object sender, EventArgs e)

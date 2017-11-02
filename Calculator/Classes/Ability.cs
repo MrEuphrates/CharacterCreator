@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,17 +9,81 @@ using CharacterCreator.Classes.SpecialRules;
 
 namespace CharacterCreator.Classes
 {
-    public class Ability
+    public class Ability : INotifyPropertyChanged
     {
         public enum AbilityType { Basic, Special, Ability }
 
+        //===================================================================
         #region Properties
-        public decimal Time { get; set; }
+        protected void OnPropertyChanged(PropertyChangedEventArgs e)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null) handler(this, e);//TODO Handle property changes.  This includes energy cost calcs, damage calcs, etc.  Have to test with damage first.
+            //TODO Not sure I should even be doing this here.
+            updateEnergyCost();
+            //TODO Some properties, like Damage (actual) and energy, are never set on the form.  If I update those properties in the class, will they reflect on the form?
+        }
+        protected void OnPropertyChanged(string propertyName)
+        {
+            OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
+        }
+        private decimal time = 1;
+        public decimal Time
+        {
+            get
+            {
+                return time;
+            }
+            set
+            {
+                if(value != time)
+                {
+                    time = value;
+                    OnPropertyChanged("Time");//TODO This line needs to be added to every property for which I want to raise the property changed event.
+                }
+            }
+        }
         public string Name { get; set; }
         public decimal Energy { get; set; }
-        public decimal BaseDamage { get; set; }
+        public decimal EnergyModifier
+        {
+            get
+            {
+                decimal baseMod = BaseDamage * 0.2m;
+                if (baseMod % 5 != 0) baseMod = baseMod + (5 - (baseMod % 5));
+                return baseMod;
+            }
+        }
+        private decimal baseDamage;
+        public decimal BaseDamage
+        {
+            get { return baseDamage; }
+            set
+            {
+                if(value != baseDamage)
+                {
+                    baseDamage = value;
+                    OnPropertyChanged("BaseDamage");
+                }
+            }
+        }
         public decimal Damage { get; set; }
-        public decimal Attacks { get; set; }
+        private decimal attacks = 1;
+        public decimal Attacks
+        {
+            get
+            {
+                return attacks;
+            }
+            set
+            {
+                if(value != attacks)
+                {
+                    attacks = value;
+                    OnPropertyChanged("Attacks");
+                }
+            }
+        }
         public double CharacterPoints { get; }
         public bool RequiresInput { get; set; }
         public string InputDescription { get; set; }
@@ -57,6 +122,9 @@ namespace CharacterCreator.Classes
             }
         }
         private AbilityType abilityType;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public AbilityType Type
         {
             get
@@ -69,21 +137,17 @@ namespace CharacterCreator.Classes
             }
         }
         #endregion
+        //===================================================================
 
+
+        //===================================================================
         #region Methods
-        public decimal getEnergyModifier()
-        {
-            decimal baseMod = BaseDamage * 0.2m;
-            if (baseMod % 5 != 0) baseMod = baseMod + (5 - (baseMod % 5));
-            return baseMod;
-        }
         public decimal getEnergyModifier(decimal baseDamage)
         {
             decimal baseMod = baseDamage * 0.2m;
             if (baseMod % 5 != 0) baseMod = baseMod + (5 - (baseMod % 5));
             return baseMod;
         }
-
         public override bool Equals(object obj)
         {
             //If the param is null, return False
@@ -98,7 +162,6 @@ namespace CharacterCreator.Classes
 
             return false;
         }
-
         public bool Equals(SpecialRule r)
         {
             if ((object)r == null) return false;
@@ -108,6 +171,35 @@ namespace CharacterCreator.Classes
 
             return false;
         }
+        private void updateEnergyCost()
+        {
+            //Get the energy modifiers.
+            var totalEnergyModifier = EnergyModifier * Attacks;
+
+            //Get energy cost based on time.
+            var totalBaseDamage = BaseDamage * Attacks;
+            var expectedTime = (totalBaseDamage - totalBaseDamage % 100) / 100;
+            if (totalBaseDamage % 100 != 0) ++expectedTime;
+            var timeEnergyCost = (expectedTime - Time) * totalEnergyModifier;
+
+            //Get the base energy cost
+            var baseEnergyCost = totalBaseDamage / 2;
+
+            //Get the energy cost from the special rules
+            decimal specialRulesEnergyCost = 0;
+            foreach (SpecialRule rule in SpecialRules) specialRulesEnergyCost += rule.calculateEnergyCost(EnergyModifier);
+            specialRulesEnergyCost *= Attacks;
+
+            //Summarize energy costs.
+            var totalEnergy = timeEnergyCost + baseEnergyCost + specialRulesEnergyCost;
+
+            //Energy costs are always multiples of 5, so round up.
+            if (totalEnergy % 5 != 0) totalEnergy = totalEnergy + (5 - totalEnergy % 5);
+
+            //Set the ability's energy cost.
+            Energy = totalEnergy;
+        }
         #endregion
+        //===================================================================
     }
 }
