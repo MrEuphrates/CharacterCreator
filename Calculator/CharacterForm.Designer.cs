@@ -337,6 +337,7 @@
             this.cmdEditAbility.TabIndex = 21;
             this.cmdEditAbility.Text = "Edit Ability";
             this.cmdEditAbility.UseVisualStyleBackColor = true;
+            this.cmdEditAbility.Click += new System.EventHandler(this.cmdEditAbility_Click);
             // 
             // cmdSave
             // 

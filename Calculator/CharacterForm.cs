@@ -149,19 +149,7 @@ namespace CharacterCreator
             {
                 Character loadedCharacter = (Character)formatter.Deserialize(stream);
                 character = loadedCharacter;
-                //TODO Testing, remove
-                //StringBuilder sb = new StringBuilder();
-                //sb.AppendLine("Here's what I loaded: ");
-                //sb.AppendLine(character.Name);
-                //sb.AppendLine(character.Might.ToString());
-                //sb.AppendLine(character.Speed.ToString());
-                //sb.AppendLine(character.Strength.ToString());
-                //sb.AppendLine(character.Marksmanship.ToString());
-                //sb.AppendLine(character.Tech.ToString());
-                //MessageBox.Show(sb.ToString());
                 bindingSource.DataSource = character;
-                //TODO Reset bindings didn't cause the loaded character's stuff to show up any better, but it's the suggested solution.
-                //bindingSource.ResetBindings(false);
             }
             catch(Exception exe)
             {
@@ -177,7 +165,6 @@ namespace CharacterCreator
             }
             
         }
-
         private void listBoxAttacksBasic_SelectedIndexChanged(object sender, EventArgs e)
         {
             //I only want one index selected across the three listboxes.
@@ -187,7 +174,6 @@ namespace CharacterCreator
                 listBoxAbilities.ClearSelected();
             }
         }
-
         private void listBoxAttacksSpecial_SelectedIndexChanged(object sender, EventArgs e)
         {
             //I only want one index selected across the three listboxes.
@@ -197,7 +183,6 @@ namespace CharacterCreator
                 listBoxAbilities.ClearSelected();
             }
         }
-
         private void listBoxAbilities_SelectedIndexChanged(object sender, EventArgs e)
         {
             //I only want one index selected across the three listboxes.
@@ -205,6 +190,19 @@ namespace CharacterCreator
             {
                 listBoxAttacksBasic.ClearSelected();
                 listBoxAttacksSpecial.ClearSelected();
+            }
+        }
+        private void cmdEditAbility_Click(object sender, EventArgs e)
+        {
+            Ability selectedAbility = null;
+            if (listBoxAttacksBasic.SelectedIndex != -1) selectedAbility = (Ability)listBoxAttacksBasic.Items[listBoxAttacksBasic.SelectedIndex];
+            if (listBoxAttacksSpecial.SelectedIndex != -1) selectedAbility = (Ability)listBoxAttacksSpecial.Items[listBoxAttacksSpecial.SelectedIndex];
+            if (listBoxAbilities.SelectedIndex != -1) selectedAbility = (Ability)listBoxAbilities.Items[listBoxAbilities.SelectedIndex];
+            if(selectedAbility != null)
+            {
+                var aform = new AbilityForm(character, selectedAbility);
+                aform.ShowDialog();
+                refreshListBoxes();
             }
         }
         #endregion
