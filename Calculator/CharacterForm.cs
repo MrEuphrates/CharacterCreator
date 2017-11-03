@@ -45,6 +45,12 @@ namespace CharacterCreator
             nudStrength.DataBindings.Add("Value", bindingSource, "Strength", false, DataSourceUpdateMode.OnPropertyChanged);
             nudMarksmanship.DataBindings.Add("Value", bindingSource, "Marksmanship", false, DataSourceUpdateMode.OnPropertyChanged);
             nudTech.DataBindings.Add("Value", bindingSource, "Tech", false, DataSourceUpdateMode.OnPropertyChanged);
+            listBoxAttacksBasic.DataBindings.Add("DataSource", bindingSource, "BasicAttacks", false, DataSourceUpdateMode.OnPropertyChanged);
+            listBoxAttacksBasic.DisplayMember = "Syntax";
+            listBoxAttacksSpecial.DataBindings.Add("DataSource", bindingSource, "SpecialAttacks", false, DataSourceUpdateMode.OnPropertyChanged);
+            listBoxAttacksSpecial.DisplayMember = "Syntax";
+            listBoxAbilities.DataBindings.Add("DataSource", bindingSource, "SpecialAttacks", false, DataSourceUpdateMode.OnPropertyChanged);
+            listBoxAbilities.DisplayMember = "Syntax";
         }
 
         private void refreshListBoxes()

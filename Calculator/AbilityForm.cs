@@ -107,7 +107,6 @@ namespace CharacterCreator
         {
             nudDamageActual.Value = character.getActualDamage(nudDamageBase.Value, ability.SpecialRules);
         }
-
         #endregion
         //===================================================================
 
@@ -116,14 +115,8 @@ namespace CharacterCreator
         #region Event Methods
         private void buttonAddSpecial_Click(object sender, EventArgs e)
         {
-            //TODO This stuff needs to change now that I'm using data binding.
             SpecialForm sf = new SpecialForm(ability);
             sf.ShowDialog();
-            //listBoxSpecial.DataSource = null;
-            //listBoxSpecial.DataSource = ability.SpecialRules;
-            //listBoxSpecial.DisplayMember = "SyntaxActual";
-            //updateActualDamage();
-            //updateAbility();
         }
 
         private void nudDamageBase_ValueChanged(object sender, EventArgs e)
@@ -142,6 +135,7 @@ namespace CharacterCreator
 
         private void cmdOK_Click(object sender, EventArgs e)
         {
+            //TODO Replace?
             character.addAbility(ability);
             this.Dispose();
         }
