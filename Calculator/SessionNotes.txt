@@ -1,7 +1,7 @@
 ﻿11/4/17 REH
-I'll work on character points next.  Those are working now, both in the character sheet and on the form.  Next I need to add Health and Energy.  I still have to test
+I'll work on character points next.  Those are working now, both in the character sheet and on the form.  I still have to test
 if abilities cause the CP's to reflect, too.  I tested abilities now, too.  They update the CP correctly, though I haven't dealt with Special Abilities and their common
-ability inheritors.
+ability inheritors.  Next I need to add Health and Energy.
 
 11/3/17 REH
 Characters' abilities now load into the form from a file.  Now to test adding abilities to make sure they reflect back on the form.  I had to edit a little, but I got it working.
