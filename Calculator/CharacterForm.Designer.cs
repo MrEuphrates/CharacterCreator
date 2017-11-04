@@ -237,6 +237,7 @@
             // 
             // nudCharacterPointsCurrent
             // 
+            this.nudCharacterPointsCurrent.DecimalPlaces = 1;
             this.nudCharacterPointsCurrent.Enabled = false;
             this.nudCharacterPointsCurrent.Location = new System.Drawing.Point(302, 29);
             this.nudCharacterPointsCurrent.Maximum = new decimal(new int[] {

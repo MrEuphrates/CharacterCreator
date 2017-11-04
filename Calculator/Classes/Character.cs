@@ -196,7 +196,7 @@ namespace CharacterCreator.Classes
             return actualDamage;
         }
         public void addAbility(Ability ability)
-        {//TODO This is probably going away at some point once the user can start editing abilities.
+        {
             //Remove the ability from any list it may be in.
             if (BasicAttacks.Contains(ability)) BasicAttacks.Remove(ability);
             if (SpecialAttacks.Contains(ability)) SpecialAttacks.Remove(ability);
@@ -206,6 +206,9 @@ namespace CharacterCreator.Classes
             if (ability.Type == Ability.AbilityType.Basic) BasicAttacks.Add(ability);
             if (ability.Type == Ability.AbilityType.Special) SpecialAttacks.Add(ability);
             if (ability.Type == Ability.AbilityType.Ability) SpecialAbilities.Add(ability);
+
+            //Update the character points
+            updateCharacterPoints();
         }
         protected void OnPropertyChanged(PropertyChangedEventArgs e)
         {
