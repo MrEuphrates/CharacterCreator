@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CharacterCreator.AbstractClasses;
 using CharacterCreator.Classes.SpecialRules;
+using System.Windows.Forms;
 
 namespace CharacterCreator.Classes
 {
@@ -98,7 +99,32 @@ namespace CharacterCreator.Classes
                 }
             }
         }
-        public double CharacterPoints { get; set; }
+        private double characterPointsCurrent = 0;
+        public double CharacterPointsCurrent
+        {
+            get { return characterPointsCurrent; }
+            set
+            {
+                if(value != characterPointsCurrent)
+                {
+                    characterPointsCurrent = value;
+                    OnPropertyChanged("CharacterPointsCurrent");
+                }
+            }
+        }
+        private double characterPointsMax;
+        public double CharacterPointsMax
+        {
+            get { return characterPointsMax; }
+            set
+            {
+                if (value != characterPointsMax)
+                {
+                    characterPointsMax = value;
+                    OnPropertyChanged("CharacterPointsMax");
+                }
+            }
+        }
         private List<Ability> basicAttacks;
         public List<Ability> BasicAttacks
         {
@@ -118,7 +144,6 @@ namespace CharacterCreator.Classes
             }
         }
         private List<Ability> specialAbilities;
-        public event PropertyChangedEventHandler PropertyChanged;
         public List<Ability> SpecialAbilities
         {
             get
@@ -127,21 +152,31 @@ namespace CharacterCreator.Classes
                 return specialAbilities;
             }
         }
+        public event PropertyChangedEventHandler PropertyChanged;
         #endregion
         //============================================================================
 
 
         //============================================================================
         #region Methods
+        public Character() { }
+        public Character(double characterPoints)
+        {
+            characterPointsMax = characterPoints;
+            characterPointsCurrent = characterPoints - (speed + strength + marksmanship + tech);
+        }
         public void updateMight()
         {
             this.Might = Math.Round(((Speed + Strength + Marksmanship + Tech) / 4.0));
         }
-        public void updateCharacterPoints()
+        private void updateCharacterPoints()
         {
-            double totalCP = 0;
-            totalCP += Speed + Strength + Marksmanship + Tech;
-            CharacterPoints = totalCP;
+            double spentPoints = 0;
+            spentPoints += speed + strength + marksmanship + tech;
+            spentPoints += (BasicAttacks.Count * 0.5);
+            spentPoints += SpecialAttacks.Count;
+            CharacterPointsCurrent = characterPointsMax - spentPoints;
+            //TODO Still have to do health, energy, and common abilities, those costing more than 1 or 0.5 CP.
         }
         public decimal getActualDamage(decimal baseDamage, List<SpecialRule> rules)
         {
@@ -180,6 +215,15 @@ namespace CharacterCreator.Classes
         protected void OnPropertyChanged(string propertyName)
         {
             OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
+        }
+        public bool isCharacterValid()
+        {
+            if(characterPointsCurrent > characterPointsMax)
+            {
+                MessageBox.Show("The total character points spent, " + characterPointsCurrent + ", exceeds the maximum, " + characterPointsMax + ".");
+                return false;
+            }
+            return true;
         }
         #endregion
         //============================================================================

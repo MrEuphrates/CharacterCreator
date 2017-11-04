@@ -40,7 +40,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.nudTech = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
-            this.nudCharacterPoints = new System.Windows.Forms.NumericUpDown();
+            this.nudCharacterPointsCurrent = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.buttonAddAbility = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -52,12 +52,14 @@
             this.cmdEditAbility = new System.Windows.Forms.Button();
             this.cmdSave = new System.Windows.Forms.Button();
             this.cmdLoad = new System.Windows.Forms.Button();
+            this.txtCharacterPointsMax = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudMight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStrength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMarksmanship)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTech)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCharacterPoints)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCharacterPointsCurrent)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -233,24 +235,24 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Tech:";
             // 
-            // nudCharacterPoints
+            // nudCharacterPointsCurrent
             // 
-            this.nudCharacterPoints.Enabled = false;
-            this.nudCharacterPoints.Location = new System.Drawing.Point(302, 29);
-            this.nudCharacterPoints.Maximum = new decimal(new int[] {
+            this.nudCharacterPointsCurrent.Enabled = false;
+            this.nudCharacterPointsCurrent.Location = new System.Drawing.Point(302, 29);
+            this.nudCharacterPointsCurrent.Maximum = new decimal(new int[] {
             1200,
             0,
             0,
             0});
-            this.nudCharacterPoints.Minimum = new decimal(new int[] {
+            this.nudCharacterPointsCurrent.Minimum = new decimal(new int[] {
             1200,
             0,
             0,
             -2147483648});
-            this.nudCharacterPoints.Name = "nudCharacterPoints";
-            this.nudCharacterPoints.Size = new System.Drawing.Size(89, 20);
-            this.nudCharacterPoints.TabIndex = 13;
-            this.nudCharacterPoints.Value = new decimal(new int[] {
+            this.nudCharacterPointsCurrent.Name = "nudCharacterPointsCurrent";
+            this.nudCharacterPointsCurrent.Size = new System.Drawing.Size(89, 20);
+            this.nudCharacterPointsCurrent.TabIndex = 13;
+            this.nudCharacterPointsCurrent.Value = new decimal(new int[] {
             60,
             0,
             0,
@@ -289,7 +291,7 @@
             this.listBoxAttacksBasic.FormattingEnabled = true;
             this.listBoxAttacksBasic.Location = new System.Drawing.Point(12, 146);
             this.listBoxAttacksBasic.Name = "listBoxAttacksBasic";
-            this.listBoxAttacksBasic.Size = new System.Drawing.Size(379, 95);
+            this.listBoxAttacksBasic.Size = new System.Drawing.Size(543, 95);
             this.listBoxAttacksBasic.TabIndex = 16;
             this.listBoxAttacksBasic.SelectedIndexChanged += new System.EventHandler(this.listBoxAttacksBasic_SelectedIndexChanged);
             // 
@@ -298,7 +300,7 @@
             this.listBoxAttacksSpecial.FormattingEnabled = true;
             this.listBoxAttacksSpecial.Location = new System.Drawing.Point(12, 275);
             this.listBoxAttacksSpecial.Name = "listBoxAttacksSpecial";
-            this.listBoxAttacksSpecial.Size = new System.Drawing.Size(379, 95);
+            this.listBoxAttacksSpecial.Size = new System.Drawing.Size(543, 95);
             this.listBoxAttacksSpecial.TabIndex = 18;
             this.listBoxAttacksSpecial.SelectedIndexChanged += new System.EventHandler(this.listBoxAttacksSpecial_SelectedIndexChanged);
             // 
@@ -316,7 +318,7 @@
             this.listBoxAbilities.FormattingEnabled = true;
             this.listBoxAbilities.Location = new System.Drawing.Point(12, 405);
             this.listBoxAbilities.Name = "listBoxAbilities";
-            this.listBoxAbilities.Size = new System.Drawing.Size(379, 95);
+            this.listBoxAbilities.Size = new System.Drawing.Size(543, 95);
             this.listBoxAbilities.TabIndex = 20;
             this.listBoxAbilities.SelectedIndexChanged += new System.EventHandler(this.listBoxAbilities_SelectedIndexChanged);
             // 
@@ -341,7 +343,7 @@
             // 
             // cmdSave
             // 
-            this.cmdSave.Location = new System.Drawing.Point(465, 12);
+            this.cmdSave.Location = new System.Drawing.Point(480, 3);
             this.cmdSave.Name = "cmdSave";
             this.cmdSave.Size = new System.Drawing.Size(75, 23);
             this.cmdSave.TabIndex = 22;
@@ -351,7 +353,7 @@
             // 
             // cmdLoad
             // 
-            this.cmdLoad.Location = new System.Drawing.Point(465, 41);
+            this.cmdLoad.Location = new System.Drawing.Point(480, 32);
             this.cmdLoad.Name = "cmdLoad";
             this.cmdLoad.Size = new System.Drawing.Size(75, 23);
             this.cmdLoad.TabIndex = 23;
@@ -359,11 +361,30 @@
             this.cmdLoad.UseVisualStyleBackColor = true;
             this.cmdLoad.Click += new System.EventHandler(this.cmdLoad_Click);
             // 
+            // txtCharacterPointsMax
+            // 
+            this.txtCharacterPointsMax.Enabled = false;
+            this.txtCharacterPointsMax.Location = new System.Drawing.Point(397, 29);
+            this.txtCharacterPointsMax.Name = "txtCharacterPointsMax";
+            this.txtCharacterPointsMax.Size = new System.Drawing.Size(62, 20);
+            this.txtCharacterPointsMax.TabIndex = 24;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(397, 13);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(62, 13);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "Max Points:";
+            // 
             // CharacterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(552, 517);
+            this.ClientSize = new System.Drawing.Size(572, 517);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.txtCharacterPointsMax);
             this.Controls.Add(this.cmdLoad);
             this.Controls.Add(this.cmdSave);
             this.Controls.Add(this.cmdEditAbility);
@@ -374,7 +395,7 @@
             this.Controls.Add(this.listBoxAttacksBasic);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.buttonAddAbility);
-            this.Controls.Add(this.nudCharacterPoints);
+            this.Controls.Add(this.nudCharacterPointsCurrent);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.nudTech);
             this.Controls.Add(this.label6);
@@ -396,7 +417,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudStrength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMarksmanship)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTech)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCharacterPoints)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCharacterPointsCurrent)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -416,7 +437,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown nudTech;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.NumericUpDown nudCharacterPoints;
+        private System.Windows.Forms.NumericUpDown nudCharacterPointsCurrent;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button buttonAddAbility;
         private System.Windows.Forms.Label label8;
@@ -428,5 +449,7 @@
         private System.Windows.Forms.Button cmdEditAbility;
         private System.Windows.Forms.Button cmdSave;
         private System.Windows.Forms.Button cmdLoad;
+        private System.Windows.Forms.TextBox txtCharacterPointsMax;
+        private System.Windows.Forms.Label label11;
     }
 }

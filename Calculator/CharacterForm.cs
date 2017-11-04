@@ -18,7 +18,6 @@ namespace CharacterCreator
         //============================================================================================================
         #region Variables
         Character character;
-        double startingCharacterPoints;
         BindingSource bindingSource;
         #endregion
         //============================================================================================================
@@ -29,9 +28,10 @@ namespace CharacterCreator
         public CharacterForm(double characterPoints)
         {
             InitializeComponent();
-            nudCharacterPoints.Value = (int)characterPoints;
-            startingCharacterPoints = characterPoints;
-            character = new Character();
+            character = new Character(characterPoints);
+            //TODO Might be unnecessary
+            //nudCharacterPointsCurrent.Value = (int)characterPoints;
+            //txtCharacterPointsMax.Text = characterPoints.ToString();            
             
             refreshListBoxes();
 
@@ -41,6 +41,8 @@ namespace CharacterCreator
             txtName.DataBindings.Add("Text", bindingSource, "Name",false, DataSourceUpdateMode.OnPropertyChanged);
             nudMight.DataBindings.Add("Value", bindingSource, "Might", false, DataSourceUpdateMode.OnPropertyChanged);
             //TODO How to handle character points then?
+            nudCharacterPointsCurrent.DataBindings.Add("Value", bindingSource, "CharacterPointsCurrent", false, DataSourceUpdateMode.OnPropertyChanged);
+            txtCharacterPointsMax.DataBindings.Add("Text", bindingSource, "CharacterPointsMax", false, DataSourceUpdateMode.OnPropertyChanged);
             nudSpeed.DataBindings.Add("Value", bindingSource, "Speed", false, DataSourceUpdateMode.OnPropertyChanged);
             nudStrength.DataBindings.Add("Value", bindingSource, "Strength", false, DataSourceUpdateMode.OnPropertyChanged);
             nudMarksmanship.DataBindings.Add("Value", bindingSource, "Marksmanship", false, DataSourceUpdateMode.OnPropertyChanged);
@@ -67,22 +69,6 @@ namespace CharacterCreator
             listBoxAbilities.DataSource = null;
             listBoxAbilities.DataSource = character.SpecialAbilities;
             listBoxAbilities.DisplayMember = "Syntax";
-        }
-
-        private void updateRemainingCharacterPoints()
-        {
-            //nudCharacterPoints.Value = (int)startingCharacterPoints - (int)character.calculateCharacterPoints();
-            //TODO Have yet to handle character points in the new property/events system.
-            validateCharacter();
-        }
-
-        private void validateCharacter()
-        {
-            if (nudCharacterPoints.Value < 0)
-            {
-                MessageBox.Show("Your total character points exceeds the limit selected.  Limit: "
-                    + startingCharacterPoints + "  Yours: " + nudCharacterPoints.Value);
-            }
         }
         #endregion
         //============================================================================================================
