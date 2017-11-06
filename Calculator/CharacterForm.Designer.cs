@@ -59,6 +59,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.nudHealth = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
+            this.nudRecharge = new System.Windows.Forms.NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudMight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStrength)).BeginInit();
@@ -67,6 +69,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudCharacterPointsSpent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEnergy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHealth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudRecharge)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -463,11 +466,50 @@
             this.label13.TabIndex = 27;
             this.label13.Text = "Health:";
             // 
+            // nudRecharge
+            // 
+            this.nudRecharge.Enabled = false;
+            this.nudRecharge.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.nudRecharge.Location = new System.Drawing.Point(179, 68);
+            this.nudRecharge.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudRecharge.Minimum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.nudRecharge.Name = "nudRecharge";
+            this.nudRecharge.Size = new System.Drawing.Size(75, 20);
+            this.nudRecharge.TabIndex = 32;
+            this.nudRecharge.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(176, 52);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(57, 13);
+            this.label14.TabIndex = 31;
+            this.label14.Text = "Recharge:";
+            // 
             // CharacterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(572, 560);
+            this.Controls.Add(this.nudRecharge);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.nudEnergy);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.nudHealth);
@@ -510,6 +552,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudCharacterPointsSpent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEnergy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHealth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudRecharge)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -548,5 +591,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.NumericUpDown nudHealth;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.NumericUpDown nudRecharge;
+        private System.Windows.Forms.Label label14;
     }
 }

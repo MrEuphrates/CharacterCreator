@@ -184,6 +184,13 @@ namespace CharacterCreator.Classes
                 }
             }
         }
+        public double Recharge
+        {
+            get
+            {
+                return energy / 10.0;
+            }
+        }
         #endregion
         //============================================================================
 

@@ -14,7 +14,9 @@ I added a control for health to the form, and a property to the class, as well a
 Character to just call updateCharacterPoints, rather than repeat the code for calculating CP's.  I tested and confirmed the default character checks the health for CP's and adjusts as it does.
 Energy is next.
 
-I did the same for Energy successfully.  I think I'll start on the TODO task list next.
+I did the same for Energy successfully.  I think I'll start on the TODO task list next, after I implement Recharge.
+
+Added recharge control and property.  Now I'll turn to the TODO task list.
 
 11/4/17 REH
 I'll work on character points next.  Those are working now, both in the character sheet and on the form.  I still have to test
