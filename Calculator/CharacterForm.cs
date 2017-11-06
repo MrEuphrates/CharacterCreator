@@ -53,6 +53,7 @@ namespace CharacterCreator
             listBoxAbilities.DataBindings.Add("DataSource", bindingSource, "SpecialAbilities", false, DataSourceUpdateMode.OnPropertyChanged);
             listBoxAbilities.DisplayMember = "Syntax";
             nudHealth.DataBindings.Add("Value", bindingSource, "Health", false, DataSourceUpdateMode.OnPropertyChanged);
+            nudEnergy.DataBindings.Add("Value", bindingSource, "Energy", false, DataSourceUpdateMode.OnPropertyChanged);
 
         }
 

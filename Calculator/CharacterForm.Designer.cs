@@ -55,7 +55,7 @@
             this.txtCharacterPointsMax = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.cmdDeleteAbility = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nudEnergy = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
             this.nudHealth = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
@@ -65,7 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudMarksmanship)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTech)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCharacterPointsSpent)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEnergy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHealth)).BeginInit();
             this.SuspendLayout();
             // 
@@ -391,24 +391,29 @@
             this.cmdDeleteAbility.UseVisualStyleBackColor = true;
             this.cmdDeleteAbility.Click += new System.EventHandler(this.cmdDeleteAbility_Click);
             // 
-            // numericUpDown1
+            // nudEnergy
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(98, 68);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            12,
+            this.nudEnergy.Increment = new decimal(new int[] {
+            50,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            2,
+            this.nudEnergy.Location = new System.Drawing.Point(98, 68);
+            this.nudEnergy.Maximum = new decimal(new int[] {
+            100000,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(75, 20);
-            this.numericUpDown1.TabIndex = 30;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            2,
+            this.nudEnergy.Minimum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.nudEnergy.Name = "nudEnergy";
+            this.nudEnergy.Size = new System.Drawing.Size(75, 20);
+            this.nudEnergy.TabIndex = 30;
+            this.nudEnergy.Value = new decimal(new int[] {
+            50,
             0,
             0,
             0});
@@ -418,9 +423,9 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(95, 52);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(50, 13);
+            this.label12.Size = new System.Drawing.Size(43, 13);
             this.label12.TabIndex = 29;
-            this.label12.Text = "Strength:";
+            this.label12.Text = "Energy:";
             // 
             // nudHealth
             // 
@@ -463,7 +468,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(572, 560);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.nudEnergy);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.nudHealth);
             this.Controls.Add(this.label13);
@@ -503,7 +508,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudMarksmanship)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTech)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCharacterPointsSpent)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEnergy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHealth)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -539,7 +544,7 @@
         private System.Windows.Forms.TextBox txtCharacterPointsMax;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button cmdDeleteAbility;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nudEnergy;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.NumericUpDown nudHealth;
         private System.Windows.Forms.Label label13;
