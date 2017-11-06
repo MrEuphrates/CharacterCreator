@@ -117,6 +117,7 @@ namespace CharacterCreator
         {
             SpecialForm sf = new SpecialForm(ability);
             sf.ShowDialog();
+            updateActualDamage();
         }
 
         private void nudDamageBase_ValueChanged(object sender, EventArgs e)
