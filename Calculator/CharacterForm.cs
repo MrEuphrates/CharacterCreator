@@ -51,8 +51,13 @@ namespace CharacterCreator
             listBoxAttacksBasic.DisplayMember = "Syntax";
             listBoxAttacksSpecial.DataBindings.Add("DataSource", bindingSource, "SpecialAttacks", false, DataSourceUpdateMode.OnPropertyChanged);
             listBoxAttacksSpecial.DisplayMember = "Syntax";
-            listBoxAbilities.DataBindings.Add("DataSource", bindingSource, "SpecialAttacks", false, DataSourceUpdateMode.OnPropertyChanged);
+            listBoxAbilities.DataBindings.Add("DataSource", bindingSource, "SpecialAbilities", false, DataSourceUpdateMode.OnPropertyChanged);
             listBoxAbilities.DisplayMember = "Syntax";
+        }
+
+        private void Ability_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            refreshListBoxes();
         }
 
         private void refreshListBoxes()
@@ -80,8 +85,13 @@ namespace CharacterCreator
         private void buttonAddAbility_Click(object sender, EventArgs e)
         {
             AbilityForm af = new AbilityForm(character);
-            af.ShowDialog();
-            refreshListBoxes();
+            var result = af.ShowDialog();
+            if(result == DialogResult.OK)
+            {
+                character.addAbility(af.ability);
+                af.ability.PropertyChanged += Ability_PropertyChanged;
+                refreshListBoxes();
+            }
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)
@@ -136,6 +146,8 @@ namespace CharacterCreator
                 Character loadedCharacter = (Character)formatter.Deserialize(stream);
                 character = loadedCharacter;
                 bindingSource.DataSource = character;
+                //TODO For testing purposes, I'm iterating through each ability and subscribing to the property changed event.
+                foreach(Ability ability in character.BasicAttacks) ability.PropertyChanged += Ability_PropertyChanged;
             }
             catch(Exception exe)
             {
@@ -187,8 +199,13 @@ namespace CharacterCreator
             if(selectedAbility != null)
             {
                 var aform = new AbilityForm(character, selectedAbility);
-                aform.ShowDialog();
-                refreshListBoxes();
+                var result = aform.ShowDialog();
+                if(result == DialogResult.OK)
+                {
+                    character.addAbility(aform.ability);
+                    aform.ability.PropertyChanged += Ability_PropertyChanged;
+                    refreshListBoxes();
+                }
             }
         }
 

@@ -1,5 +1,9 @@
 ﻿11/6/17 REH
+Changing a character's stat isn't reflecting in the abilities (actual damage).  I tried using my refreshListboxes method to handle it, but it gets called before the property updates.  I checked the
+Validated event, but that only triggers after leaving the control, which could work, but isn't good enough because changes won't reflect then until the control is left.  So I think I need to figure
+out how to make listboxes change when their associated property changes.  I'll start in the ability form, since I think it's easier there.
 
+It took me hours, but I think I got everything sorted out with getting abilities to reflect the character stats and vice versa as they change.
 
 11/4/17 REH
 I'll work on character points next.  Those are working now, both in the character sheet and on the form.  I still have to test

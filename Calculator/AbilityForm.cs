@@ -122,6 +122,8 @@ namespace CharacterCreator
         private void nudDamageBase_ValueChanged(object sender, EventArgs e)
         {
             if (nudDamageBase.Value % 10 != 0) nudDamageBase.Value = nudDamageBase.Value - nudDamageBase.Value % 10;
+            //TODO This stuff triggers before the property is actually updated.  Do I have to just set the property here, rather than rely on bindings?
+            ability.BaseDamage = nudDamageBase.Value;
             updateActualDamage();
         }
 
@@ -132,8 +134,9 @@ namespace CharacterCreator
 
         private void cmdOK_Click(object sender, EventArgs e)
         {
-            //TODO Replace?
-            character.addAbility(ability);
+            //TODO Moved this call to the method which opened the form to begin with.
+            //character.addAbility(ability);
+            this.DialogResult = DialogResult.OK;
             this.Dispose();
         }
         #endregion

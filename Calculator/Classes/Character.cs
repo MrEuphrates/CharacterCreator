@@ -224,7 +224,8 @@ namespace CharacterCreator.Classes
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null) handler(this, e);
         }
-        protected void OnPropertyChanged(string propertyName)
+        //TODO For testing purposes, I'm making this public so the form can call it.
+        public void OnPropertyChanged(string propertyName)
         {
             OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
         }

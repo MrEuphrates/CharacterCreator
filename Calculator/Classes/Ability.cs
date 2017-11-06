@@ -81,7 +81,20 @@ namespace CharacterCreator.Classes
                 }
             }
         }
-        public decimal Damage { get; set; }
+        private decimal damage;
+        public decimal Damage
+        {
+            get { return damage; }
+
+            set
+            {
+                if(value != damage)
+                {
+                    damage = value;
+                    OnPropertyChanged("Damage");
+                }
+            }
+        }
         private decimal attacks = 1;
         public decimal Attacks
         {
@@ -165,10 +178,7 @@ namespace CharacterCreator.Classes
                 return sb.ToString();
             }
         }
-        private AbilityType abilityType;
-
         public event PropertyChangedEventHandler PropertyChanged;
-
         public AbilityType Type
         {
             get
