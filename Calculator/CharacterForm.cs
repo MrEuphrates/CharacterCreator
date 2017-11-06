@@ -40,7 +40,6 @@ namespace CharacterCreator
             bindingSource.DataSource = character;
             txtName.DataBindings.Add("Text", bindingSource, "Name",false, DataSourceUpdateMode.OnPropertyChanged);
             nudMight.DataBindings.Add("Value", bindingSource, "Might", false, DataSourceUpdateMode.OnPropertyChanged);
-            //TODO How to handle character points then?
             nudCharacterPointsSpent.DataBindings.Add("Value", bindingSource, "CharacterPointsSpent", false, DataSourceUpdateMode.OnPropertyChanged);
             txtCharacterPointsMax.DataBindings.Add("Text", bindingSource, "CharacterPointsMax", false, DataSourceUpdateMode.OnPropertyChanged);
             nudSpeed.DataBindings.Add("Value", bindingSource, "Speed", false, DataSourceUpdateMode.OnPropertyChanged);
@@ -53,6 +52,8 @@ namespace CharacterCreator
             listBoxAttacksSpecial.DisplayMember = "Syntax";
             listBoxAbilities.DataBindings.Add("DataSource", bindingSource, "SpecialAbilities", false, DataSourceUpdateMode.OnPropertyChanged);
             listBoxAbilities.DisplayMember = "Syntax";
+            nudHealth.DataBindings.Add("Value", bindingSource, "Health", false, DataSourceUpdateMode.OnPropertyChanged);
+
         }
 
         private void Ability_PropertyChanged(object sender, PropertyChangedEventArgs e)

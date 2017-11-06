@@ -55,12 +55,18 @@
             this.txtCharacterPointsMax = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.cmdDeleteAbility = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label12 = new System.Windows.Forms.Label();
+            this.nudHealth = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudMight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStrength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMarksmanship)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTech)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCharacterPointsSpent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudHealth)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -114,7 +120,7 @@
             // 
             // nudSpeed
             // 
-            this.nudSpeed.Location = new System.Drawing.Point(17, 78);
+            this.nudSpeed.Location = new System.Drawing.Point(17, 114);
             this.nudSpeed.Maximum = new decimal(new int[] {
             12,
             0,
@@ -137,7 +143,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 62);
+            this.label3.Location = new System.Drawing.Point(13, 98);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 4;
@@ -145,7 +151,7 @@
             // 
             // nudStrength
             // 
-            this.nudStrength.Location = new System.Drawing.Point(98, 78);
+            this.nudStrength.Location = new System.Drawing.Point(98, 114);
             this.nudStrength.Maximum = new decimal(new int[] {
             12,
             0,
@@ -168,7 +174,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(95, 62);
+            this.label4.Location = new System.Drawing.Point(95, 98);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 13);
             this.label4.TabIndex = 6;
@@ -176,7 +182,7 @@
             // 
             // nudMarksmanship
             // 
-            this.nudMarksmanship.Location = new System.Drawing.Point(179, 78);
+            this.nudMarksmanship.Location = new System.Drawing.Point(179, 114);
             this.nudMarksmanship.Maximum = new decimal(new int[] {
             12,
             0,
@@ -199,7 +205,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(176, 62);
+            this.label5.Location = new System.Drawing.Point(176, 98);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 13);
             this.label5.TabIndex = 8;
@@ -207,7 +213,7 @@
             // 
             // nudTech
             // 
-            this.nudTech.Location = new System.Drawing.Point(260, 78);
+            this.nudTech.Location = new System.Drawing.Point(260, 114);
             this.nudTech.Maximum = new decimal(new int[] {
             12,
             0,
@@ -230,7 +236,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(257, 62);
+            this.label6.Location = new System.Drawing.Point(257, 98);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 13);
             this.label6.TabIndex = 10;
@@ -266,7 +272,7 @@
             // 
             // buttonAddAbility
             // 
-            this.buttonAddAbility.Location = new System.Drawing.Point(12, 104);
+            this.buttonAddAbility.Location = new System.Drawing.Point(12, 140);
             this.buttonAddAbility.Name = "buttonAddAbility";
             this.buttonAddAbility.Size = new System.Drawing.Size(75, 23);
             this.buttonAddAbility.TabIndex = 14;
@@ -277,7 +283,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 130);
+            this.label8.Location = new System.Drawing.Point(12, 166);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 13);
             this.label8.TabIndex = 15;
@@ -286,7 +292,7 @@
             // listBoxAttacksBasic
             // 
             this.listBoxAttacksBasic.FormattingEnabled = true;
-            this.listBoxAttacksBasic.Location = new System.Drawing.Point(12, 146);
+            this.listBoxAttacksBasic.Location = new System.Drawing.Point(12, 182);
             this.listBoxAttacksBasic.Name = "listBoxAttacksBasic";
             this.listBoxAttacksBasic.Size = new System.Drawing.Size(543, 95);
             this.listBoxAttacksBasic.TabIndex = 16;
@@ -295,7 +301,7 @@
             // listBoxAttacksSpecial
             // 
             this.listBoxAttacksSpecial.FormattingEnabled = true;
-            this.listBoxAttacksSpecial.Location = new System.Drawing.Point(12, 275);
+            this.listBoxAttacksSpecial.Location = new System.Drawing.Point(12, 311);
             this.listBoxAttacksSpecial.Name = "listBoxAttacksSpecial";
             this.listBoxAttacksSpecial.Size = new System.Drawing.Size(543, 95);
             this.listBoxAttacksSpecial.TabIndex = 18;
@@ -304,7 +310,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 259);
+            this.label9.Location = new System.Drawing.Point(12, 295);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(81, 13);
             this.label9.TabIndex = 17;
@@ -313,7 +319,7 @@
             // listBoxAbilities
             // 
             this.listBoxAbilities.FormattingEnabled = true;
-            this.listBoxAbilities.Location = new System.Drawing.Point(12, 405);
+            this.listBoxAbilities.Location = new System.Drawing.Point(12, 441);
             this.listBoxAbilities.Name = "listBoxAbilities";
             this.listBoxAbilities.Size = new System.Drawing.Size(543, 95);
             this.listBoxAbilities.TabIndex = 20;
@@ -322,7 +328,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 389);
+            this.label10.Location = new System.Drawing.Point(12, 425);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(42, 13);
             this.label10.TabIndex = 19;
@@ -330,7 +336,7 @@
             // 
             // cmdEditAbility
             // 
-            this.cmdEditAbility.Location = new System.Drawing.Point(93, 104);
+            this.cmdEditAbility.Location = new System.Drawing.Point(93, 140);
             this.cmdEditAbility.Name = "cmdEditAbility";
             this.cmdEditAbility.Size = new System.Drawing.Size(75, 23);
             this.cmdEditAbility.TabIndex = 21;
@@ -377,7 +383,7 @@
             // 
             // cmdDeleteAbility
             // 
-            this.cmdDeleteAbility.Location = new System.Drawing.Point(469, 104);
+            this.cmdDeleteAbility.Location = new System.Drawing.Point(469, 140);
             this.cmdDeleteAbility.Name = "cmdDeleteAbility";
             this.cmdDeleteAbility.Size = new System.Drawing.Size(86, 23);
             this.cmdDeleteAbility.TabIndex = 26;
@@ -385,11 +391,82 @@
             this.cmdDeleteAbility.UseVisualStyleBackColor = true;
             this.cmdDeleteAbility.Click += new System.EventHandler(this.cmdDeleteAbility_Click);
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(98, 68);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(75, 20);
+            this.numericUpDown1.TabIndex = 30;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(95, 52);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(50, 13);
+            this.label12.TabIndex = 29;
+            this.label12.Text = "Strength:";
+            // 
+            // nudHealth
+            // 
+            this.nudHealth.Increment = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
+            this.nudHealth.Location = new System.Drawing.Point(17, 68);
+            this.nudHealth.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.nudHealth.Minimum = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
+            this.nudHealth.Name = "nudHealth";
+            this.nudHealth.Size = new System.Drawing.Size(75, 20);
+            this.nudHealth.TabIndex = 28;
+            this.nudHealth.Value = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(13, 52);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(41, 13);
+            this.label13.TabIndex = 27;
+            this.label13.Text = "Health:";
+            // 
             // CharacterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(572, 517);
+            this.ClientSize = new System.Drawing.Size(572, 560);
+            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.nudHealth);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.cmdDeleteAbility);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtCharacterPointsMax);
@@ -426,6 +503,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudMarksmanship)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTech)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCharacterPointsSpent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudHealth)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -460,5 +539,9 @@
         private System.Windows.Forms.TextBox txtCharacterPointsMax;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button cmdDeleteAbility;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.NumericUpDown nudHealth;
+        private System.Windows.Forms.Label label13;
     }
 }

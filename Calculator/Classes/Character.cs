@@ -156,6 +156,20 @@ namespace CharacterCreator.Classes
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;
+        private double health = 25;
+        public double Health
+        {
+            get { return health; }
+            set
+            {
+                if(value != health)
+                {
+                    health = value;
+                    updateCharacterPoints();
+                    OnPropertyChanged("Health");
+                }
+            }
+        }
         #endregion
         //============================================================================
 
@@ -166,7 +180,7 @@ namespace CharacterCreator.Classes
         public Character(double characterPoints)
         {
             characterPointsMax = characterPoints;
-            characterPointsSpent = (speed + strength + marksmanship + tech);
+            updateCharacterPoints();
         }
         public void updateMight()
         {
@@ -178,6 +192,7 @@ namespace CharacterCreator.Classes
             spentPoints += speed + strength + marksmanship + tech;
             spentPoints += (BasicAttacks.Count * 0.5);
             spentPoints += SpecialAttacks.Count;
+            spentPoints += (health / 25.0 * 0.5);
             CharacterPointsSpent = spentPoints;
             //TODO Still have to do health, energy, and common abilities, those costing more than 1 or 0.5 CP.
         }
@@ -224,7 +239,6 @@ namespace CharacterCreator.Classes
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null) handler(this, e);
         }
-        //TODO For testing purposes, I'm making this public so the form can call it.
         public void OnPropertyChanged(string propertyName)
         {
             OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
