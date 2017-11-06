@@ -191,6 +191,27 @@ namespace CharacterCreator
                 refreshListBoxes();
             }
         }
+
+        private void cmdDeleteAbility_Click(object sender, EventArgs e)
+        {
+            Ability selectedAbility = null;
+            if (listBoxAttacksBasic.SelectedIndex != -1)
+            {
+                selectedAbility = (Ability)listBoxAttacksBasic.Items[listBoxAttacksBasic.SelectedIndex];
+                character.BasicAttacks.Remove(selectedAbility);
+            }
+            if (listBoxAttacksSpecial.SelectedIndex != -1)
+            {
+                selectedAbility = (Ability)listBoxAttacksSpecial.Items[listBoxAttacksSpecial.SelectedIndex];
+                character.SpecialAttacks.Remove(selectedAbility);
+            }
+            if (listBoxAbilities.SelectedIndex != -1)
+            {
+                selectedAbility = (Ability)listBoxAbilities.Items[listBoxAbilities.SelectedIndex];
+                character.SpecialAbilities.Remove(selectedAbility);
+            }
+            refreshListBoxes();
+        }
         #endregion
         //============================================================================================================
     }

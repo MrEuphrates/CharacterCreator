@@ -54,6 +54,7 @@
             this.cmdLoad = new System.Windows.Forms.Button();
             this.txtCharacterPointsMax = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.cmdDeleteAbility = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudMight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStrength)).BeginInit();
@@ -379,11 +380,22 @@
             this.label11.TabIndex = 25;
             this.label11.Text = "Max Points:";
             // 
+            // cmdDeleteAbility
+            // 
+            this.cmdDeleteAbility.Location = new System.Drawing.Point(469, 104);
+            this.cmdDeleteAbility.Name = "cmdDeleteAbility";
+            this.cmdDeleteAbility.Size = new System.Drawing.Size(86, 23);
+            this.cmdDeleteAbility.TabIndex = 26;
+            this.cmdDeleteAbility.Text = "Delete Ability";
+            this.cmdDeleteAbility.UseVisualStyleBackColor = true;
+            this.cmdDeleteAbility.Click += new System.EventHandler(this.cmdDeleteAbility_Click);
+            // 
             // CharacterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(572, 517);
+            this.Controls.Add(this.cmdDeleteAbility);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtCharacterPointsMax);
             this.Controls.Add(this.cmdLoad);
@@ -452,5 +464,6 @@
         private System.Windows.Forms.Button cmdLoad;
         private System.Windows.Forms.TextBox txtCharacterPointsMax;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button cmdDeleteAbility;
     }
 }

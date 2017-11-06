@@ -65,6 +65,7 @@ namespace CharacterCreator.Classes
                     strength = value;
                     updateCharacterPoints();
                     updateMight();
+                    updateAbilitiesActualDamage();
                     OnPropertyChanged("Strength");
                 }
             }
@@ -80,6 +81,7 @@ namespace CharacterCreator.Classes
                     marksmanship = value;
                     updateCharacterPoints();
                     updateMight();
+                    updateAbilitiesActualDamage();
                     OnPropertyChanged("Marksmanship");
                 }
             }
@@ -95,6 +97,7 @@ namespace CharacterCreator.Classes
                     tech = value;
                     updateCharacterPoints();
                     updateMight();
+                    updateAbilitiesActualDamage();
                     OnPropertyChanged("Tech");
                 }
             }
@@ -177,6 +180,12 @@ namespace CharacterCreator.Classes
             spentPoints += SpecialAttacks.Count;
             CharacterPointsCurrent = characterPointsMax - spentPoints;
             //TODO Still have to do health, energy, and common abilities, those costing more than 1 or 0.5 CP.
+        }
+        private void updateAbilitiesActualDamage()
+        {
+            foreach (Ability ability in BasicAttacks) ability.Damage = getActualDamage(ability.BaseDamage, ability.SpecialRules);
+            foreach (Ability ability in SpecialAttacks) ability.Damage = getActualDamage(ability.BaseDamage, ability.SpecialRules);
+            foreach (Ability ability in SpecialAbilities) ability.Damage = getActualDamage(ability.BaseDamage, ability.SpecialRules);
         }
         public decimal getActualDamage(decimal baseDamage, List<SpecialRule> rules)
         {

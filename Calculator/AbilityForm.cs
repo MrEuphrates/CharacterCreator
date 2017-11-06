@@ -121,11 +121,8 @@ namespace CharacterCreator
 
         private void nudDamageBase_ValueChanged(object sender, EventArgs e)
         {
-            if (nudDamageBase.Value % 10 != 0)
-            {
-                nudDamageBase.Value = nudDamageBase.Value - nudDamageBase.Value % 10;
-                return;
-            }
+            if (nudDamageBase.Value % 10 != 0) nudDamageBase.Value = nudDamageBase.Value - nudDamageBase.Value % 10;
+            updateActualDamage();
         }
 
         private void cbxRequiresAdditionalInput_CheckedChanged(object sender, EventArgs e)
