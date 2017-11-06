@@ -102,16 +102,16 @@ namespace CharacterCreator.Classes
                 }
             }
         }
-        private double characterPointsCurrent = 0;
-        public double CharacterPointsCurrent
+        private double characterPointsSpent = 0;
+        public double CharacterPointsSpent
         {
-            get { return characterPointsCurrent; }
+            get { return characterPointsSpent; }
             set
             {
-                if(value != characterPointsCurrent)
+                if(value != characterPointsSpent)
                 {
-                    characterPointsCurrent = value;
-                    OnPropertyChanged("CharacterPointsCurrent");
+                    characterPointsSpent = value;
+                    OnPropertyChanged("CharacterPointsSpent");
                 }
             }
         }
@@ -166,7 +166,7 @@ namespace CharacterCreator.Classes
         public Character(double characterPoints)
         {
             characterPointsMax = characterPoints;
-            characterPointsCurrent = characterPoints - (speed + strength + marksmanship + tech);
+            characterPointsSpent = (speed + strength + marksmanship + tech);
         }
         public void updateMight()
         {
@@ -178,7 +178,7 @@ namespace CharacterCreator.Classes
             spentPoints += speed + strength + marksmanship + tech;
             spentPoints += (BasicAttacks.Count * 0.5);
             spentPoints += SpecialAttacks.Count;
-            CharacterPointsCurrent = characterPointsMax - spentPoints;
+            CharacterPointsSpent = spentPoints;
             //TODO Still have to do health, energy, and common abilities, those costing more than 1 or 0.5 CP.
         }
         private void updateAbilitiesActualDamage()
@@ -231,9 +231,9 @@ namespace CharacterCreator.Classes
         }
         public bool isCharacterValid()
         {
-            if(characterPointsCurrent > characterPointsMax)
+            if(characterPointsSpent > characterPointsMax)
             {
-                MessageBox.Show("The total character points spent, " + characterPointsCurrent + ", exceeds the maximum, " + characterPointsMax + ".");
+                MessageBox.Show("The total character points spent, " + characterPointsSpent + ", exceeds the maximum, " + characterPointsMax + ".");
                 return false;
             }
             return true;

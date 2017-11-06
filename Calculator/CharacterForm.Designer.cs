@@ -40,7 +40,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.nudTech = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
-            this.nudCharacterPointsCurrent = new System.Windows.Forms.NumericUpDown();
+            this.nudCharacterPointsSpent = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.buttonAddAbility = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -60,7 +60,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudStrength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMarksmanship)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTech)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCharacterPointsCurrent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCharacterPointsSpent)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -236,38 +236,33 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Tech:";
             // 
-            // nudCharacterPointsCurrent
+            // nudCharacterPointsSpent
             // 
-            this.nudCharacterPointsCurrent.DecimalPlaces = 1;
-            this.nudCharacterPointsCurrent.Enabled = false;
-            this.nudCharacterPointsCurrent.Location = new System.Drawing.Point(302, 29);
-            this.nudCharacterPointsCurrent.Maximum = new decimal(new int[] {
+            this.nudCharacterPointsSpent.DecimalPlaces = 1;
+            this.nudCharacterPointsSpent.Enabled = false;
+            this.nudCharacterPointsSpent.Location = new System.Drawing.Point(302, 29);
+            this.nudCharacterPointsSpent.Maximum = new decimal(new int[] {
             1200,
             0,
             0,
             0});
-            this.nudCharacterPointsCurrent.Minimum = new decimal(new int[] {
+            this.nudCharacterPointsSpent.Minimum = new decimal(new int[] {
             1200,
             0,
             0,
             -2147483648});
-            this.nudCharacterPointsCurrent.Name = "nudCharacterPointsCurrent";
-            this.nudCharacterPointsCurrent.Size = new System.Drawing.Size(89, 20);
-            this.nudCharacterPointsCurrent.TabIndex = 13;
-            this.nudCharacterPointsCurrent.Value = new decimal(new int[] {
-            60,
-            0,
-            0,
-            0});
+            this.nudCharacterPointsSpent.Name = "nudCharacterPointsSpent";
+            this.nudCharacterPointsSpent.Size = new System.Drawing.Size(67, 20);
+            this.nudCharacterPointsSpent.TabIndex = 13;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(299, 13);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(92, 13);
+            this.label7.Size = new System.Drawing.Size(70, 13);
             this.label7.TabIndex = 12;
-            this.label7.Text = "Points Remaining:";
+            this.label7.Text = "Points Spent:";
             // 
             // buttonAddAbility
             // 
@@ -366,7 +361,7 @@
             // txtCharacterPointsMax
             // 
             this.txtCharacterPointsMax.Enabled = false;
-            this.txtCharacterPointsMax.Location = new System.Drawing.Point(397, 29);
+            this.txtCharacterPointsMax.Location = new System.Drawing.Point(375, 29);
             this.txtCharacterPointsMax.Name = "txtCharacterPointsMax";
             this.txtCharacterPointsMax.Size = new System.Drawing.Size(62, 20);
             this.txtCharacterPointsMax.TabIndex = 24;
@@ -374,7 +369,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(397, 13);
+            this.label11.Location = new System.Drawing.Point(375, 13);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(62, 13);
             this.label11.TabIndex = 25;
@@ -408,7 +403,7 @@
             this.Controls.Add(this.listBoxAttacksBasic);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.buttonAddAbility);
-            this.Controls.Add(this.nudCharacterPointsCurrent);
+            this.Controls.Add(this.nudCharacterPointsSpent);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.nudTech);
             this.Controls.Add(this.label6);
@@ -430,7 +425,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudStrength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMarksmanship)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTech)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCharacterPointsCurrent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCharacterPointsSpent)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -450,7 +445,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown nudTech;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.NumericUpDown nudCharacterPointsCurrent;
+        private System.Windows.Forms.NumericUpDown nudCharacterPointsSpent;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button buttonAddAbility;
         private System.Windows.Forms.Label label8;

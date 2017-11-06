@@ -41,7 +41,7 @@ namespace CharacterCreator
             txtName.DataBindings.Add("Text", bindingSource, "Name",false, DataSourceUpdateMode.OnPropertyChanged);
             nudMight.DataBindings.Add("Value", bindingSource, "Might", false, DataSourceUpdateMode.OnPropertyChanged);
             //TODO How to handle character points then?
-            nudCharacterPointsCurrent.DataBindings.Add("Value", bindingSource, "CharacterPointsCurrent", false, DataSourceUpdateMode.OnPropertyChanged);
+            nudCharacterPointsSpent.DataBindings.Add("Value", bindingSource, "CharacterPointsSpent", false, DataSourceUpdateMode.OnPropertyChanged);
             txtCharacterPointsMax.DataBindings.Add("Text", bindingSource, "CharacterPointsMax", false, DataSourceUpdateMode.OnPropertyChanged);
             nudSpeed.DataBindings.Add("Value", bindingSource, "Speed", false, DataSourceUpdateMode.OnPropertyChanged);
             nudStrength.DataBindings.Add("Value", bindingSource, "Strength", false, DataSourceUpdateMode.OnPropertyChanged);

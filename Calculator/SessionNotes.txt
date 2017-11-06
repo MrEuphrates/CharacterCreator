@@ -8,6 +8,8 @@ It took me hours, but I think I got everything sorted out with getting abilities
 I tested with Range and the damage bonus didn't change.  I added a call to updateActualDamage after the special dialog disposes and it works now.  Next, I noticed the CP counter is wack, so I'll
 check that.
 
+I changed CP to be points spent, rather than remaining.  I adjusted throughout accordingly and tested.  Next, I need to add Health and Energy to the mix.
+
 11/4/17 REH
 I'll work on character points next.  Those are working now, both in the character sheet and on the form.  I still have to test
 if abilities cause the CP's to reflect, too.  I tested abilities now, too.  They update the CP correctly, though I haven't dealt with Special Abilities and their common
