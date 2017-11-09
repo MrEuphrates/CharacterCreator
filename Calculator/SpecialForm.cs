@@ -24,13 +24,14 @@ namespace CharacterCreator
             InitializeComponent();
             this.ability = ability;
         }
-
+        
+        
         //======================================================
         #region Event Methods
         private void SpecialForm_Load(object sender, EventArgs e)
         {
-            //TODO Until I find a better way, this list is typed manually.
-            //TODO When loading this list, with Range and Indirect, I get an error, stating Indirect needs Range selected.
+            //Until I find a better way, this list is typed manually.
+            
             //Rules attached to this ability should be added first, for editing.
             if (ability.SpecialRules != null) foreach (SpecialRule rule in ability.SpecialRules) clbSpecials.Items.Add(rule,true);
 
@@ -208,12 +209,8 @@ namespace CharacterCreator
                 ParameterForm pform = new ParameterForm(rule);
                 pform.ShowDialog();
             }
-            //TODO Need to test how energy costs might change once the ability's stats change.  Energy costs didn't round to a multiple of 5.
-            //TODO All this stuff still has to be reflected back on the Ability form, of course.
-            //TODO Have to make sure the Ability is properly modified after commiting the specials, too.
             ability.SpecialRules = rules;
 
-            //TODO All told, exit.
             this.Dispose();
         }
 

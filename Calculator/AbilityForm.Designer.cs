@@ -53,6 +53,7 @@
             this.rtbAdditionalInputDescription = new System.Windows.Forms.RichTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.cmdOK = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEnergy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDamageBase)).BeginInit();
@@ -308,7 +309,7 @@
             // 
             // cmdOK
             // 
-            this.cmdOK.Location = new System.Drawing.Point(506, 448);
+            this.cmdOK.Location = new System.Drawing.Point(12, 448);
             this.cmdOK.Name = "cmdOK";
             this.cmdOK.Size = new System.Drawing.Size(75, 23);
             this.cmdOK.TabIndex = 22;
@@ -316,11 +317,22 @@
             this.cmdOK.UseVisualStyleBackColor = true;
             this.cmdOK.Click += new System.EventHandler(this.cmdOK_Click);
             // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Location = new System.Drawing.Point(505, 448);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.TabIndex = 23;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
             // AbilityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 476);
+            this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.cmdOK);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.rtbAdditionalInputDescription);
@@ -383,5 +395,6 @@
         private System.Windows.Forms.RichTextBox rtbAdditionalInputDescription;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button cmdOK;
+        private System.Windows.Forms.Button buttonCancel;
     }
 }

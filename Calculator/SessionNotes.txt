@@ -1,4 +1,8 @@
-﻿11/6/17 REH
+﻿11/9/17 REH
+I added some tooltips to the ability form, then cleaned up the task list.  Now that's out of the way, I think I'll start working on common abilities.
+
+
+11/6/17 REH
 Changing a character's stat isn't reflecting in the abilities (actual damage).  I tried using my refreshListboxes method to handle it, but it gets called before the property updates.  I checked the
 Validated event, but that only triggers after leaving the control, which could work, but isn't good enough because changes won't reflect then until the control is left.  So I think I need to figure
 out how to make listboxes change when their associated property changes.  I'll start in the ability form, since I think it's easier there.

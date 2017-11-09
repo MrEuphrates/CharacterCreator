@@ -22,17 +22,12 @@ namespace CharacterCreator
         #endregion
         //============================================================================================================
 
-
         //============================================================================================================
         #region Methods
         public CharacterForm(double characterPoints)
         {
             InitializeComponent();
             character = new Character(characterPoints);
-            //TODO Might be unnecessary
-            //nudCharacterPointsCurrent.Value = (int)characterPoints;
-            //txtCharacterPointsMax.Text = characterPoints.ToString();            
-            
             refreshListBoxes();
 
             //Data bindings
@@ -149,7 +144,6 @@ namespace CharacterCreator
                 Character loadedCharacter = (Character)formatter.Deserialize(stream);
                 character = loadedCharacter;
                 bindingSource.DataSource = character;
-                //TODO For testing purposes, I'm iterating through each ability and subscribing to the property changed event.
                 foreach(Ability ability in character.BasicAttacks) ability.PropertyChanged += Ability_PropertyChanged;
             }
             catch(Exception exe)

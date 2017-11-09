@@ -12,7 +12,7 @@ using CharacterCreator.Classes.SpecialRules;
 namespace CharacterCreator.AbstractClasses
 {
     #region Attributes
-    //TODO I'm trying to easily include all of the special rules
+    //I detest this, but I didn't come up with a better way.
     [XmlInclude(typeof(Acid))]
     [XmlInclude(typeof(ArmorBuster))]
     [XmlInclude(typeof(Blast))]
@@ -83,11 +83,8 @@ namespace CharacterCreator.AbstractClasses
         public abstract string Name { get; }
         public abstract string Description { get; }
         protected abstract List<SpecialRule> IncompatibleRules { get; }
-        //TODO Serialization isn't working for spec rules, try making variables public instead of protected
-        //TODO For some reason, IDictionary isn't allowed in a serializable class.  So I'm using a custom dictionary made by Paul Welter.
-        //public Dictionary<string, SpecialRuleVariable> variables;
+        //For some reason, IDictionary isn't allowed in a serializable class.  So I'm using a custom dictionary made by Paul Welter.
         public SerializableDictionary<string, SpecialRuleVariable> variables;
-        //public virtual SerializableDictionary<string, SpecialRuleVariable> Variables
         public virtual SerializableDictionary<string, SpecialRuleVariable> Variables
         {
             get
@@ -153,7 +150,7 @@ namespace CharacterCreator.AbstractClasses
 
         //=============================================================
         #region Abstract Methods
-        public abstract decimal calculateEnergyCost(decimal energyModifier);  //TODO Pretty sure when I start using params, this will change
+        public abstract decimal calculateEnergyCost(decimal energyModifier);
         public abstract string howIsEnergyCostCalculated();
         #endregion
         //=============================================================

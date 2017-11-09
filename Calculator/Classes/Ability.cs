@@ -28,7 +28,7 @@ namespace CharacterCreator.Classes
                 {
                     time = value;
                     updateEnergyCost();
-                    OnPropertyChanged("Time");//TODO This line needs to be added to every property for which I want to raise the property changed event.
+                    OnPropertyChanged("Time");
                 }
             }
         }
@@ -54,7 +54,7 @@ namespace CharacterCreator.Classes
                 if(value != energy)
                 {
                     energy = value;
-                    OnPropertyChanged("Energy");//TODO Success!  The control on the form reflects the enery cost!  Now I need to bind all of the relevant controls and make sure event handling is setup for the appropriate properties.
+                    OnPropertyChanged("Energy");
                 }
             }
         }

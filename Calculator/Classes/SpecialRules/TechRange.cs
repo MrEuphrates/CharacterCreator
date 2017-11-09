@@ -102,7 +102,6 @@ namespace CharacterCreator.Classes.SpecialRules
         public override decimal calculateEnergyCost(decimal energyModifier)
         {
             //Note: in classic terminology, 1 Energy Modifier is represented as 0.2m here, so 2 modifiers would be 0.4m, etc.
-            //TODO Range is interesting because it doesn't work quite like other special rules in its affect on an ability.  Not sure how to handle that yet.
             decimal range = variables["R"].Value;
             decimal modifiers = Math.Ceiling(range / 5m);
             ++modifiers;

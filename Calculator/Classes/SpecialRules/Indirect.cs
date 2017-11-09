@@ -41,7 +41,6 @@ namespace CharacterCreator.Classes.SpecialRules
         {
             get
             {
-                //TODO This rule is incompatible with an ability which isn't ranged, but I don't know how to handle that yet.
                 return new List<SpecialRule>();
             }
         }

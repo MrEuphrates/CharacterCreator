@@ -216,7 +216,6 @@ namespace CharacterCreator.Classes
             spentPoints += (health / 25.0 * 0.5);
             spentPoints += (energy / 50.0 * 0.5);
             CharacterPointsSpent = spentPoints;
-            //TODO Still have to do health, energy, and common abilities, those costing more than 1 or 0.5 CP.
         }
         private void updateAbilitiesActualDamage()
         {
