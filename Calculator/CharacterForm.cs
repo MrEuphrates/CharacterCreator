@@ -230,6 +230,16 @@ namespace CharacterCreator
                 refreshListBoxes();
             }
         }
+
+        private void buttonAddCommon_Click(object sender, EventArgs e)
+        {
+            CommonAbilityForm af = new CommonAbilityForm(character);
+            var result = af.ShowDialog();
+            if(result == DialogResult.OK)
+            {
+                //TODO Do stuff
+            }
+        }
         #endregion
         //============================================================================================================
     }

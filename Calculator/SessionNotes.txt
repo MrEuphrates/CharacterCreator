@@ -1,5 +1,5 @@
 ﻿12/11/17 REH
-Was working on passive and common abilities when I realized there were some untested and incomplete features.
+I'm adding common abilities.
 
 11/9/17 REH
 I added some tooltips to the ability form, then cleaned up the task list.  Now that's out of the way, I think I'll start working on common abilities.

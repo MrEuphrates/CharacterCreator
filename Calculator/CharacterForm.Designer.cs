@@ -523,6 +523,7 @@
             this.buttonAddCommon.TabIndex = 34;
             this.buttonAddCommon.Text = "Add Common";
             this.buttonAddCommon.UseVisualStyleBackColor = true;
+            this.buttonAddCommon.Click += new System.EventHandler(this.buttonAddCommon_Click);
             // 
             // CharacterForm
             // 

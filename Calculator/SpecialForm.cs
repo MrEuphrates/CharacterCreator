@@ -19,6 +19,7 @@ namespace CharacterCreator
         #region Variables
         Ability ability = new Ability();
         #endregion
+
         public SpecialForm(Ability ability)
         {
             InitializeComponent();

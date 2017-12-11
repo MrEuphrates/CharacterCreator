@@ -112,7 +112,12 @@ namespace CharacterCreator.Classes
                 }
             }
         }
-        public double CharacterPoints { get; }
+        public double CharacterPoints { get; set; }
+        protected bool isCommon = false;
+        public bool IsCommon
+        {
+            get { return isCommon; }
+        }
         private bool requiresInput;
         public bool RequiresInput
         {
@@ -267,6 +272,7 @@ namespace CharacterCreator.Classes
             //Set the ability's energy cost.
             Energy = totalEnergy;
         }
+        public override string ToString() { return Name; }
         #endregion
         //===================================================================
     }
