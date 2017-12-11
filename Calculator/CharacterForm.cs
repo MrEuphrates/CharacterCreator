@@ -226,6 +226,18 @@ namespace CharacterCreator
             }
             refreshListBoxes();
         }
+
+        private void buttonAddPassiveAbility_Click(object sender, EventArgs e)
+        {
+            PassiveAbilityForm af = new PassiveAbilityForm(character);
+            var result = af.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                character.addAbility(af.ability);
+                af.ability.PropertyChanged += Ability_PropertyChanged;
+                refreshListBoxes();
+            }
+        }
         #endregion
         //============================================================================================================
     }

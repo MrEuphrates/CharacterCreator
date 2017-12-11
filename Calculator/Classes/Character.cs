@@ -250,7 +250,7 @@ namespace CharacterCreator.Classes
             //Add the ability to the appropriate container.
             if (ability.Type == Ability.AbilityType.Basic) BasicAttacks.Add(ability);
             if (ability.Type == Ability.AbilityType.Special) SpecialAttacks.Add(ability);
-            if (ability.Type == Ability.AbilityType.Ability) SpecialAbilities.Add(ability);
+            if (ability.Type == Ability.AbilityType.Ability || ability.Type == Ability.AbilityType.Passive) SpecialAbilities.Add(ability);
 
             //Update the character points
             updateCharacterPoints();

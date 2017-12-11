@@ -61,6 +61,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.nudRecharge = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
+            this.buttonAddPassiveAbility = new System.Windows.Forms.Button();
+            this.buttonAddCommon = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudMight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStrength)).BeginInit();
@@ -503,11 +505,32 @@
             this.label14.TabIndex = 31;
             this.label14.Text = "Recharge:";
             // 
+            // buttonAddPassiveAbility
+            // 
+            this.buttonAddPassiveAbility.Location = new System.Drawing.Point(174, 140);
+            this.buttonAddPassiveAbility.Name = "buttonAddPassiveAbility";
+            this.buttonAddPassiveAbility.Size = new System.Drawing.Size(75, 23);
+            this.buttonAddPassiveAbility.TabIndex = 33;
+            this.buttonAddPassiveAbility.Text = "Add Passive";
+            this.buttonAddPassiveAbility.UseVisualStyleBackColor = true;
+            this.buttonAddPassiveAbility.Click += new System.EventHandler(this.buttonAddPassiveAbility_Click);
+            // 
+            // buttonAddCommon
+            // 
+            this.buttonAddCommon.Location = new System.Drawing.Point(255, 140);
+            this.buttonAddCommon.Name = "buttonAddCommon";
+            this.buttonAddCommon.Size = new System.Drawing.Size(80, 23);
+            this.buttonAddCommon.TabIndex = 34;
+            this.buttonAddCommon.Text = "Add Common";
+            this.buttonAddCommon.UseVisualStyleBackColor = true;
+            // 
             // CharacterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(572, 560);
+            this.Controls.Add(this.buttonAddCommon);
+            this.Controls.Add(this.buttonAddPassiveAbility);
             this.Controls.Add(this.nudRecharge);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.nudEnergy);
@@ -593,5 +616,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown nudRecharge;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button buttonAddPassiveAbility;
+        private System.Windows.Forms.Button buttonAddCommon;
     }
 }

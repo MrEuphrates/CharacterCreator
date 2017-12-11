@@ -11,7 +11,7 @@ namespace CharacterCreator.Classes
 {
     public class Ability : INotifyPropertyChanged
     {
-        public enum AbilityType { Basic, Special, Ability }
+        public enum AbilityType { Basic, Special, Ability, Passive }
         //TODO What about "common" abilities, like regen, flying, cloaking, etc.?  How am I going to do those?  What about passive abilities?
         //===================================================================
         #region Properties
@@ -162,17 +162,21 @@ namespace CharacterCreator.Classes
             get
             {
                 StringBuilder sb = new StringBuilder();
-                sb.Append(Convert.ToInt32(Time) + " ");
-                sb.Append(Name + " ");
-                sb.Append(Convert.ToInt32(Energy) + "/");
-                if (BaseDamage == Damage) sb.Append(Convert.ToInt32(BaseDamage) + "  ");
-                else sb.Append(Convert.ToInt32(BaseDamage) + " (" + Convert.ToInt32(Damage) + ")  ");
-                if (Attacks > 1) sb.Append(Convert.ToInt32(Attacks) + " attacks.  ");
-                if (SpecialRules.Count == 1) sb.Append(SpecialRules[0].SyntaxActual);
-                else if (SpecialRules.Count > 1)
+                if(Type == AbilityType.Passive) sb.AppendLine("- " + Name + " -/-");
+                else
                 {
-                    sb.Append(SpecialRules[0].SyntaxActual);
-                    for (int i = 1; i < SpecialRules.Count; ++i) sb.Append(", " + SpecialRules[i].SyntaxActual);
+                    sb.Append(Convert.ToInt32(Time) + " ");
+                    sb.Append(Name + " ");
+                    sb.Append(Convert.ToInt32(Energy) + "/");
+                    if (BaseDamage == Damage) sb.Append(Convert.ToInt32(BaseDamage) + "  ");
+                    else sb.Append(Convert.ToInt32(BaseDamage) + " (" + Convert.ToInt32(Damage) + ")  ");
+                    if (Attacks > 1) sb.Append(Convert.ToInt32(Attacks) + " attacks.  ");
+                    if (SpecialRules.Count == 1) sb.Append(SpecialRules[0].SyntaxActual);
+                    else if (SpecialRules.Count > 1)
+                    {
+                        sb.Append(SpecialRules[0].SyntaxActual);
+                        for (int i = 1; i < SpecialRules.Count; ++i) sb.Append(", " + SpecialRules[i].SyntaxActual);
+                    }
                 }
                 if (RequiresInput) sb.Append("  *** " + InputDescription);
                 return sb.ToString();
@@ -187,6 +191,7 @@ namespace CharacterCreator.Classes
                 var countOfRules = SpecialRules.Count;
                 if (SpecialRules.Contains(new Range()) || SpecialRules.Contains(new TechRange())) --countOfRules;
                 if (BaseDamage > 100 || countOfRules > 1) return AbilityType.Special;
+                if (Time < 0) return AbilityType.Passive;
                 return AbilityType.Basic;
             }
         }
