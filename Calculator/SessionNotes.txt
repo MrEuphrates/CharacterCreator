@@ -1,5 +1,5 @@
 ﻿12/11/17 REH
-Syntax for common abilities has been improved with the introduction of the Common Description property.
+Syntax for common abilities has been improved with the introduction of the Common Description property.  Now I have to worry about variables for common abilities (really just the one, honestly).
 
 11/9/17 REH
 I added some tooltips to the ability form, then cleaned up the task list.  Now that's out of the way, I think I'll start working on common abilities.
