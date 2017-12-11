@@ -8,7 +8,7 @@ namespace Calculator.Classes.CommonAbilities
 {
     public class ActiveCamouflage : AbilityPassive
     {
-        public ActiveCamouflage()
+        public ActiveCamouflage() : base()
         {
             this.Name = "Active Camouflage";
             this.InputDescription = "Active camouflage is an advanced form of camouflage, removing most of the issues ordinary camouflage posed.  A Character with Active Camouflage begins the " +

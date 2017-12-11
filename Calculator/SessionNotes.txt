@@ -1,5 +1,5 @@
 ﻿12/11/17 REH
-Have the first common ability in the list, now need to make it add to the character and update the CP.  Should finish adapting the form's copied abilities, too.
+Common abilities now add their CP to the character correctly and appear on the form, but the syntax (using the Input Description) won't fly.
 
 11/9/17 REH
 I added some tooltips to the ability form, then cleaned up the task list.  Now that's out of the way, I think I'll start working on common abilities.

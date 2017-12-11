@@ -12,7 +12,7 @@ namespace Calculator.Classes.CommonAbilities
         {
             Time = -1;
             Energy = -1;
-            Damage = -1;
+            BaseDamage = -1;
             RequiresInput = true;
         }
     }

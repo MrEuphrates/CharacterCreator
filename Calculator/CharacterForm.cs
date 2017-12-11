@@ -237,7 +237,7 @@ namespace CharacterCreator
             var result = af.ShowDialog();
             if(result == DialogResult.OK)
             {
-                //TODO Do stuff
+                refreshListBoxes();
             }
         }
         #endregion

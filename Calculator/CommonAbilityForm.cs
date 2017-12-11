@@ -86,8 +86,9 @@ namespace CharacterCreator
                 //pform.ShowDialog();
             }
             //TODO Need to add the abilities to the character
-            //ability.SpecialRules = rules;
+            foreach (Ability ability in abilities) character.addAbility(ability);
 
+            this.DialogResult = DialogResult.OK;
             this.Dispose();
         }
 
