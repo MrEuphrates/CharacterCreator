@@ -213,7 +213,7 @@ namespace CharacterCreator.Classes
             spentPoints += speed + strength + marksmanship + tech;
             spentPoints += (BasicAttacks.Count * 0.5);
             spentPoints += SpecialAttacks.Count;
-            foreach (Ability a in SpecialAbilities) if (a.Type == Ability.AbilityType.Special) ++spentPoints;
+            foreach (Ability a in SpecialAbilities) if (a.Type == Ability.AbilityType.Ability) ++spentPoints;
             //TODO Do energy cost calcs for special abilities work right?  Like, they're 0 damage, so if I make one NDo, what happens?
             //TODO Have to do the points for common and passive abilities.
             spentPoints += (health / 25.0 * 0.5);
