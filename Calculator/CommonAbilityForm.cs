@@ -54,7 +54,7 @@ namespace CharacterCreator
             rtbAbilityDescription.SelectionFont = new Font(rtbAbilityDescription.Font, FontStyle.Bold);
 
             //Get the description
-            var description = "\n" + ability.InputDescription;
+            var description = "\n" + ability.CommonDescription;
             rtbAbilityDescription.AppendText(description);
             rtbAbilityDescription.Select(ability.Name.Length, ability.Name.Length + description.Length);
             rtbAbilityDescription.SelectionFont = new Font(rtbAbilityDescription.Font, FontStyle.Regular);

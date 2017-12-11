@@ -24,7 +24,7 @@ namespace CharacterCreator.Classes
             }
             set
             {
-                if(value != time)
+                if (value != time)
                 {
                     time = value;
                     updateEnergyCost();
@@ -38,7 +38,7 @@ namespace CharacterCreator.Classes
             get { return name; }
             set
             {
-                if(value != name)
+                if (value != name)
                 {
                     name = value;
                     OnPropertyChanged("Name");
@@ -51,7 +51,7 @@ namespace CharacterCreator.Classes
             get { return energy; }
             set
             {
-                if(value != energy)
+                if (value != energy)
                 {
                     energy = value;
                     OnPropertyChanged("Energy");
@@ -73,7 +73,7 @@ namespace CharacterCreator.Classes
             get { return baseDamage; }
             set
             {
-                if(value != baseDamage)
+                if (value != baseDamage)
                 {
                     baseDamage = value;
                     updateEnergyCost();
@@ -88,7 +88,7 @@ namespace CharacterCreator.Classes
 
             set
             {
-                if(value != damage)
+                if (value != damage)
                 {
                     damage = value;
                     OnPropertyChanged("Damage");
@@ -104,7 +104,7 @@ namespace CharacterCreator.Classes
             }
             set
             {
-                if(value != attacks)
+                if (value != attacks)
                 {
                     attacks = value;
                     updateEnergyCost();
@@ -117,6 +117,14 @@ namespace CharacterCreator.Classes
         public bool IsCommon
         {
             get { return isCommon; }
+        }
+        protected string commonDescription;
+        public string CommonDescription
+        {
+            get
+            {
+                return commonDescription;
+            }
         }
         private bool requiresInput;
         public bool RequiresInput
@@ -183,7 +191,8 @@ namespace CharacterCreator.Classes
                         for (int i = 1; i < SpecialRules.Count; ++i) sb.Append(", " + SpecialRules[i].SyntaxActual);
                     }
                 }
-                if (RequiresInput) sb.Append("  *** " + InputDescription);
+                if (RequiresInput && !IsCommon) sb.Append("  *** " + InputDescription);
+                if (RequiresInput && IsCommon) sb.Append("  " + InputDescription);
                 return sb.ToString();
             }
         }
