@@ -41,6 +41,8 @@ namespace CharacterCreator
             //Add the rest of the abilities, but don't add ones already added from the character.
             Ability ability = new ActiveCamouflage();
             if (!character.SpecialAbilities.Contains(ability)) clbAbilities.Items.Add(ability);
+            ability = new Armor();
+            if (!character.SpecialAbilities.Contains(ability)) clbAbilities.Items.Add(ability);
         }
         
         private void clbAbilities_SelectedIndexChanged(object sender, EventArgs e)

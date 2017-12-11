@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\CommonAbilities\AbilityPassive.cs" />
+    <Compile Include="Classes\CommonAbilities\Armor.cs" />
     <Compile Include="Classes\CommonAbilities\ActiveCamouflage.cs" />
     <Compile Include="PassiveAbilityForm.cs">
       <SubType>Form</SubType>
