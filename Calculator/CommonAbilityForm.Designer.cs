@@ -40,7 +40,7 @@
             this.clbAbilities.Name = "clbAbilities";
             this.clbAbilities.Size = new System.Drawing.Size(159, 454);
             this.clbAbilities.TabIndex = 0;
-            this.clbAbilities.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clbSpecials_ItemCheck);
+            this.clbAbilities.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clbAbilities_ItemCheck);
             this.clbAbilities.SelectedIndexChanged += new System.EventHandler(this.clbAbilities_SelectedIndexChanged);
             // 
             // rtbAbilityDescription

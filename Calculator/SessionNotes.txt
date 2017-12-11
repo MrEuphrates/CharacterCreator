@@ -1,5 +1,5 @@
 ﻿12/11/17 REH
-I'm adding common abilities.
+Have the first common ability in the list, now need to make it add to the character and update the CP.  Should finish adapting the form's copied abilities, too.
 
 11/9/17 REH
 I added some tooltips to the ability form, then cleaned up the task list.  Now that's out of the way, I think I'll start working on common abilities.
