@@ -47,6 +47,8 @@
     <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\CommonAbilities\AbilityPassive.cs" />
+    <Compile Include="Classes\CommonAbilities\ActiveCamouflage.cs" />
     <Compile Include="PassiveAbilityForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +151,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CommonAbilityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonAbilityForm.Designer.cs">
+      <DependentUpon>CommonAbilityForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SpecialForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +187,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CommonAbilityForm.resx">
+      <DependentUpon>CommonAbilityForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SpecialForm.resx">
       <DependentUpon>SpecialForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,6 +209,7 @@
   <ItemGroup>
     <Content Include="SessionNotes.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
