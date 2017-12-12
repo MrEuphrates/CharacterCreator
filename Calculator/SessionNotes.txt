@@ -1,4 +1,7 @@
-﻿12/11/17 REH
+﻿12/12/17 REH
+Implemented variables for abilities.  Still in progress, but Armor has its variable functioning.  The ability adds to the character and updates CP's.  Correct CP calc still needs to be done.
+
+12/11/17 REH
 Syntax for common abilities has been improved with the introduction of the Common Description property.  Now I have to worry about variables for common abilities (really just the one, honestly).
 
 11/9/17 REH

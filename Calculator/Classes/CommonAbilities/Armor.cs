@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CharacterCreator.AbstractClasses;
+using CharacterCreator.Classes.SpecialRuleVariables;
 
 namespace Calculator.Classes.CommonAbilities
 {
@@ -11,7 +13,7 @@ namespace Calculator.Classes.CommonAbilities
         public Armor()
         {
             this.Name = "Armor";
-            this.InputDescription = "Wearing armor is a basic method of protecting oneself.  In Conflict, this is represented by reducing damage by a fixed percentage.  Typically, a character " +
+            this.commonDescription = "Wearing armor is a basic method of protecting oneself.  In Conflict, this is represented by reducing damage by a fixed percentage.  Typically, a character " +
                 "can wear armor which reduces damage by up to 50%.  Armor frequently comes with additional properties.\n\nThe Damage Reduction of armor must be a multiple of 10 and cannot " +
                 "exceed 50.  For every 10 % of damage reduction provided by Armor, it costs 0.5 Character Points.  This armor is called Personal Armor.  There are limitations on how much armor " +
                 "a character can have, based on their stats and abilities:" +
@@ -32,9 +34,23 @@ namespace Calculator.Classes.CommonAbilities
                 "ordinary armor is negated." +
                 "\n3.) Smart Armor does not count against nor observe the limitations in the table above." +
                 "\n4.) Smart Armor costs 0.5 Character Points per 10% damage reduction." +
-                "Written as - <Name of Armor> -/- <Percent> Armor.  <Qualifiers, such as ability to Fly when normally not allowed> (<Character Points>).";
-            this.CharacterPoints = 2;
+                "\n\nWritten as - <Name of Armor> -/- <Percent> Armor.  <Qualifiers, such as ability to Fly when normally not allowed> (<Character Points>).";
+            this.InputDescription = "";  //TODO Everything that comes after - Armor -/-
+            this.CharacterPoints = 2;//TODO What are the points?
             this.isCommon = true;
+        }
+        public override SerializableDictionary<string, AbilityVariable> Variables
+        {
+            get
+            {
+                if (variables == null)
+                {
+                    variables = new SerializableDictionary<string, AbilityVariable>();
+                    var mot = new MultipleOfTenPercent("M");
+                    variables.Add(mot.Variable, mot);
+                }
+                return variables;
+            }
         }
     }
 }

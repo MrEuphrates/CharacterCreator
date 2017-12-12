@@ -1,17 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Calculator;
 using Calculator.Classes.CommonAbilities;
-using CharacterCreator.AbstractClasses;
 using CharacterCreator.Classes;
-using CharacterCreator.Classes.SpecialRules;
 
 namespace CharacterCreator
 {
@@ -58,11 +51,6 @@ namespace CharacterCreator
             rtbAbilityDescription.AppendText(description);
             rtbAbilityDescription.Select(ability.Name.Length, ability.Name.Length + description.Length);
             rtbAbilityDescription.SelectionFont = new Font(rtbAbilityDescription.Font, FontStyle.Regular);
-
-            //TODO Some abilities will actually have variables, like Armor.            
-            //List the variables, if there are any.
-            //var variables = ability.listVariables();
-            //if (variables != "") rtbAbilityDescription.AppendText("\n\n" + variables);
         }
 
         private void commandOK_Click(object sender, EventArgs e)
@@ -70,6 +58,7 @@ namespace CharacterCreator
             //Get selected abilities
             var abilities = getSelectedAbilities();
 
+            //TODO Cloaking optons aren't compatible with one another, armor is compatible with fly but its price can be changed by it, etc.
             //Make sure the chosen abilities are compatible.
             if (!checkAbilitiesCompatible(abilities)) return;
 
@@ -80,10 +69,9 @@ namespace CharacterCreator
             //After confirming all selected abilities are compatible, cycle through those with parameters and have the user provide them.
             foreach (Ability ability in abilities)
             {
-                //TODO Haven't implemented variables for abilities yet.
-                //if (ability.Variables.Count == 0) continue;
-                //ParameterForm pform = new ParameterForm(rule);
-                //pform.ShowDialog();
+                if (ability.Variables.Count == 0) continue;
+                AbilityParameterForm pform = new AbilityParameterForm(ability);
+                pform.ShowDialog();
             }
             //TODO Need to add the abilities to the character
             foreach (Ability ability in abilities) character.addAbility(ability);

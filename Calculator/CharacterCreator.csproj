@@ -47,9 +47,17 @@
     <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractClasses\AbilityVariable.cs" />
+    <Compile Include="Classes\AbilityVariables\MultipleOfTenPercent.cs" />
     <Compile Include="Classes\CommonAbilities\AbilityPassive.cs" />
     <Compile Include="Classes\CommonAbilities\Armor.cs" />
     <Compile Include="Classes\CommonAbilities\ActiveCamouflage.cs" />
+    <Compile Include="AbilityParameterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbilityParameterForm.Designer.cs">
+      <DependentUpon>AbilityParameterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PassiveAbilityForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +172,9 @@
     <Compile Include="SpecialForm.Designer.cs">
       <DependentUpon>SpecialForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AbilityParameterForm.resx">
+      <DependentUpon>AbilityParameterForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PassiveAbilityForm.resx">
       <DependentUpon>PassiveAbilityForm.cs</DependentUpon>
     </EmbeddedResource>
