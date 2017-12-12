@@ -113,22 +113,6 @@ namespace CharacterCreator.Classes
                 }
             }
         }
-        private double characterPoints;
-        public double CharacterPoints
-        {
-            get
-            {
-                return characterPoints;
-            }
-            set
-            {
-                if(value != characterPoints)
-                {
-                    characterPoints = value;
-                    OnPropertyChanged("CharacterPoints");
-                }
-            }
-        }
         protected bool isCommon = false;
         public bool IsCommon
         {
@@ -156,7 +140,7 @@ namespace CharacterCreator.Classes
             }
         }
         private string inputDescription;
-        public string InputDescription
+        public virtual string InputDescription
         {
             get { return inputDescription; }
             set
@@ -225,79 +209,19 @@ namespace CharacterCreator.Classes
                 return AbilityType.Basic;
             }
         }
-        //For some reason, IDictionary isn't allowed in a serializable class.  So I'm using a custom dictionary made by Paul Welter.
-        public SerializableDictionary<string, AbilityVariable> variables;
-        public virtual SerializableDictionary<string, AbilityVariable> Variables
-        {
-            get
-            {
-                if (variables == null) variables = new SerializableDictionary<string, AbilityVariable>();
-                return variables;
-            }
-        }
-        protected DataTable variableTable;
-        public DataTable VariableTable
-        {
-            get
-            {
-                if (variableTable == null)
-                {
-                    variableTable = new DataTable();
-                    DataColumn col = new DataColumn();
-
-                    //Add Parameter column
-                    col.DataType = System.Type.GetType("System.String");
-                    col.ColumnName = "Parameter";
-                    col.ReadOnly = true;
-                    col.Unique = true;
-                    variableTable.Columns.Add(col);
-
-                    //Add Description column
-                    col = new DataColumn();
-                    col.DataType = System.Type.GetType("System.String");
-                    col.ColumnName = "Description";
-                    col.ReadOnly = true;
-                    col.Unique = false;
-                    variableTable.Columns.Add(col);
-
-                    //Add Input column
-                    col = new DataColumn();
-                    col.DataType = System.Type.GetType("System.Int32");
-                    col.ColumnName = "Input";
-                    col.ReadOnly = false;
-                    col.Unique = false;
-                    variableTable.Columns.Add(col);
-
-                    //Add rows
-                    DataRow row;
-                    foreach (AbilityVariable srv in Variables.Values)
-                    {
-                        row = variableTable.NewRow();
-                        row["Parameter"] = srv.Variable;
-                        row["Description"] = srv.Description;
-                        row["Input"] = srv.Value;
-                        variableTable.Rows.Add(row);
-                    }
-                }
-                return variableTable;
-            }
-        }
-        public bool setVariable(string s, int d)
-        {
-            if (Variables.Keys.Contains(s))
-            {
-                Variables[s].Value = d;
-                Variables[s].Validate();
-                return true;
-            }
-            return false;
-        }
         #endregion
         //===================================================================
 
 
         //===================================================================
         #region Methods
+        public virtual double getCharacterPointCost(Character character)
+        {
+            if (Type == AbilityType.Basic) return 0.5;
+            if (Type == AbilityType.Special || Type == AbilityType.Ability) return 1.0;
+            if (Type == AbilityType.Passive) return 0.0;
+            else throw new Exception("You didn't overwrite the property for this character.");
+        }
         protected void OnPropertyChanged(PropertyChangedEventArgs e)
         {
             PropertyChangedEventHandler handler = PropertyChanged;

@@ -1,5 +1,5 @@
 ﻿12/12/17 REH
-Implemented variables for abilities.  Still in progress, but Armor has its variable functioning.  The ability adds to the character and updates CP's.  Correct CP calc still needs to be done.
+I had enough of the complications armor presented.  I removed it.  We'll just do it manually.  If I decide to have other common abilities that need variables, I'll deal with it then.
 
 12/11/17 REH
 Syntax for common abilities has been improved with the introduction of the Common Description property.  Now I have to worry about variables for common abilities (really just the one, honestly).

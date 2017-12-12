@@ -209,6 +209,7 @@ namespace CharacterCreator.Classes
         }
         private void updateCharacterPoints()
         {
+            //TODO When it comes to abilities, shouldn't Ability know what the CP values are?
             double spentPoints = 0;
             spentPoints += speed + strength + marksmanship + tech;
             spentPoints += (BasicAttacks.Count * 0.5);
@@ -216,7 +217,7 @@ namespace CharacterCreator.Classes
             foreach (Ability a in SpecialAbilities)
             {
                 if (a.Type == Ability.AbilityType.Ability) ++spentPoints;
-                else spentPoints += a.CharacterPoints;
+                else spentPoints += a.getCharacterPointCost(this);
             }
             //TODO Do energy cost calcs for special abilities work right?  Like, they're 0 damage, so if I make one NDo, what happens?
             //TODO Have to do the points for common and passive abilities.

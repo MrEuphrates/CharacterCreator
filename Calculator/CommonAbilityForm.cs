@@ -34,8 +34,6 @@ namespace CharacterCreator
             //Add the rest of the abilities, but don't add ones already added from the character.
             Ability ability = new ActiveCamouflage();
             if (!character.SpecialAbilities.Contains(ability)) clbAbilities.Items.Add(ability);
-            ability = new Armor();
-            if (!character.SpecialAbilities.Contains(ability)) clbAbilities.Items.Add(ability);
         }
         
         private void clbAbilities_SelectedIndexChanged(object sender, EventArgs e)
@@ -66,13 +64,14 @@ namespace CharacterCreator
             //TODO Not sure if I'll be doing validation on abilities.
             //foreach (SpecialRule rule in rules) if (!rule.specialRuleIsValid(ability, rules)) return;
 
+            //TODO I elected not to do armor, the only common ability with parameters.  If I decide to do it again, I'll bring this back.
             //After confirming all selected abilities are compatible, cycle through those with parameters and have the user provide them.
-            foreach (Ability ability in abilities)
-            {
-                if (ability.Variables.Count == 0) continue;
-                AbilityParameterForm pform = new AbilityParameterForm(ability);
-                pform.ShowDialog();
-            }
+            //foreach (Ability ability in abilities)
+            //{
+            //    if (ability.Variables.Count == 0) continue;
+            //    AbilityParameterForm pform = new AbilityParameterForm(ability);
+            //    pform.ShowDialog();
+            //}
             //TODO Need to add the abilities to the character
             foreach (Ability ability in abilities) character.addAbility(ability);
 

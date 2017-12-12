@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CharacterCreator.Classes;
 
 namespace Calculator.Classes.CommonAbilities
 {
@@ -17,9 +18,12 @@ namespace Calculator.Classes.CommonAbilities
                 "revealed.\n\nWhile undetected, the Character can perform a surprise attack.  If this Character attacks while invisible, they are revealed.If they use abilities which do not " +
                 "inflict damage and do not target an enemy, the Character remains invisible.  If the character is invisible but moves close enough to reveal themselves, the first ability they " +
                 "use may be executed as a surprise attack.\n\nActive Camouflage costs 2 Character points.\n\nWritten as: - Active Camouflage -/- (2 points).";
-            this.InputDescription = "(2 points)";
-            this.CharacterPoints = 2;
+            this.InputDescription = "(" + getCharacterPointCost(null) + " points)";
             this.isCommon = true;
+        }
+        public override double getCharacterPointCost(Character character)
+        {
+            return 2;
         }
     }
 }
