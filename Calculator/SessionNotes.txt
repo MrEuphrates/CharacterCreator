@@ -1,6 +1,9 @@
 ﻿12/12/17 REH
 I had enough of the complications armor presented.  I removed it.  We'll just do it manually.  If I decide to have other common abilities that need variables, I'll deal with it then.
 
+I added Camouflage and confirmed it adds correctly.  Now I need to work on incompatible rules.
+
+
 12/11/17 REH
 Syntax for common abilities has been improved with the introduction of the Common Description property.  Now I have to worry about variables for common abilities (really just the one, honestly).
 
