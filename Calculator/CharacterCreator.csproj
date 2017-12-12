@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\CommonAbilities\AbilityPassive.cs" />
+    <Compile Include="Classes\CommonAbilities\Fleet.cs" />
+    <Compile Include="Classes\CommonAbilities\Fearless.cs" />
     <Compile Include="Classes\CommonAbilities\Cloaking.cs" />
     <Compile Include="Classes\CommonAbilities\Camouflage.cs" />
     <Compile Include="Classes\CommonAbilities\ActiveCamouflage.cs" />

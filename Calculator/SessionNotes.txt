@@ -3,6 +3,8 @@ I had enough of the complications armor presented.  I removed it.  We'll just do
 
 I added Camouflage and confirmed it adds correctly.  Now I need to work on incompatible rules.
 
+Started adding common abilities that won't need parameters.  Tested up to Fleet.  Had to pause for lunch.
+
 
 12/11/17 REH
 Syntax for common abilities has been improved with the introduction of the Common Description property.  Now I have to worry about variables for common abilities (really just the one, honestly).

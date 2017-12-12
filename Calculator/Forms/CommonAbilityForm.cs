@@ -38,6 +38,10 @@ namespace CharacterCreator
             if (!character.SpecialAbilities.Contains(ability)) clbAbilities.Items.Add(ability);
             ability = new Cloaking();
             if (!character.SpecialAbilities.Contains(ability)) clbAbilities.Items.Add(ability);
+            ability = new Fearless();
+            if (!character.SpecialAbilities.Contains(ability)) clbAbilities.Items.Add(ability);
+            ability = new Fleet();
+            if (!character.SpecialAbilities.Contains(ability)) clbAbilities.Items.Add(ability);
         }
         
         private void clbAbilities_SelectedIndexChanged(object sender, EventArgs e)
