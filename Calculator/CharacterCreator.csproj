@@ -48,25 +48,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\CommonAbilities\AbilityPassive.cs" />
+    <Compile Include="Classes\CommonAbilities\Cloaking.cs" />
     <Compile Include="Classes\CommonAbilities\Camouflage.cs" />
     <Compile Include="Classes\CommonAbilities\ActiveCamouflage.cs" />
-    <Compile Include="PassiveAbilityForm.cs">
+    <Compile Include="Forms\PassiveAbilityForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PassiveAbilityForm.Designer.cs">
+    <Compile Include="Forms\PassiveAbilityForm.Designer.cs">
       <DependentUpon>PassiveAbilityForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AbilityForm.cs">
+    <Compile Include="Forms\AbilityForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbilityForm.Designer.cs">
+    <Compile Include="Forms\AbilityForm.Designer.cs">
       <DependentUpon>AbilityForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AbstractClasses\SpecialRuleVariable.cs" />
-    <Compile Include="CharacterForm.cs">
+    <Compile Include="Forms\CharacterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CharacterForm.Designer.cs">
+    <Compile Include="Forms\CharacterForm.Designer.cs">
       <DependentUpon>CharacterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Ability.cs" />
@@ -137,46 +138,46 @@
     <Compile Include="Classes\SpecialRuleVariables\Duration.cs" />
     <Compile Include="Classes\SpecialRuleVariables\MaxTen.cs" />
     <Compile Include="Classes\SpecialRuleVariables\MultipleOfTen.cs" />
-    <Compile Include="MainWindow.cs">
+    <Compile Include="Forms\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainWindow.Designer.cs">
+    <Compile Include="Forms\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="AbstractClasses\SpecialRule.cs" />
-    <Compile Include="ParameterForm.cs">
+    <Compile Include="Forms\ParameterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ParameterForm.Designer.cs">
+    <Compile Include="Forms\ParameterForm.Designer.cs">
       <DependentUpon>ParameterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CommonAbilityForm.cs">
+    <Compile Include="Forms\CommonAbilityForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CommonAbilityForm.Designer.cs">
+    <Compile Include="Forms\CommonAbilityForm.Designer.cs">
       <DependentUpon>CommonAbilityForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SpecialForm.cs">
+    <Compile Include="Forms\SpecialForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SpecialForm.Designer.cs">
+    <Compile Include="Forms\SpecialForm.Designer.cs">
       <DependentUpon>SpecialForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="PassiveAbilityForm.resx">
+    <EmbeddedResource Include="Forms\PassiveAbilityForm.resx">
       <DependentUpon>PassiveAbilityForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AbilityForm.resx">
+    <EmbeddedResource Include="Forms\AbilityForm.resx">
       <DependentUpon>AbilityForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CharacterForm.resx">
+    <EmbeddedResource Include="Forms\CharacterForm.resx">
       <DependentUpon>CharacterForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainWindow.resx">
+    <EmbeddedResource Include="Forms\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ParameterForm.resx">
+    <EmbeddedResource Include="Forms\ParameterForm.resx">
       <DependentUpon>ParameterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -188,10 +189,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CommonAbilityForm.resx">
+    <EmbeddedResource Include="Forms\CommonAbilityForm.resx">
       <DependentUpon>CommonAbilityForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SpecialForm.resx">
+    <EmbeddedResource Include="Forms\SpecialForm.resx">
       <DependentUpon>SpecialForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

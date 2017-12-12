@@ -36,6 +36,8 @@ namespace CharacterCreator
             if (!character.SpecialAbilities.Contains(ability)) clbAbilities.Items.Add(ability);
             ability = new Camouflage();
             if (!character.SpecialAbilities.Contains(ability)) clbAbilities.Items.Add(ability);
+            ability = new Cloaking();
+            if (!character.SpecialAbilities.Contains(ability)) clbAbilities.Items.Add(ability);
         }
         
         private void clbAbilities_SelectedIndexChanged(object sender, EventArgs e)
@@ -83,7 +85,7 @@ namespace CharacterCreator
 
         private bool checkAbilitiesCompatible(List<Ability> abilities)
         {
-            //TODO Right now, I don't have code to actually check that abilities are compatible.
+            //TODO Right now, I don't have code to actually check that abilities are compatible.  Actually, I might not bother with it at all.
             //Check that every selected rule is compatible with every other selected rule.
             //foreach(SpecialRule rule in rules) if (!rule.IsCompatibleWith(rules)) return false;
             return true;
