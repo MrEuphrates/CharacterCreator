@@ -1,4 +1,9 @@
-﻿12/12/17 REH
+﻿12/13/17 REH
+I added a few more abilities, but there are two big issues here: first, when a character's stats change, common abilities need their displays updated on the character sheet when relevant.
+Example: Greater Dodge's cost depends on the character's Speed, and while the cost is handled right when Speed changes, it looks no different on the sheet.  Second, turns out there're a bunch of
+abilities with parameters (Armor, Greater Deflect, Fly, etc.).  Some of these take in stats, others have options that can be turned on or off.
+
+12/12/17 REH
 I had enough of the complications armor presented.  I removed it.  We'll just do it manually.  If I decide to have other common abilities that need variables, I'll deal with it then.
 
 I added Camouflage and confirmed it adds correctly.  Now I need to work on incompatible rules.

@@ -42,6 +42,10 @@ namespace CharacterCreator
             if (!character.SpecialAbilities.Contains(ability)) clbAbilities.Items.Add(ability);
             ability = new Fleet();
             if (!character.SpecialAbilities.Contains(ability)) clbAbilities.Items.Add(ability);
+            ability = new Fly();
+            if (!character.SpecialAbilities.Contains(ability)) clbAbilities.Items.Add(ability);
+            ability = new GreaterDodge();
+            if (!character.SpecialAbilities.Contains(ability)) clbAbilities.Items.Add(ability);
         }
         
         private void clbAbilities_SelectedIndexChanged(object sender, EventArgs e)
