@@ -112,7 +112,7 @@ namespace CharacterCreator.Classes.SpecialRules
 
         public override string howIsEnergyCostCalculated()
         {
-            return "R x 1 energy modifier";
+            return "R energy modifiers";
         }
 
         #endregion
